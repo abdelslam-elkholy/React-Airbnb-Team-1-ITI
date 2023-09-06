@@ -1,13 +1,14 @@
 import { createBrowserRouter } from "react-router-dom";
 import HomesList from "./Components/HomesList";
 import AppLayout from "./Components/AppLayout";
-import Homedetails from "./Components/Homedetails";
+
 import WishList from "./Components/WishList";
 import Messages from "./Components/Messages";
 import Trips from "./Components/Trips";
 import NotFound from "./Components/NotFound";
 import Account from "./Components/Account";
 import Reservation from "./Components/Reservation";
+import Homedetails from "./Pages/Homedetails";
 
 const router = createBrowserRouter([
   {
@@ -16,7 +17,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <HomesList /> },
       { path: "/home", element: <HomesList /> },
-      { path: "/home/:id", element: <Homedetails /> },
+      { path: "/homedetails", element: <Homedetails /> },
       { path: "/wishlist", element: <WishList /> },
       { path: "/messages", element: <Messages /> },
       { path: "/trips", element: <Trips /> },
