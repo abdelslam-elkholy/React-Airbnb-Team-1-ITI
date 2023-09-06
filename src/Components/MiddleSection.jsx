@@ -18,14 +18,10 @@ const MiddleSection = () => {
           <div className="w-full h-[1px] bg-gray-300 mt-7"></div>
         </div>
 
-        {/* work space section */}
-
         <div className="mt-9">
           <Workspace />
           <div className="w-full border-b border-gray-300 h-[1px] mt-9"></div>
         </div>
-
-        {/* aircover section */}
 
         <div className="mt-7 flex flex-col gap-3 text-left">
           <img src="/images/aircover.jpg" alt="" className="w-[120px]" />
@@ -38,7 +34,7 @@ const MiddleSection = () => {
         <div className="mt-9">
           <Line />
         </div>
-        {/* aircover second section */}
+
         <div className="mt-7 flex flex-col gap-5 text-left">
           <p>
             Jannat blends the most luxurious backdrop of your fantasy with
@@ -50,7 +46,6 @@ const MiddleSection = () => {
           <p className=" text-[17px] font-semibold underline">Learn more</p>
         </div>
 
-        {/* RoomSlider section */}
         <div className="mt-5 ">
           <RoomSlider />
         </div>
@@ -58,8 +53,6 @@ const MiddleSection = () => {
         <div className="mt-9">
           <Line />
         </div>
-
-        {/* what this place offers section */}
 
         <div className="mt-9">
           <Offers />
@@ -69,7 +62,6 @@ const MiddleSection = () => {
           <Line />
         </div>
 
-        {/* calendar section */}
         <div className="mt-9">
           <div className="text-left font-semibold text-[22px] ml-6">
             <p>Select check-in date</p>
@@ -89,11 +81,9 @@ const MiddleSection = () => {
         </div>
       </div>
 
-      {/* sticky section */}
       <div className="w-[40%] h-[600px] mt-10 sticky top-40 pl-14   ">
-        {/* <div className=" w-full h-full  pr-20"> */}
         <DateCard />
-        {/* </div> */}
+
         <div className="w-[440px] h-[100px] border border-gray-400 mt-3 shadow-md rounded-lg flex gap-4 px-4 py-4 text-left">
           <p className="text-black font-semibold text-[17px]">
             Lower Price

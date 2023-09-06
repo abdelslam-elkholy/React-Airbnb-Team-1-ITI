@@ -3,7 +3,6 @@ import React from "react";
 const Footer = () => {
   return (
     <div className="w-full h-[300px] border border-gray-200 bg-[#f7f7f7] grid grid-cols-4 px-20 py-8 text-sm">
-      {/* grid-1 */}
       <div className=" flex justify-evenly   ">
         <div className="text-left">
           <h1 className="font-semibold text-left">Support</h1>
@@ -17,7 +16,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      {/* grid-2 */}
+
       <div className=" flex justify-evenly   ">
         <div className="text-left">
           <h1 className="font-semibold text-left">Community</h1>
@@ -27,8 +26,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      
-      {/* grid-3 */}
+
       <div className=" flex justify-evenly   ">
         <div className="text-left">
           <h1 className="font-semibold text-left">Hosting</h1>
@@ -42,7 +40,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      {/* grid-4 */}
+
       <div className=" flex justify-evenly   ">
         <div className="text-left">
           <h1 className="font-semibold text-left">Airbnb</h1>
