@@ -1,5 +1,4 @@
 import React from "react";
-import SecondNav from "../components/SecondNav";
 import Photogrid from "../components/Photogrid";
 import MiddleSection from "../components/MiddleSection";
 import LoadingBar from "react-top-loading-bar";
@@ -16,7 +15,7 @@ const HomeDetails = () => {
   return (
     <div className="">
       <LoadingBar color="#f11946" progress={100} loaderSpeed={500} />
-      <SecondNav />
+
       <div className="px-40 mt-9">
         <div className="text-left font-semibold text-[26px]">
           <p>Hotel 1</p>

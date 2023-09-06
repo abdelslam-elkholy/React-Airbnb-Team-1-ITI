@@ -1,13 +1,13 @@
 import { createBrowserRouter } from "react-router-dom";
-import HomesList from "./Components/HomesList";
-import AppLayout from "./Components/AppLayout";
+import HomesList from "./Pages/HomesList";
+import AppLayout from "./Pages/AppLayout";
 
-import WishList from "./Components/WishList";
-import Messages from "./Components/Messages";
-import Trips from "./Components/Trips";
-import NotFound from "./Components/NotFound";
-import Account from "./Components/Account";
-import Reservation from "./Components/Reservation";
+import WishList from "./Pages/WishList";
+import Messages from "./Pages/Messages";
+import Trips from "./Pages/Trips";
+import NotFound from "./Pages/NotFound";
+import Account from "./Pages/Account";
+import Reservation from "./Pages/Reservation";
 import Homedetails from "./Pages/Homedetails";
 
 const router = createBrowserRouter([

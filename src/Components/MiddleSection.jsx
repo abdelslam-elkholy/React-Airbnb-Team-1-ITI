@@ -1,23 +1,18 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import Header from "./Header";
+
+import Header from "../Pages/Header";
 import Workspace from "./Workspace";
 import Line from "./Line";
 import RoomSlider from "./RoomSlider";
 import Offers from "./Offers";
 import DateCard from "./DateCard";
 import Calander from "./Calander";
-import {BsFillKeyboardFill} from 'react-icons/bs'
+import { BsFillKeyboardFill } from "react-icons/bs";
 
 const MiddleSection = () => {
-  const select = useSelector((state) => state.redirect);
-  const item = select[select.length - 1];
-  console.log(item);
   return (
     <div className="w-full flex ">
-      {/* scroll section */}
       <div className="w-[60%] h-auto pr-24 pl-2 pt-10    scrollbar-hide">
-        {/* heading section */}
         <div className="">
           <Header />
           <div className="w-full h-[1px] bg-gray-300 mt-7"></div>
@@ -78,14 +73,18 @@ const MiddleSection = () => {
         <div className="mt-9">
           <div className="text-left font-semibold text-[22px] ml-6">
             <p>Select check-in date</p>
-            <p className="font-normal text-[14px]">Add your travel dates for exact pricing</p>
+            <p className="font-normal text-[14px]">
+              Add your travel dates for exact pricing
+            </p>
           </div>
           <div className="mt-7">
             <Calander />
           </div>
           <div className="flex justify-between px-7 mt-2">
-              <span className="mt-1"><BsFillKeyboardFill className="text-xl"/></span>
-              <p className="underline font-bold">Clear</p>
+            <span className="mt-1">
+              <BsFillKeyboardFill className="text-xl" />
+            </span>
+            <p className="underline font-bold">Clear</p>
           </div>
         </div>
       </div>
