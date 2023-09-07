@@ -1,12 +1,12 @@
 import React from "react";
 
-import Header from "../Pages/Header";
+import Header from "./Header";
 import Workspace from "./Workspace";
 import Line from "./Line";
-import RoomSlider from "./RoomSlider";
+
 import Offers from "./Offers";
 import DateCard from "./DateCard";
-import Calander from "./Calander";
+
 import { BsFillKeyboardFill } from "react-icons/bs";
 
 const MiddleSection = () => {
@@ -46,10 +46,6 @@ const MiddleSection = () => {
           <p className=" text-[17px] font-semibold underline">Learn more</p>
         </div>
 
-        <div className="mt-5 ">
-          <RoomSlider />
-        </div>
-
         <div className="mt-9">
           <Line />
         </div>
@@ -69,9 +65,7 @@ const MiddleSection = () => {
               Add your travel dates for exact pricing
             </p>
           </div>
-          <div className="mt-7">
-            <Calander />
-          </div>
+          <div className="mt-7"></div>
           <div className="flex justify-between px-7 mt-2">
             <span className="mt-1">
               <BsFillKeyboardFill className="text-xl" />

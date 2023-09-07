@@ -1,9 +1,8 @@
 import React from "react";
-import Picker from "./Picker";
+
 import { useState } from "react";
 import Dropdownbtn from "./Dropdownbtn";
 import Line from "./Line";
-import MainCalander from "./MainCalander";
 
 const DateCard = () => {
   const [showModal, setShowModal] = useState(false);
@@ -36,8 +35,6 @@ const DateCard = () => {
           className="flex justify-between  cursor-pointer text-sm font-semibold"
           onClick={() => setShowModal(true)}
         >
-          <MainCalander />
-
           <div className="mt-3">
             <div className="w-full h-[1px] bg-gray-700"></div>
           </div>

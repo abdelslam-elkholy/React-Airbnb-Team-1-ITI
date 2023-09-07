@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <div className="flex justify-between items-center">
       <div className="text-left">
-        <p className="text-2xl font-semibold text-[#20262E]">
+        <p className="text-3xl font-semibold text-[#20262E]">
           Farm stay hosted by
         </p>
         <p className=" text-[17px] text-gray-700">
