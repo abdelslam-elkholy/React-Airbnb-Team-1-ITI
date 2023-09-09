@@ -1,18 +1,18 @@
 import React from "react";
 
-import Photogrid from "../Components/Photogrid";
-import MiddleSection from "../Components/MiddleSection";
-import Line from "../Components/Line";
-import Review from "../Components/Review";
-import Comments from "../Components/Comments";
-import Maps from "../Components/Maps";
-import Footer from "../Components/Footer";
+import Photogrid from "../Components/HomeDetails/Photogrid";
+import MiddleSection from "../Components/HomeDetails/MiddleSection";
+import Line from "../Components/HomeDetails/Line";
+import Review from "../Components/HomeDetails/Review";
+import Comments from "../Components/HomeDetails/Comments";
+import Maps from "../Components/HomeDetails/Maps";
+import Footer from "../Components/HomeDetails/Footer";
 import { FaStar, FaMapMarkerAlt, FaShareAlt, FaHeart } from "react-icons/fa";
 
 const UpperPart = () => {
   return (
     <>
-      <div className="text-left font-semibold text-[26px]">
+      <div className="text-left font-semibold text-3xl">
         <p>Hotel 1</p>
       </div>
 
@@ -78,7 +78,7 @@ const HomeDetails = () => {
           <div className="flex items-center gap-2 text-xl font-semibold">
             <h1>
               <span className="">
-                <ion-icon name="star"></ion-icon>
+                <FaStar size={20} />
               </span>
               4.7
             </h1>
@@ -98,8 +98,8 @@ const HomeDetails = () => {
             <Line />
           </div>
 
-          <div className="w-full h-[500px] mt-9 overflow-hidden">
-            <h1 className="text-black text-[22px]  font-semibold text-left">
+          <div className="w-full p-8 mt-9 overflow-hidden">
+            <h1 className="text-black text-xl font-semibold text-left">
               Where you’ll be
             </h1>
             <div className="mt-6">

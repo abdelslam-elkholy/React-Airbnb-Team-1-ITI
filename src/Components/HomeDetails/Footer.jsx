@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="w-full h-[300px] border border-gray-200 bg-[#f7f7f7] grid grid-cols-4 px-20 py-8 text-sm">
+    <div className="w-full px-10 border border-gray-200 bg-[#f7f7f7] grid grid-cols-4 px-20 py-8 text-sm">
       <div className=" flex justify-evenly   ">
         <div className="text-left">
           <h1 className="font-semibold text-left">Support</h1>

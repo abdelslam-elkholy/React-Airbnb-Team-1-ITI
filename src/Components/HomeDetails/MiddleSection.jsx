@@ -15,12 +15,13 @@ const MiddleSection = () => {
       <div className="w-[60%] h-auto pr-24 pl-2 pt-10    scrollbar-hide">
         <div className="">
           <Header />
-          <div className="w-full h-[1px] bg-gray-300 mt-7"></div>
+
+          <Line />
         </div>
 
         <div className="mt-9">
           <Workspace />
-          <div className="w-full border-b border-gray-300 h-[1px] mt-9"></div>
+          <Line />
         </div>
 
         <div className="mt-7 flex flex-col gap-3 text-left">
@@ -31,6 +32,7 @@ const MiddleSection = () => {
           </p>
           <p className=" text-[17px] font-semibold underline">Learn more</p>
         </div>
+
         <div className="mt-9">
           <Line />
         </div>
@@ -58,40 +60,39 @@ const MiddleSection = () => {
           <Line />
         </div>
 
-        <div className="mt-9">
+        {/* <div className="mt-9">
           <div className="text-left font-semibold text-[22px] ml-6">
             <p>Select check-in date</p>
             <p className="font-normal text-[14px]">
               Add your travel dates for exact pricing
             </p>
           </div>
-          <div className="mt-7"></div>
+
           <div className="flex justify-between px-7 mt-2">
             <span className="mt-1">
               <BsFillKeyboardFill className="text-xl" />
             </span>
             <p className="underline font-bold">Clear</p>
           </div>
-        </div>
+        </div> */}
       </div>
 
-      <div className="w-[40%] h-[600px] mt-10 sticky top-40 pl-14   ">
+      <div className="w-[40%]  mt-10  pl-14   ">
         <DateCard />
-
-        <div className="w-[440px] h-[100px] border border-gray-400 mt-3 shadow-md rounded-lg flex gap-4 px-4 py-4 text-left">
-          <p className="text-black font-semibold text-[17px]">
-            Lower Price
-            <span className="text-gray-600 font-normal">
-              {" "}
-              Your dates are ₹20475 less than the avg. nightly rate of the last
-              60 days.
-            </span>
-          </p>
-          <span className="text-3xl text-pink-600 mb-10">
-            <ion-icon name="clipboard"></ion-icon>
-          </span>
-        </div>
       </div>
+      {/* <div className="w-[440px] h-[100px] border border-gray-400 mt-3 shadow-md rounded-lg flex gap-4 px-4 py-4 text-left">
+        <p className="text-black font-semibold text-[17px]">
+          Lower Price
+          <span className="text-gray-600 font-normal">
+            {" "}
+            Your dates are ₹20475 less than the avg. nightly rate of the last 60
+            days.
+          </span>
+        </p>
+        <span className="text-3xl text-pink-600 mb-10">
+          <ion-icon name="clipboard"></ion-icon>
+        </span>
+      </div> */}
     </div>
   );
 };

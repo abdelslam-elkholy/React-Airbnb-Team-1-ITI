@@ -5,15 +5,15 @@ import { GrApps } from "react-icons/gr";
 const Photogrid = () => {
   return (
     <div className=" h-90 relative">
-      <div className="w-full flex h-90 ">
-        <div className=" h-90 w-[60%] ">
+      <div className="w-full flex h-90 md:flex-col ">
+        <div className=" h-90 w-1/2 md:w-full md:m-2">
           <img
             src="/images/home5.jpg"
             alt=""
             className="h-full w-full  rounded-l-2xl object-fill hover:brightness-75 cursor-pointer"
           />
         </div>
-        <div className="grid grid-cols-2  gap-4  overflow-hidden px-4 hover:brightness-75 cursor-pointer ">
+        <div className="grid grid-cols-2 md:w-full gap-4  overflow-hidden px-4 hover:brightness-75 cursor-pointer ">
           <img
             src="/images/home6.jpg"
             alt=""
