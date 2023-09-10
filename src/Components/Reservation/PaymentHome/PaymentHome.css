@@ -1,0 +1,19 @@
+.fixed_form{
+    position: static;
+    top: 50%;
+}
+.Close_btn{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin: .7em !important; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.7s ease;
+    cursor: pointer;
+}
+.Close_btn:hover{
+background-color: aliceblue;
+
+}
