@@ -77,7 +77,7 @@ const MiddleSection = () => {
         </div> */}
       </div>
 
-      <div className="w-[40%]  mt-10  pl-14   ">
+      <div className="w-[40%]  md:mt-10  md:pl-14   ">
         <DateCard />
       </div>
       {/* <div className="w-[440px] h-[100px] border border-gray-400 mt-3 shadow-md rounded-lg flex gap-4 px-4 py-4 text-left">

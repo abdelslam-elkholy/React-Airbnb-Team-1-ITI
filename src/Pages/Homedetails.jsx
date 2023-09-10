@@ -58,8 +58,8 @@ const UpperPart = () => {
 
 const HomeDetails = () => {
   return (
-    <div className="">
-      <div className="px-20 mt-9">
+    <div className="p-2">
+      <div className="md:px-20 mt-9">
         <UpperPart />
 
         <div className="mt-5 ">
@@ -87,10 +87,12 @@ const HomeDetails = () => {
           <div className="mt-5">
             <Review />
           </div>
+          <div className="w-full h-[1px] bg-gray-500 mt-24"></div>
+          <div className="mt-10 grid grid-cols-1 md:grid-cols-2  md:gap-x-10">
+            <Comments />
 
-          <div className="mt-10 grid grid-cols-2 gap-x-10">
             <Comments />
-            <Comments />
+
             <Comments />
           </div>
 
@@ -98,7 +100,7 @@ const HomeDetails = () => {
             <Line />
           </div>
 
-          <div className="w-full p-8 mt-9 overflow-hidden">
+          <div className="w-full p-0 md:p-8 mt-9 overflow-hidden">
             <h1 className="text-black text-xl font-semibold text-left">
               Where you’ll be
             </h1>

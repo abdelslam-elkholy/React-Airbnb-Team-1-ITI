@@ -14,7 +14,7 @@ const DateCard = () => {
   const today = new Date();
 
   return (
-    <div className="px-8 py-6 my-10 border h-1/2 w-100 shadow-lg sticky top-0 rounded-lg">
+    <div className="md:px-8 md:py-6 my-10 border h-1/2 w-100 shadow-lg md:sticky md:top-0 rounded-lg">
       <div className="flex items-center gap-3">
         <p className="text-[25px] font-semibold text-gray-500 line-through">
           $1000
