@@ -36,7 +36,7 @@ const Photogrid = () => {
           />
         </div>
       </div>
-      <div className="hidden md:flex md:absolute z-10  border md:bottom-6 md:right-6  px-1 lg:px-3 pt-1 bg-white text-black font-semibold rounded-md cursor-pointer  text-xs lg:text-xl">
+      <div className="hidden md:flex md:absolute z-10  border md:bottom-6 md:right-6  px-1 lg:px-3 pt-1 bg-white text-black font-semibold rounded-md cursor-pointer  text-xs lg:text-base">
         <span className="lg:m-1">
           <GrApps />
         </span>

@@ -26,7 +26,7 @@ const DateCard = () => {
   };
 
   return (
-    <div className="w-full max-w-md p-4 bg-white rounded shadow-md flex flex-col">
+    <div className=" w-full max-w-md p-4 bg-white rounded shadow-md flex  md:flex-col">
       <div className="mb-4">
         <label className="block text-gray-700 text-sm font-bold mb-2">
           Price per Night
