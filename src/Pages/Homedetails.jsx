@@ -12,11 +12,11 @@ import { FaStar, FaMapMarkerAlt, FaShareAlt, FaHeart } from "react-icons/fa";
 const UpperPart = () => {
   return (
     <>
-      <div className="text-left font-semibold text-3xl">
+      <div className="text-left font-semibold text-xl lg:text-3xl">
         <p>Hotel 1</p>
       </div>
 
-      <div className="flex justify-between items-center font-semibold mt-1">
+      <div className="hidden md:flex justify-between items-center font-semibold mt-1 text-sm lg:text-xl">
         <div className="flex items-center justify-center space-x-2">
           <div className="fond-semibold flex gap-1">
             <span className="">
@@ -65,8 +65,6 @@ const HomeDetails = () => {
         <div className="mt-5 ">
           <Photogrid />
         </div>
-
-        <div className="w-full h-[10px] "></div>
 
         <div className="">
           <MiddleSection />

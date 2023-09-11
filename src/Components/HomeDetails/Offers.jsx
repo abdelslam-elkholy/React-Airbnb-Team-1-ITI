@@ -1,12 +1,8 @@
 import React from "react";
-import Modals from "./Modals";
+
 import { useState } from "react";
 
 const Offers = () => {
-  const [showModal, setModal] = useState(false);
-  const handleClose = () => {
-    setModal(false);
-  };
   return (
     <div className="w-full ">
       <div className="mt-5 text-xl font-semibold text-left">
@@ -69,13 +65,9 @@ const Offers = () => {
         </div>
       </div>
 
-      <div
-        className="mt-9 mr-2 hover:bg-gray-100  w-[280px] px-4 py-3 rounded-lg text-center cursor-pointer border border-gray-800"
-        onClick={() => setModal(true)}
-      >
+      <div className="mt-9 mr-2 hover:bg-gray-100  w-[280px] px-4 py-3 rounded-lg text-center cursor-pointer border border-gray-800">
         <p className="font-semibold">Show all 42 amienities</p>
       </div>
-      <Modals onClose={handleClose} visible={showModal} />
     </div>
   );
 };

@@ -3,57 +3,97 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 const DateCard = () => {
-  const [startDate, setStartDate] = useState(null);
+  const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(null);
+  const [guests, setGuests] = useState(1);
+  const pricePerNight = 100; // Sample price per night
+  const taxes = 0.1; // Sample tax rate
+
+  const reservedDates = [
+    new Date("2023-09-15"),
+    new Date("2023-09-16"),
+    new Date("2023-09-17"),
+  ];
+
+  const calculateTotalPrice = () => {
+    if (startDate && endDate) {
+      const nights = Math.ceil((endDate - startDate) / (1000 * 60 * 60 * 24));
+      const subtotal = pricePerNight * nights;
+      const total = subtotal + subtotal * taxes;
+      return total.toFixed(2);
+    }
+    return 0;
+  };
 
   return (
-    <div className="w-full max-w-md p-4 bg-white rounded shadow-md">
-      <h2 className="text-lg font-semibold mb-4">Make a Reservation</h2>
+    <div className="w-full max-w-md p-4 bg-white rounded shadow-md flex flex-col">
       <div className="mb-4">
         <label className="block text-gray-700 text-sm font-bold mb-2">
-          Check-in Date
+          Price per Night
         </label>
-        <DatePicker
-          selected={startDate}
-          onChange={(date) => setStartDate(date)}
-          selectsStart
-          minDate={new Date()}
-          startDate={startDate}
-          endDate={endDate}
-          excludeDates={[
-            new Date("2023-09-12"),
-            new Date("2023-09-13"),
-            new Date("2023-09-14"),
-          ]}
-          className="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500"
-          placeholderText="Select check-in date"
-        />
+        <span className="text-gray-700">{`$${pricePerNight}`}</span>
+      </div>
+      <div className="mb-4 flex">
+        <div className="mr-2">
+          <label className="block text-gray-700 text-sm font-bold mb-2">
+            Check-in Date
+          </label>
+          <DatePicker
+            selected={startDate}
+            onChange={(date) => setStartDate(date)}
+            selectsStart
+            startDate={startDate}
+            endDate={endDate}
+            minDate={startDate}
+            className="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500"
+            placeholderText="Select check-in date"
+            excludeDates={reservedDates}
+          />
+        </div>
+        <div className="ml-2">
+          <label className="block text-gray-700 text-sm font-bold mb-2">
+            Check-out Date
+          </label>
+          <DatePicker
+            selected={endDate}
+            onChange={(date) => setEndDate(date)}
+            selectsEnd
+            startDate={startDate}
+            endDate={endDate}
+            minDate={startDate}
+            className="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500"
+            placeholderText="Select check-out date"
+            excludeDates={reservedDates}
+          />
+        </div>
       </div>
       <div className="mb-4">
         <label className="block text-gray-700 text-sm font-bold mb-2">
-          Check-out Date
+          Number of Guests
         </label>
-        <DatePicker
-          selected={endDate}
-          onChange={(date) => setEndDate(date)}
-          selectsEnd
-          startDate={startDate}
-          endDate={endDate}
-          minDate={startDate}
-          excludeDates={[
-            new Date("2023-09-12"),
-            new Date("2023-09-13"),
-            new Date("2023-09-14"),
-          ]}
-          className="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500"
-          placeholderText="Select check-out date"
+        <input
+          type="number"
+          value={guests}
+          onChange={(e) => setGuests(Number(e.target.value))}
+          className="w-1/2 px-4 py-2 border rounded focus:outline-none focus:border-blue-500"
+          min={1}
+          max={10}
         />
       </div>
+
+      {startDate && endDate && (
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2">
+            Total Price
+          </label>
+          <span className="text-gray-700">{`$${calculateTotalPrice()}`}</span>
+        </div>
+      )}
       <button
-        className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        className="w-1/2 mx-auto bg-pink-700 hover:bg-pink-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
         disabled={!startDate || !endDate}
       >
-        Book Now
+        Reserve
       </button>
     </div>
   );

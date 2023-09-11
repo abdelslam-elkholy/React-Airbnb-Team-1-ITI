@@ -15,7 +15,7 @@ const Header = () => {
         <img
           src="/images/memes.jpeg"
           alt=""
-          className="h-[50px] w-[50px] rounded-full object-cover ml-10"
+          className="h-14 w-14 rounded-full object-cover ml-10"
         />
       </div>
     </div>
