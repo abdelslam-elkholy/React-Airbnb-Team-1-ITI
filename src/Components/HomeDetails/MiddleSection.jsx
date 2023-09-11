@@ -11,8 +11,8 @@ import { BsFillKeyboardFill } from "react-icons/bs";
 
 const MiddleSection = () => {
   return (
-    <div className="w-full flex ">
-      <div className="w-[60%] h-auto pr-24 pl-2 pt-10    scrollbar-hide">
+    <div className="w-full flex md-flex-col ">
+      <div className="w-full md:w-[60%] h-auto pr-24 pl-2 pt-10    scrollbar-hide">
         <div className="">
           <Header />
 
