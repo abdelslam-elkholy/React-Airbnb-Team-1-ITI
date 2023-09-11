@@ -1,75 +1,60 @@
-import React from "react";
-
-import { useState } from "react";
-import Dropdownbtn from "./Dropdownbtn";
-import Line from "./Line";
+import React, { useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const DateCard = () => {
-  const [showModal, setShowModal] = useState(false);
-
-  const handleClose = () => {
-    setShowModal(false);
-  };
-
-  const today = new Date();
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
 
   return (
-    <div className="md:px-8 md:py-6 my-10 border h-1/2 w-100 shadow-lg md:sticky md:top-0 rounded-lg">
-      <div className="flex items-center gap-3">
-        <p className="text-[25px] font-semibold text-gray-500 line-through">
-          $1000
-        </p>
-        <p className="text-[25px] font-semibold text-gray-800 ">$1000</p>
-        <p>night</p>
-        <p>
-          <span>
-            <ion-icon name="star"></ion-icon>
-          </span>
-          4.7
-        </p>
-        <p className="underline text-gray-500 font-semibold">3 reviews</p>
+    <div className="w-full max-w-md p-4 bg-white rounded shadow-md">
+      <h2 className="text-lg font-semibold mb-4">Make a Reservation</h2>
+      <div className="mb-4">
+        <label className="block text-gray-700 text-sm font-bold mb-2">
+          Check-in Date
+        </label>
+        <DatePicker
+          selected={startDate}
+          onChange={(date) => setStartDate(date)}
+          selectsStart
+          minDate={new Date()}
+          startDate={startDate}
+          endDate={endDate}
+          excludeDates={[
+            new Date("2023-09-12"),
+            new Date("2023-09-13"),
+            new Date("2023-09-14"),
+          ]}
+          className="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500"
+          placeholderText="Select check-in date"
+        />
       </div>
-
-      <div className="w-full border border-gray-400 rounded-lg p-2 mt-5">
-        <div
-          className="flex justify-between  cursor-pointer text-sm font-semibold"
-          onClick={() => setShowModal(true)}
-        >
-          <div className="mt-3">
-            <div className="w-full h-[1px] bg-gray-700"></div>
-          </div>
-          <div className="flex items-center justify-between ">
-            <p className="">Guests</p>
-            <span className="mt-2">
-              <ion-icon name="chevron-down-outline"></ion-icon>
-            </span>
-          </div>
-        </div>
-        <div className="border mt-4 p-3 rounded-md bg-gradient-to-r from-pink-600 to-rose-700 cursor-pointer">
-          <p className="font-semibold text-white">Reserve</p>
-        </div>
-        <p className="mt-3">You won't be charged yet</p>
-        <div className="mt-5 flex flex-col gap-4">
-          <div className="flex items-center justify-between">
-            <p className="text-gray-600 underline">100X 5 nights</p>
-            <p className="font-semibold">500</p>
-          </div>
-          <div className="flex items-center justify-between">
-            <p className="text-gray-600 underline">Airbnb service fee</p>
-            <p className="font-semibold">$22,942</p>
-          </div>
-          <div className="mt-4">
-            <Line />
-          </div>
-          <div className="mt-5 flex justify-between font-semibold">
-            <p>Total before Taxes</p>
-            <p>500</p>
-          </div>
-          <div className="h"></div>
-        </div>
-
-        <div />
+      <div className="mb-4">
+        <label className="block text-gray-700 text-sm font-bold mb-2">
+          Check-out Date
+        </label>
+        <DatePicker
+          selected={endDate}
+          onChange={(date) => setEndDate(date)}
+          selectsEnd
+          startDate={startDate}
+          endDate={endDate}
+          minDate={startDate}
+          excludeDates={[
+            new Date("2023-09-12"),
+            new Date("2023-09-13"),
+            new Date("2023-09-14"),
+          ]}
+          className="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500"
+          placeholderText="Select check-out date"
+        />
       </div>
+      <button
+        className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        disabled={!startDate || !endDate}
+      >
+        Book Now
+      </button>
     </div>
   );
 };
