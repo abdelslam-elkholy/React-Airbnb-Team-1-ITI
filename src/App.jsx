@@ -7,6 +7,7 @@ import Credit from "./Components/Reservation/Payment_Form/Credit";
 import AppLayout from "./AppRounting";
 import GooglePay from "./Components/Reservation/Payment_Form/GooglePay";
 import PayPal from "./Components/Reservation/Payment_Form/PayPal";
+import Messages from "./Components/Messages/Messages";
 
 const router= createBrowserRouter([
   {
@@ -23,7 +24,9 @@ const router= createBrowserRouter([
           {path:'PayPal',element:<PayPal/>},
           {path:'GooglePay',element:<GooglePay/>}
         ]},
+       
       ]},
+      {path:"/message",element:<Messages/>}
 
     
      

@@ -13,16 +13,16 @@ const AppLayout = () => {
      <>
 <PaymentNavbar/>
 
-<div className="container mt-5">
+<div className="container-fluid mt-5">
 
-     <div className="container">
+     <div className="">
    
      <Outlet/>
 
      </div>
 </div>
 
-<Footer/>  
+{/* <Footer/>   */}
      </>
     );
 }

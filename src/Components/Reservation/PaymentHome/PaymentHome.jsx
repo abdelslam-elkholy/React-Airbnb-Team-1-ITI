@@ -6,6 +6,7 @@ import { FaCcVisa, FaGooglePay, FaPaypal } from 'react-icons/fa'
 import Form from 'react-bootstrap/Form';
 import { Button, Modal } from 'react-bootstrap'
 import './PaymentHome.css'
+import Footer from '../Footer/Footer'
 
 const PaymentHome = () => {
   const navigate = useNavigate();
@@ -122,6 +123,7 @@ const PaymentHome = () => {
             
         </div>
     </div>
+    <Footer/>
  </div>
 
   )
