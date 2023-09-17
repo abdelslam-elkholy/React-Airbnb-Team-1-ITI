@@ -1,0 +1,83 @@
+.payBtn {
+  color: #717171 !important;
+  background-color: white !important;
+  border-bottom: transparent 2px solid !important;
+  border-radius: 0 !important;
+  padding: 0% !important;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .payBtn {
+  color: black !important;
+  background-color: white !important;
+  border-bottom: black 2px solid !important;
+}
+
+.improveBtn {
+  background-color: #008489 !important;
+}
+
+.payTitles {
+  padding: 5px;
+}
+
+.payTitles:hover {
+  /* color: black; */
+  background-color: #f7f7f7;
+}
+
+.payLink {
+  color: #008489 !important;
+}
+
+.payLink:hover {
+  color: #008489 !important;
+
+  text-decoration: underline !important;
+}
+.payRightpay {
+  height: fit-content !important;
+}
+
+@media screen and (max-width: 4000px) {
+  .payLeft {
+    width: 65%;
+  }
+  .payRight {
+    width: 30%;
+  }
+  .paymentAndPayout {
+    width: 75% !important;
+  }
+}
+@media screen and (max-width: 1270px) {
+  .payLeft {
+    width: 65%;
+  }
+  .payRight {
+    width: 30%;
+  }
+  .paymentAndPayout {
+    width: auto !important;
+  }
+}
+
+@media screen and (max-width: 744px) {
+  .titles {
+    display: none;
+  }
+  .payment {
+    display: none;
+  }
+  .paybox {
+    display: flex;
+    flex-direction: column !important;
+  }
+  .payLeft {
+    width: 100%;
+    /* border-bottom: 0px !important; */
+  }
+  .payRight {
+    width: 100%;
+  }
+}
