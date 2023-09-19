@@ -32,6 +32,7 @@ const PaymentHome = () => {
 
   return (
  <div className="container-fluid">
+  
     <div className="">
       <div className="head">
         <h1> <Link to={'PaymentHome.jsx'}>

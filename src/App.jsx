@@ -8,7 +8,9 @@ import AppLayout from "./AppRounting";
 import GooglePay from "./Components/Reservation/Payment_Form/GooglePay";
 import PayPal from "./Components/Reservation/Payment_Form/PayPal";
 import Messages from "./Components/Messages/Messages";
-
+import Register from "./Components/Register/Register";
+import Login from "./Components/Login/Login";
+import Homes from "./Components/Homes/Homes";
 const router= createBrowserRouter([
   {
     path:"/",
@@ -26,7 +28,10 @@ const router= createBrowserRouter([
         ]},
        
       ]},
-      {path:"/message",element:<Messages/>}
+      {path:"/message",element:<Messages/>},
+      {path:"/signup",element:<Register/>},
+      {path:"/login",element:<Login/>},
+      {path:"/host/homes",element:<Homes/>},
 
     
      

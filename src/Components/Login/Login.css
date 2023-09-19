@@ -1,0 +1,10 @@
+.span_Modal_register{
+    width: 30px !important;
+    cursor:  pointer !important;
+    height: 30px !important;
+    border-radius: 50% !important;
+    transition: all .7s ease !important;
+}.span_Modal_register:hover{
+    background-color: #dddddd48 !important;
+
+}
