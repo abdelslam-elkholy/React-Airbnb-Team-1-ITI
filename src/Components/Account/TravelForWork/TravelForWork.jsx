@@ -1,8 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { IoIosArrowForward } from "react-icons/Io";
 import "./TravelForWork.css";
 
 const TravelForWork = () => {
+  const [email, emailSet] = useState({ emailTravel: "" });
+  const [error, errorSet] = useState({ emailTravelError: "" });
+  const handleValidation = (evt) => {
+    if (evt.target.name == "emailTravel") {
+      emailSet({ ...email, emailTravel: evt.target.value });
+      errorSet({
+        ...error,
+        emailTravelError:
+          evt.target.value.length == 0
+            ? "Email is required"
+            : evt.target.value.includes("@")
+            ? ""
+            : "Email must include @",
+      });
+    }
+  };
+
   return (
     <>
       <div className="personal d-flex flex-column justify-content-center container-lg p-5 ">
@@ -20,190 +37,121 @@ const TravelForWork = () => {
               {" "}
               &nbsp;&nbsp;
               <a href="#" className="text-black text-decoration-none">
-                Personal info
+                Travel for work
               </a>
             </p>
           </div>
-          <h2 className="fw-bold">Personal info</h2>
+          <h2 className="fw-bold">Travel for work</h2>
         </div>
-        <div className="d-flex  justify-content-between  ">
-          <div className="personalLeft  d-flex flex-column mt-5">
-            <div className=" mt-3 pb-4 border-bottom">
-              <div className="d-flex justify-content-between">
-                <div className="d-flex flex-column">
-                  <span>Legal name</span>
-                  <span className="text-secondary">Mariam Hesham</span>
-                </div>
-                <div>
-                  <a href="#" className="text-black fw-semibold">
-                    Edit
-                  </a>
-                </div>
+        <div className="travel d-flex  justify-content-between  ">
+          <div className="travelLeft  d-flex flex-column mt-5">
+            <h4 className="fw-bold">Join Airbnb for Work</h4>
+            <p>
+              Add your work email to get seamless expensing and exclusive offers
+              on work trips.
+            </p>
+            <div className="mt-3">
+              <label htmlFor="emailTravel" className="fw-semibold">
+                Work email address
+              </label>
+              <div id="inputDiv" className="my-3">
+                <input
+                  type="text"
+                  name="emailTravel"
+                  id="emailTravel"
+                  onChange={(e) => {
+                    handleValidation(e);
+                  }}
+                />
               </div>
-            </div>
-            <div className=" mt-3  pb-4 border-bottom">
-              <div className="d-flex justify-content-between">
-                <div className="d-flex flex-column">
-                  <span>Email address</span>
-                  <span className="text-secondary">m**h@gmail.com</span>
-                </div>
-                <div>
-                  <a href="#" className="text-black fw-semibold">
-                    Edit
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className=" mt-3  pb-4 border-bottom">
-              <div className="d-flex justify-content-between">
-                <div className="d-flex flex-column">
-                  <span>Phone numbers</span>
-                  <span className="text-secondary">
-                    Add a number so confirmed guests and Airbnb can get in
-                    touch. You can add other numbers and choose how they’re
-                    used.
-                  </span>
-                </div>
-                <div>
-                  <a href="#" className="text-black fw-semibold">
-                    Add
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className=" mt-3  pb-4 border-bottom">
-              <div className="d-flex justify-content-between">
-                <div className="d-flex flex-column">
-                  <span>Government ID</span>
-                  <span className="text-secondary">Not provided</span>
-                </div>
-                <div>
-                  <a href="#" className="text-black fw-semibold">
-                    Add
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className=" mt-3  pb-4 border-bottom">
-              <div className="d-flex justify-content-between">
-                <div className="d-flex flex-column">
-                  <span>Address</span>
-                  <span className="text-secondary">Not provided</span>
-                </div>
-                <div>
-                  <a href="#" className="text-black fw-semibold">
-                    Edit
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className=" mt-3  pb-4 border-bottom">
-              <div className="d-flex justify-content-between">
-                <div className="d-flex flex-column">
-                  <span>Emergency contact</span>
-                  <span className="text-secondary">Not provided</span>
-                </div>
-                <div>
-                  <a href="#" className="text-black fw-semibold">
-                    Add
-                  </a>
-                </div>
-              </div>
+              <button
+                className="btn text-white fw-bold travelBottom"
+                style={{ backgroundColor: "#008489 " }}
+                disabled={error.emailTravelError}
+              >
+                <span style={{ fontSize: "16px !important" }}>
+                  Add work email
+                </span>
+              </button>
             </div>
           </div>
-          <div className="personalRight  border rounded-4 p-4 ">
-            <div className="border-bottom pb-4 mb-4">
+          <div className="travelRight border p-4 ">
+            <div className=" pb-2">
               <svg
-                viewBox="0 0 48 48"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
+                viewBox="0 0 24 24"
                 role="presentation"
+                aria-hidden="true"
                 focusable="false"
                 style={{
+                  height: "32px",
+                  width: "32px",
                   display: "block",
-                  height: "48px",
-                  width: "48px",
-                  fill: "rgb(227, 28, 95)",
-                  stroke: "currentcolor",
+                  fill: "rgb(255, 90, 95)",
                 }}
               >
-                <g>
-                  <g stroke="none">
-                    <path
-                      d="M27 5l.585.005c4.29.076 8.837.984 13.645 2.737l.77.288V35.4l-.008.13a1 1 0 0 1-.47.724l-.116.06L27 42.716V25a1 1 0 0 0-.883-.993L26 24H12V8.029l.77-.286c4.797-1.75 9.336-2.658 13.62-2.737L27 5z"
-                      fillOpacity="0.2"
-                    ></path>
-                    <path d="M27 1c5.599 0 11.518 1.275 17.755 3.816a2 2 0 0 1 1.239 1.691L46 6.67V35.4a5 5 0 0 1-2.764 4.472l-.205.097-15.594 6.93L27 47l-2.461-1h2.451a.01.01 0 0 0 .007-.003L27 45.99v-1.085l15.218-6.763a3 3 0 0 0 1.757-2.351l.019-.194.006-.196V6.669l-.692-.278C37.557 4.128 32.121 3 27 3S16.443 4.128 10.692 6.391L10 6.67 9.999 24H8V6.669a2 2 0 0 1 1.098-1.786l.147-.067C15.483 2.275 21.401 1 27 1z"></path>
-                  </g>
-                  <g fill="none" strokeWidth="2">
-                    <path d="M4 24h22a1 1 0 0 1 1 1v20.99a.01.01 0 0 1-.01.01H4a1 1 0 0 1-1-1V25a1 1 0 0 1 1-1z"></path>
-                    <path d="M21 25v-5a6 6 0 1 0-12 0v5"></path>
-                    <circle cx="15" cy="35" r="2"></circle>
-                  </g>
-                </g>
+                <path d="M5,15.79289V6.5A.5.5,0,0,1,5.5,6h9.29289a.5.5,0,0,1,.35356.85355l-9.2929,9.2929A.5.5,0,0,1,5,15.79289Z"></path>
+                <path
+                  fill="#484848"
+                  d="M17.5,0H5.5A2.64711,2.64711,0,0,0,3,2.5v19A2.64716,2.64716,0,0,0,5.5,24H9a.5.5,0,0,0,0-1H5.5A1.65724,1.65724,0,0,1,4,21.5V21H7.5a.5.5,0,0,0,0-1H4V5H19v6.5a.5.5,0,0,0,1,0v-9A2.569,2.569,0,0,0,17.5,0ZM4,4V2.5A1.65719,1.65719,0,0,1,5.5,1h12A1.57151,1.57151,0,0,1,19,2.5V4Zm8-1.5a.5.5,0,1,1-.5-.5A.5.5,0,0,1,12,2.5Zm6.5,11a1.63453,1.63453,0,0,0-.80481.22974A1.64484,1.64484,0,0,0,16.25,13a1.67877,1.67877,0,0,0-1.25.50494A1.67877,1.67877,0,0,0,13.75,13a1.88315,1.88315,0,0,0-.75.1601V9.5A1.43545,1.43545,0,0,0,11.5,8,1.43545,1.43545,0,0,0,10,9.5v5.29285l-.14642-.14643c-1.09345-1.09344-2.42365-1.28344-3.20716-.5a.5.5,0,0,0-.09362.57715A59.00214,59.00214,0,0,0,9.584,20.27734C10.98157,22.72552,12.80225,24,15,24c3.18756,0,5-2.1145,5-5.5V15A1.40476,1.40476,0,0,0,18.5,13.5Zm.5,5c0,2.8645-1.40186,4.5-4,4.5-1.80225,0-3.31494-1.0589-4.56586-3.24811a54.88427,54.88427,0,0,1-2.78039-5.06378,1.73479,1.73479,0,0,1,1.49267.66541l1,1A.5.5,0,0,0,11,16h0V9.5a.5.5,0,0,1,1,0v5h.0094a.49287.49287,0,0,0,.36932.485.5.5,0,0,0,.60633-.36377A.69127.69127,0,0,1,13.75,14a.69127.69127,0,0,1,.765.62128.46769.46769,0,0,0,.02924.0614.4927.4927,0,0,0,.04492.09442.90137.90137,0,0,0,.13391.13385.489.489,0,0,0,.094.04474.46454.46454,0,0,0,.0617.02936c.00739.00183.01453-.00055.02191.001a1.08028,1.08028,0,0,0,.19874,0c.00738-.00152.01452.00086.02191-.001a.46272.46272,0,0,0,.06158-.0293.48739.48739,0,0,0,.09424-.04486.90526.90526,0,0,0,.13379-.13379.4927.4927,0,0,0,.04492-.09442.46769.46769,0,0,0,.02924-.0614.78156.78156,0,0,1,1.5299,0c.00287.01147.01105.01965.01465.03076a.70055.70055,0,0,0,.0979.173c.00769.00885.0105.02008.01892.02851a.469.469,0,0,0,.04883.03241.48729.48729,0,0,0,.08472.05627.60333.60333,0,0,0,.181.05017.48562.48562,0,0,0,.10223-.00464.47553.47553,0,0,0,.05811-.00268c.01147-.00287.01965-.011.03076-.01465a.48393.48393,0,0,0,.09021-.04291.49086.49086,0,0,0,.08282-.05505c.00885-.00769.02008-.0105.02851-.01892A.97361.97361,0,0,1,18.5,14.5c.36829,0,.5.158.5.5Zm-1-2v2a.5.5,0,0,1-1,0v-2a.5.5,0,0,1,1,0Z"
+                ></path>
               </svg>
-              <h5 className="fw-bold mt-2">Why isn’t my info shown here?</h5>
-              <p className="mt-4 ">
-                We’re hiding some account details to protect your identity.
+              <h5 className="fw-bold mt-2">Simplified expensing</h5>
+              <p className="mt-1 ">
+                We’ll send work trip receipts to your work inbox for easy
+                expensing.
               </p>
             </div>
-            <div className="border-bottom  pb-4  mb-4">
+            <div className="  pb-2">
               <svg
-                viewBox="0 0 48 48"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
+                viewBox="0 0 24 24"
                 role="presentation"
+                aria-hidden="true"
                 focusable="false"
                 style={{
+                  height: "32px",
+                  width: "32px",
                   display: "block",
-                  height: "48px",
-                  width: "48px",
-                  fill: "rgb(227, 28, 95)",
-                  stroke: "currentcolor",
+                  fill: "rgb(255, 90, 95)",
                 }}
               >
-                <g stroke="none">
-                  <path
-                    d="m39 15.999v28.001h-30v-28.001z"
-                    fillOpacity=".2"
-                  ></path>
-                  <path d="m24 0c5.4292399 0 9.8479317 4.32667079 9.9961582 9.72009516l.0038418.27990484v2h7c1.0543618 0 1.9181651.8158778 1.9945143 1.8507377l.0054857.1492623v32c0 1.0543618-.8158778 1.9181651-1.8507377 1.9945143l-.1492623.0054857h-34c-1.0543618 0-1.91816512-.8158778-1.99451426-1.8507377l-.00548574-.1492623v-32c0-1.0543618.81587779-1.9181651 1.85073766-1.9945143l.14926234-.0054857h7v-2c0-5.5228475 4.4771525-10 10-10zm17 14h-34v32h34zm-17 14c1.6568542 0 3 1.3431458 3 3s-1.3431458 3-3 3-3-1.3431458-3-3 1.3431458-3 3-3zm0 2c-.5522847 0-1 .4477153-1 1s.4477153 1 1 1 1-.4477153 1-1-.4477153-1-1-1zm0-28c-4.3349143 0-7.8645429 3.44783777-7.9961932 7.75082067l-.0038068.24917933v2h16v-2c0-4.418278-3.581722-8-8-8z"></path>
-                </g>
+                <path d="m17.3 6.54v3.32a.43.43 0 0 1 -.43.43h-1.71a.43.43 0 0 1 -.43-.43v-3.32a.21.21 0 0 1 .09-.17l1.07-.77a.21.21 0 0 1 .25 0l1.07.77a.21.21 0 0 1 .09.17zm-2.8 12.46h-2a .5.5 0 0 0 0 1h2a .5.5 0 0 0 0-1zm-4 0h-.5v-.5a.5.5 0 0 0 -1 0v .5h-.5a.5.5 0 0 0 0 1h .5v.5a.5.5 0 0 0 1 0v-.5h.5a.5.5 0 0 0 0-1zm-.16-15.96a1.18 1.18 0 1 0 1.18 1.18 1.18 1.18 0 0 0 -1.18-1.18z"></path>
+                <path
+                  d="m8.5 17a .5.5 0 1 1 .5-.5.5.5 0 0 1 -.5.5zm.5-2.5a.5.5 0 1 0 -.5.5.5.5 0 0 0 .5-.5zm1.5.5h4a .5.5 0 0 0 0-1h-4a .5.5 0 0 0 0 1zm0 2h4a .5.5 0 0 0 0-1h-4a .5.5 0 0 0 0 1zm8.5-11v5.5a.5.5 0 0 1 -.5.5h-.5v11.5a.5.5 0 0 1 -.85.35l-1.65-1.65-1.65 1.65a.5.5 0 0 1 -.71 0l-1.65-1.65-1.65 1.65a.5.5 0 0 1 -.71 0l-1.65-1.65-1.65 1.65a.5.5 0 0 1 -.85-.35v-12.5a.5.5 0 0 1 1 0v11.29l1.15-1.15a.5.5 0 0 1 .71 0l1.65 1.65 1.65-1.65a.5.5 0 0 1 .71 0l1.65 1.65 1.65-1.65a.5.5 0 0 1 .71 0l1.15 1.15v-10.29h-3.5a.5.5 0 0 1 -.5-.5v-2.5h-7.5a.5.5 0 0 1 0-1h7.5v-2a .5.5 0 0 1 .19-.39l2.5-2a .5.5 0 0 1 .62 0l2.5 2a .5.5 0 0 1 .19.39zm-1 .24-2-1.6-2 1.6v4.76h4zm-8.72.61a2.22 2.22 0 0 0 2.62-2.98.5.5 0 0 0 -.93.38 1.21 1.21 0 1 1 -.8-.71.5.5 0 0 0 .26-.97 2.21 2.21 0 1 0 -1.15 4.28zm3.22-4.85h.5v.5a.5.5 0 0 0 1 0v-.5h.5a.5.5 0 0 0 0-1h-.5v-.5a.5.5 0 0 0 -1 0v .5h-.5a.5.5 0 0 0 0 1z"
+                  fill="#484848"
+                ></path>
               </svg>
-              <h5 className="fw-bold mt-2">Which details can be edited?</h5>
-              <p className="mt-4 ">
-                Contact info and personal details can be edited. If this info
-                was used to verify your identity, you’ll need to get verified
-                again the next time you book—or to continue hosting.
+              <h5 className="fw-bold mt-2">Trip description</h5>
+              <p className="mt-1 ">
+                Add an expense code and business purpose to work trips.
               </p>
             </div>
             <div className=" ">
               <svg
-                viewBox="0 0 48 48"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
+                viewBox="0 0 24 24"
                 role="presentation"
+                aria-hidden="true"
                 focusable="false"
                 style={{
+                  height: "32px",
+                  width: "32px",
                   display: "block",
-                  height: "48px",
-                  width: "48px",
-                  fill: "rgb(227, 28, 95)",
-                  stroke: "currentcolor",
+                  fill: "rgb(255, 90, 95)",
                 }}
               >
-                <g stroke="none">
-                  <path
-                    d="M24 9C14.946 9 7.125 15.065 4.74 23.591L4.63 24l.013.054c2.235 8.596 9.968 14.78 18.99 14.943L24 39c9.053 0 16.875-6.064 19.26-14.59l.11-.411-.013-.052c-2.234-8.597-9.968-14.78-18.99-14.944L24 9z"
-                    fillOpacity=".2"
-                  ></path>
-                  <path d="M24 5c11.18 0 20.794 7.705 23.346 18.413l.133.587-.133.587C44.794 35.295 35.181 43 24 43 12.82 43 3.206 35.295.654 24.588l-.133-.587.048-.216C2.985 12.884 12.69 5 24 5zm0 2C13.88 7 5.16 13.887 2.691 23.509l-.12.492.032.14c2.288 9.564 10.728 16.513 20.65 16.846l.377.01L24 41c10.243 0 19.052-7.056 21.397-16.861l.031-.14-.031-.138c-2.288-9.566-10.728-16.515-20.65-16.848l-.377-.01L24 7zm0 10a7 7 0 1 1 0 14 7 7 0 0 1 0-14zm0 2a5 5 0 1 0 0 10 5 5 0 0 0 0-10z"></path>
-                </g>
+                <path d="m13.0429 20.4868c-.252.108-.56-.037-.56-.318l-.079-16.225c0-.327.404-.491.639-.26 1.491 1.462 4.438 2.852 6.897 3.197.161.022.288.143.316.299 1.089 6.046-2.202 11.152-7.213 13.307"></path>
+                <path
+                  d="m13.998 11.0102h-4v-2c0-1.104.896-2 2-2s2 .896 2 2zm1.5 0h-.5v-2c0-1.657-1.343-3-3-3s-3 1.343-3 3v2h-.5c-.276 0-.5.224-.5.5v5c0 .276.224.5.5.5h7c.276 0 .5-.224.5-.5v-5c0-.276-.224-.5-.5-.5z"
+                  fill="#fff"
+                ></path>
+                <path
+                  d="m12.998 10.0102h-2v-1c0-.552.448-1 1-1s1 .448 1 1zm-1-3c-1.104 0-2 .896-2 2v2h4v-2c0-1.104-.896-2-2-2zm1 6c0 .37-.201.693-.5.866v1.134c0 .276-.224.5-.5.5s-.5-.224-.5-.5v-1.134c-.299-.173-.5-.496-.5-.866 0-.552.448-1 1-1s1 .448 1 1zm3 3.5c0 .276-.224.5-.5.5h-7c-.276 0-.5-.224-.5-.5v-5c0-.276.224-.5.5-.5h.5v-2c0-1.657 1.343-3 3-3s3 1.343 3 3v2h.5c.276 0 .5.224.5.5zm0-6.415v-1.085c0-2.209-1.791-4-4-4s-4 1.791-4 4v1.085c-.583.206-1 .762-1 1.415v5c0 .828.671 1.5 1.5 1.5h7c.828 0 1.5-.672 1.5-1.5v-5c0-.653-.417-1.209-1-1.415zm-3.627 11.861c-7.206-3.07-10.097-8.274-8.751-15.741 3.612-.536 6.535-2.014 8.751-4.432 2.215 2.418 5.138 3.896 8.75 4.432 1.346 7.467-1.545 12.671-8.75 15.741zm9.684-16.294c-.042-.216-.218-.38-.436-.408-3.754-.484-6.698-2.007-8.858-4.573-.204-.242-.577-.242-.781 0-2.16 2.566-5.104 4.089-8.858 4.573-.218.028-.394.192-.436.408-1.612 8.206 1.58 14.027 9.488 17.319.126.052.267.052.392 0 7.91-3.292 11.101-9.113 9.489-17.319z"
+                  fill="#484848"
+                ></path>
               </svg>
-              <h5 className="fw-bold mt-2">What info is shared with others?</h5>
-              <p className="mt-4 ">
-                Airbnb only releases contact information for Hosts and guests
-                after a reservation is confirmed.
+              <h5 className="fw-bold mt-2">Keep personal trips private</h5>
+              <p className="mt-1 ">
+                Your company can only get info about trips you mark for work at
+                checkout.
               </p>
             </div>
           </div>

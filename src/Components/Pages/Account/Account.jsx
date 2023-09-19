@@ -19,7 +19,8 @@ import { FaAirbnb } from "react-icons/fa6";
 import { RiGlobalLine } from "react-icons/Ri";
 import { BiDollar } from "react-icons/Bi";
 import "./Account.css";
-// import { Link, Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Account = () => {
   return (
@@ -40,103 +41,147 @@ const Account = () => {
         <div className="d-flex justify-content-center">
           <div className="boxes mt-5 d-flex flex-wrap justify-content-start">
             <div className="box mx-2 rounded-4 shadow p-3 mb-4">
-              {/* <Link
-                to="account/personalInfo"
+              <NavLink
+                to="/personalInfo"
                 className="text-black text-decoration-none"
-              > */}
-              <AiOutlineIdcard size={"35px"} />
-              <div className="mt-3">
-                <h6 className="fw-semibold">Personal info</h6>
-                <h6 className="fw-normal text-secondary">
-                  Provide personal details and how we can reach you
-                </h6>
-              </div>
-              {/* </Link> */}
+              >
+                <AiOutlineIdcard size={"35px"} />
+                <div className="mt-3">
+                  <h6 className="fw-semibold">Personal info</h6>
+                  <h6 className="fw-normal text-secondary">
+                    Provide personal details and how we can reach you
+                  </h6>
+                </div>
+              </NavLink>
             </div>
-            <div className="box mx-2 rounded-4 shadow p-3 mb-4">
-              <RiSecurePaymentLine size={"35px"} />
-              <div className="mt-3">
-                <h6 className="fw-semibold">Login & security</h6>
-                <h6 className="fw-normal text-secondary">
-                  Update your password and secure your account
-                </h6>
-              </div>
-            </div>
-            <div className="box mx-2 rounded-4 shadow p-3 mb-4">
-              <MdOutlinePayments size={"35px"} />
-              <div className="mt-3">
-                <h6 className="fw-semibold">Payments & payouts</h6>
-                <h6 className="fw-normal text-secondary">
-                  Review payments, payouts, coupons, and gift cards
-                </h6>
-              </div>
-            </div>
-            <div className="box mx-2 rounded-4 shadow p-3 mb-4">
-              <IoDocumentOutline size={"35px"} />
-              <div className="mt-3">
-                <h6 className="fw-semibold">Taxes</h6>
-                <h6 className="fw-normal text-secondary">
-                  Manage taxpayer information and tax documents
-                </h6>
-              </div>
-            </div>
-            <div className="box mx-2 rounded-4 shadow p-3 mb-4">
-              <HiOutlineSpeakerphone size={"35px"} />
-              <div className="mt-3">
-                <h6 className="fw-semibold">Notifications</h6>
-                <h6 className="fw-normal text-secondary">
-                  Choose notification preferences and how you want to be
-                  contacted
-                </h6>
-              </div>
-            </div>
-            <div className="box mx-2 rounded-4 shadow p-3 mb-4">
-              <AiOutlineEye size={"35px"} />
-              <div className="mt-3">
-                <h6 className="fw-semibold">Privacy & sharing</h6>
-                <h6 className="fw-normal text-secondary">
-                  Manage your personal data, connected services, and data
-                  sharing settings
-                </h6>
-              </div>
-            </div>
-            <div className="box mx-2 rounded-4 shadow p-3 mb-4">
-              <BsToggles size={"35px"} />
 
-              <div className="mt-3">
-                <h6 className="fw-semibold">Global preferences</h6>
-                <h6 className="fw-normal text-secondary">
-                  Set your default language, currency, and timezone
-                </h6>
-              </div>
+            <div className="box mx-2 rounded-4 shadow p-3 mb-4">
+              <NavLink
+                to="/loginAndSecurity"
+                className="text-black text-decoration-none"
+              >
+                <RiSecurePaymentLine size={"35px"} />
+                <div className="mt-3">
+                  <h6 className="fw-semibold">Login & security</h6>
+                  <h6 className="fw-normal text-secondary">
+                    Update your password and secure your account
+                  </h6>
+                </div>
+              </NavLink>
+            </div>
+
+            <div className="box mx-2 rounded-4 shadow p-3 mb-4">
+              <NavLink
+                to="/paymentsAndPayouts"
+                className="text-black text-decoration-none"
+              >
+                <MdOutlinePayments size={"35px"} />
+                <div className="mt-3">
+                  <h6 className="fw-semibold">Payments & payouts</h6>
+                  <h6 className="fw-normal text-secondary">
+                    Review payments, payouts, coupons, and gift cards
+                  </h6>
+                </div>
+              </NavLink>
             </div>
             <div className="box mx-2 rounded-4 shadow p-3 mb-4">
-              <GiDesk size={"35px"} />
-              <div className="mt-3">
-                <h6 className="fw-semibold">Travel for work</h6>
-                <h6 className="fw-normal text-secondary">
-                  Add a work email for business trip benefits
-                </h6>
-              </div>
+              <NavLink to="/taxes" className="text-black text-decoration-none">
+                <IoDocumentOutline size={"35px"} />
+                <div className="mt-3">
+                  <h6 className="fw-semibold">Taxes</h6>
+                  <h6 className="fw-normal text-secondary">
+                    Manage taxpayer information and tax documents
+                  </h6>
+                </div>
+              </NavLink>
             </div>
             <div className="box mx-2 rounded-4 shadow p-3 mb-4">
-              <LiaChartBarSolid size={"35px"} />
-              <div className="mt-3">
-                <h6 className="fw-semibold">Professional hosting tools</h6>
-                <h6 className="fw-normal text-secondary">
-                  Get professional tools if you manage several properties on
-                  Airbnb
-                </h6>
-              </div>
+              <NavLink
+                to="/notifications"
+                className="text-black text-decoration-none"
+              >
+                <HiOutlineSpeakerphone size={"35px"} />
+                <div className="mt-3">
+                  <h6 className="fw-semibold">Notifications</h6>
+                  <h6 className="fw-normal text-secondary">
+                    Choose notification preferences and how you want to be
+                    contacted
+                  </h6>
+                </div>
+              </NavLink>
             </div>
             <div className="box mx-2 rounded-4 shadow p-3 mb-4">
-              <HiOutlineGiftTop size={"35px"} />
-              <div className="mt-3">
-                <h6 className="fw-semibold">Referral credit & coupon</h6>
-                <h6 className="fw-normal text-secondary">
-                  You have $0 referral credits and coupon. Learn more.
-                </h6>
-              </div>
+              <NavLink
+                to="/privacyAndSharing"
+                className="text-black text-decoration-none"
+              >
+                <AiOutlineEye size={"35px"} />
+                <div className="mt-3">
+                  <h6 className="fw-semibold">Privacy & sharing</h6>
+                  <h6 className="fw-normal text-secondary">
+                    Manage your personal data, connected services, and data
+                    sharing settings
+                  </h6>
+                </div>
+              </NavLink>
+            </div>
+            <div className="box mx-2 rounded-4 shadow p-3 mb-4">
+              <NavLink
+                to="/globalPreferences"
+                className="text-black text-decoration-none"
+              >
+                <BsToggles size={"35px"} />
+
+                <div className="mt-3">
+                  <h6 className="fw-semibold">Global preferences</h6>
+                  <h6 className="fw-normal text-secondary">
+                    Set your default language, currency, and timezone
+                  </h6>
+                </div>
+              </NavLink>
+            </div>
+            <div className="box mx-2 rounded-4 shadow p-3 mb-4">
+              <NavLink
+                to="/travelForWork"
+                className="text-black text-decoration-none"
+              >
+                <GiDesk size={"35px"} />
+                <div className="mt-3">
+                  <h6 className="fw-semibold">Travel for work</h6>
+                  <h6 className="fw-normal text-secondary">
+                    Add a work email for business trip benefits
+                  </h6>
+                </div>
+              </NavLink>
+            </div>
+            <div className="box mx-2 rounded-4 shadow p-3 mb-4">
+              <NavLink
+                to="/professionalHostingTools"
+                className="text-black text-decoration-none"
+              >
+                <LiaChartBarSolid size={"35px"} />
+                <div className="mt-3">
+                  <h6 className="fw-semibold">Professional hosting tools</h6>
+                  <h6 className="fw-normal text-secondary">
+                    Get professional tools if you manage several properties on
+                    Airbnb
+                  </h6>
+                </div>
+              </NavLink>
+            </div>
+            <div className="box mx-2 rounded-4 shadow p-3 mb-4">
+              <NavLink
+                to="/referralCreditAndCoupon"
+                className="text-black text-decoration-none"
+              >
+                <HiOutlineGiftTop size={"35px"} />
+                <div className="mt-3">
+                  <h6 className="fw-semibold">Referral credit & coupon</h6>
+                  <h6 className="fw-normal text-secondary">
+                    You have $0 referral credits and coupon. Learn more.
+                  </h6>
+                </div>
+              </NavLink>
             </div>
             {/* <Outlet /> */}
           </div>

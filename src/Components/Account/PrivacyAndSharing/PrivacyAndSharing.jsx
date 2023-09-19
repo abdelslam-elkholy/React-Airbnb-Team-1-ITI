@@ -132,7 +132,7 @@ function PrivacyAndSharing() {
                         results.
                       </p>
                       <input type="checkbox" id="switch1" />
-                      <label htmlFor="switch1">
+                      <label id="labelPrivacy" htmlFor="switch1">
                         <div className="iconCheck">
                           <AiOutlineCheck
                             style={{ fill: "black !important" }}
@@ -150,7 +150,7 @@ function PrivacyAndSharing() {
                         </a>
                       </p>
                       <input type="checkbox" id="switch2" />
-                      <label htmlFor="switch2">
+                      <label id="labelPrivacy" htmlFor="switch2">
                         <div className="iconCheck">
                           <AiOutlineCheck
                             style={{ fill: "black !important" }}

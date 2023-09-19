@@ -5,7 +5,7 @@ input[type="checkbox"] {
   visibility: hidden;
 }
 
-label {
+#labelPrivacy {
   cursor: pointer;
   text-indent: -9999px;
   width: 60px;
@@ -16,7 +16,7 @@ label {
   position: relative;
 }
 
-label:after {
+#labelPrivacy:after {
   content: "";
   position: absolute;
   top: 5px;
@@ -28,7 +28,7 @@ label:after {
   transition: 0.3s;
 }
 
-input:checked + label {
+input:checked + #labelPrivacy {
   background: black;
   .iconCheck {
     z-index: 1;
@@ -36,7 +36,7 @@ input:checked + label {
   }
 }
 
-input:checked + label:after {
+input:checked + #labelPrivacy:after {
   left: calc(100% - 5px);
   transform: translateX(-100%);
 }
@@ -51,7 +51,7 @@ input:checked + label:after {
   /* transition: all 0.5s linear; */
   color: black !important;
 }
-label:active:after {
+#labelPrivacy:active:after {
   width: 25px;
 }
 
