@@ -1,0 +1,73 @@
+.loginBtn {
+  color: black !important;
+  background-color: white !important;
+  border-bottom: transparent 2px solid !important;
+  border-radius: 0 !important;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .loginBtn {
+  color: #008489 !important;
+  background-color: white !important;
+  border-bottom: #008489 2px solid !important;
+}
+
+.improveBtn {
+  background-color: #008489 !important;
+}
+
+.loginLink {
+  color: #008489 !important;
+}
+
+.loginLink:hover {
+  color: #008489 !important;
+
+  text-decoration: underline !important;
+}
+.loginRightLogin {
+  height: fit-content !important;
+}
+
+@media screen and (max-width: 4000px) {
+  .loginLeft {
+    width: 65%;
+  }
+  .loginRight {
+    width: 30%;
+  }
+  .loginAndsec {
+    width: 75% !important;
+  }
+}
+@media screen and (max-width: 1270px) {
+  .loginLeft {
+    width: 65%;
+  }
+  .loginRight {
+    width: 30%;
+  }
+  .loginAndsec {
+    width: auto !important;
+  }
+}
+
+@media screen and (max-width: 744px) {
+  .titles {
+    display: none;
+  }
+  .login {
+    display: none;
+  }
+  .loginbox {
+    display: flex;
+    flex-direction: column !important;
+  }
+  .loginLeft {
+    width: 100%;
+    /* border-bottom: 0px !important; */
+  }
+  .loginRight {
+    width: 100%;
+  }
+}

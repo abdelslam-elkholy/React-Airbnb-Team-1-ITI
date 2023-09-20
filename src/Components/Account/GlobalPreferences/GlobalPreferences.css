@@ -1,0 +1,43 @@
+.globalEdit {
+  color: #008489;
+}
+
+.globalEdit:hover {
+  text-decoration: underline !important;
+}
+
+.golbalRight {
+  height: fit-content;
+}
+
+@media screen and (max-width: 4000px) {
+  .personalLeft {
+    width: 65%;
+  }
+  .golbalRight {
+    width: 30%;
+  }
+  .personal {
+    width: 75% !important;
+  }
+}
+@media screen and (max-width: 1270px) {
+  .personalLeft {
+    width: 65%;
+  }
+  .golbalRight {
+    width: 30%;
+  }
+  .personal {
+    width: auto !important;
+  }
+}
+
+@media screen and (max-width: 744px) {
+  .personalLeft {
+    width: 100%;
+  }
+  .golbalRight {
+    display: none;
+  }
+}

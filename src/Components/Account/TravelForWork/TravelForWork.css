@@ -1,0 +1,66 @@
+#emailTravel[type="text"] {
+  width: 100%;
+  padding: 12px 20px;
+  outline: none;
+  font-size: 16px !important;
+  line-height: 24px !important;
+  letter-spacing: normal !important;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+    Helvetica Neue, sans-serif !important;
+  text-transform: undefined !important;
+  color: #484848 !important;
+  padding-top: undefined !important;
+  padding-bottom: undefined !important;
+  border-width: 1px !important;
+  border-color: #ebebeb !important;
+  border-radius: 4px !important;
+  background-color: #ffffff !important;
+}
+
+#emailTravel[type="text"]:focus {
+  border-color: #008489 !important;
+}
+
+.travelBottom {
+  padding: 10px 22px !important;
+}
+
+@media screen and (max-width: 4000px) {
+  .travelLeft {
+    width: 65%;
+  }
+  .travelRight {
+    width: 30%;
+  }
+  .personal {
+    width: 75% !important;
+  }
+}
+@media screen and (max-width: 1270px) {
+  .travelLeft {
+    width: 65%;
+  }
+  .travelRight {
+    width: 30%;
+  }
+  .personal {
+    width: auto !important;
+  }
+}
+
+@media screen and (max-width: 744px) {
+  .travel {
+    display: flex;
+    flex-direction: column;
+  }
+  .travelLeft {
+    width: 100%;
+  }
+  .travelBottom {
+    width: 100%;
+  }
+  .travelRight {
+    margin-top: 55px;
+    width: 100%;
+  }
+}
