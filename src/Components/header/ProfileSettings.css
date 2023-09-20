@@ -1,0 +1,7 @@
+.pointer:hover{
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+    background-color: white;
+}
+.pointer2:hover{
+    background-color: #F7F7F7;
+}
