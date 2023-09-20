@@ -1,4 +1,5 @@
-import { IoIosArrowForward } from "react-icons/Io";
+import React from "react";
+import { IoIosArrowForward } from "react-icons/io";
 import "./PrivacyAndSharing.css";
 import Col from "react-bootstrap/Col";
 import Nav from "react-bootstrap/Nav";
@@ -6,7 +7,7 @@ import Row from "react-bootstrap/Row";
 import Tab from "react-bootstrap/Tab";
 // import { useState } from "react";
 import Form from "react-bootstrap/Form";
-import { AiOutlineCheck } from "react-icons/Ai";
+import { AiOutlineCheck } from "react-icons/ai";
 
 function PrivacyAndSharing() {
   return (

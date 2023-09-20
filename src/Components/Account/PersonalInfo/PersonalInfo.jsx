@@ -1,5 +1,5 @@
 import React from "react";
-import { IoIosArrowForward } from "react-icons/Io";
+import { IoIosArrowForward } from "react-icons/io";
 import "./PersonalInfo.css";
 
 const PersonalInfo = () => {

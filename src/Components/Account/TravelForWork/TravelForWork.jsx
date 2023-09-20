@@ -1,6 +1,6 @@
 import "./TravelForWork.css";
 import React, { useState } from "react";
-import { IoIosArrowForward } from "react-icons/Io";
+import { IoIosArrowForward } from "react-icons/io";
 
 const TravelForWork = () => {
   const [email, emailSet] = useState({ emailTravel: "" });

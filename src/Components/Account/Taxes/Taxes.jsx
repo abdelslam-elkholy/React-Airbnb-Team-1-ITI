@@ -1,4 +1,5 @@
-import { IoIosArrowForward } from "react-icons/Io";
+import React from "react";
+import { IoIosArrowForward } from "react-icons/io";
 import "./Taxes.css";
 import Col from "react-bootstrap/Col";
 import Nav from "react-bootstrap/Nav";

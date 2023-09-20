@@ -4,18 +4,18 @@ import {
   AiOutlineSetting,
   AiOutlineQuestionCircle,
   AiOutlineEye,
-} from "react-icons/Ai";
-import { RiSecurePaymentLine, RiGlobalLine } from "react-icons/Ri";
-import { MdOutlinePayments } from "react-icons/Md";
-import { HiOutlineSpeakerphone } from "react-icons/Hi";
-import { IoDocumentOutline } from "react-icons/Io5";
-import { BsToggles } from "react-icons/Bs";
-import { GiDesk } from "react-icons/Gi";
-import { LiaChartBarSolid } from "react-icons/Lia";
-import { HiOutlineGiftTop } from "react-icons/Hi2";
-import { IoIosArrowForward } from "react-icons/Io";
-import { PiUserCircle } from "react-icons/Pi";
-import { BiShieldPlus, BiDollar } from "react-icons/Bi";
+} from "react-icons/ai";
+import { RiSecurePaymentLine, RiGlobalLine } from "react-icons/ri";
+import { MdOutlinePayments } from "react-icons/md";
+import { HiOutlineSpeakerphone } from "react-icons/hi";
+import { IoDocumentOutline } from "react-icons/io5";
+import { BsToggles } from "react-icons/bs";
+import { GiDesk } from "react-icons/gi";
+import { LiaChartBarSolid } from "react-icons/lia";
+import { HiOutlineGiftTop } from "react-icons/hi2";
+import { IoIosArrowForward } from "react-icons/io";
+import { PiUserCircle } from "react-icons/pi";
+import { BiShieldPlus, BiDollar } from "react-icons/bi";
 import { TfiHeadphoneAlt } from "react-icons/tfi";
 import { FaAirbnb } from "react-icons/fa6";
 import "./Account.css";
