@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import MobileStepper from "@mui/material/MobileStepper";
 import Typography from "@mui/material/Typography";
-
+import instance from "../../AxiosConfig/instance";
 import { ButtonBase } from "@mui/material";
 
 // mui icons
@@ -30,7 +30,7 @@ import { useNavigate } from "react-router-dom";
 export default function CarouselCard({ location }) {
   const [activeStep, setActiveStep] = useState(0);
   const navigate = useNavigate();
-  const maxSteps = location.locationImages.length; // so that we know how many dots
+  const maxSteps = location.images.length; // so that we know how many dots
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1); // jumps when we click the next arrow
@@ -62,21 +62,21 @@ export default function CarouselCard({ location }) {
           <FaRegHeart size={24} color="#fff" />
         </Box>
 
-        {location.locationImages.length && (
+        {location.images.length && (
           <SwipeableViews
             axis={"x"}
             index={activeStep}
             onChangeIndex={handleStepChange}
             enableMouseEvents
           >
-            {location.locationImages.map((step, index) => {
+            {location.images.map((step, index) => {
               return (
-                <div key={step.id}>
+                <div key={step}>
                   <Box
                     component="img"
                     sx={carouselImage}
-                    src={step.url}
-                    alt={step.id}
+                    src={`http://localhost:3000/img/houses/${step}`}
+                    alt={step}
                   ></Box>
                 </div>
               );
@@ -131,7 +131,7 @@ export default function CarouselCard({ location }) {
           <Box sx={{ mt: 2 }}>
             <Typography style={{ fontWeight: "bold" }} component="h3">
               {" "}
-              {location.location}
+              {location.name}
             </Typography>
             <Typography component="h4"> {location.days}</Typography>
             <Typography component="h4"> {location.days}</Typography>
@@ -141,7 +141,7 @@ export default function CarouselCard({ location }) {
             </Typography>
           </Box>
           <Box sx={{ mt: 2 }}>
-            <Box sx={dFlex}>
+            {/* <Box sx={dFlex}>
               {location.isNew ? (
                 <React.Fragment>
                   <Typography component="h5">New</Typography>
@@ -153,7 +153,7 @@ export default function CarouselCard({ location }) {
                   <AiFillStar size={18} />
                 </React.Fragment>
               )}
-            </Box>
+            </Box> */}
           </Box>
         </Box>
       </Box>

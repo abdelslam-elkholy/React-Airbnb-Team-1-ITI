@@ -29,7 +29,7 @@ export default function ProfileSettings() {
   const [showloginModal, setShowloginModal] = useState(false);
 
   const handleAirbnbloginClick = (e) => {
-    e.stopPropagation();
+    // e.stopPropagation();
     setShowloginModal(true);
   };
 
@@ -68,7 +68,7 @@ export default function ProfileSettings() {
               </Stack>
             </TriggerButton>
             <Menu style={{ zIndex: "20" }} slots={{ listbox: StyledListbox }}>
-              <StyledMenuItem onClick={handleAirbnbloginClick}>
+              {/* <StyledMenuItem onClick={handleAirbnbloginClick}>
                 Log in
                 <Login
                   showLpog={showloginModal}
@@ -90,7 +90,21 @@ export default function ProfileSettings() {
               </StyledMenuItem>
               <StyledMenuItem onClick={createHandleMenuClick("Help center")}>
                 Help center
-              </StyledMenuItem>
+              </StyledMenuItem> */}
+              {/* 
+              <div onClick={handleAirbnbloginClick}>
+                <Login
+                  showLpog={showloginModal}
+                  onCloselogin={() => setShowloginModal(false)}
+                />
+              </div>
+
+              <div onClick={handleAirbnbSetupClick}>
+                <Register
+                  show={showRegisterModal}
+                  onClose={() => setShowRegisterModal(false)}
+                />
+              </div> */}
             </Menu>
           </Dropdown>
         </Stack>
