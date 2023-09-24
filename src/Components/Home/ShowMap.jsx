@@ -1,36 +1,35 @@
-import React from 'react';
-import { ButtonBase } from '@mui/material';
-import { FaMap } from 'react-icons/fa';
-import Box from '@mui/material/Box';
+import React from "react";
+import { ButtonBase } from "@mui/material";
+import { FaMap } from "react-icons/fa";
+import Box from "@mui/material/Box";
 // import { ThemeProvider, createTheme } from '@mui/material/styles';
 // import { Button } from '@mui/material';
 
 export default function ShowMap() {
-    
-    // const theme = createTheme({
-    //     components: {
-    //       MuiButton: {
-    //         variants: [
-    //           {
-    //             props: { variant: 'dashed' },
-    //             style: {
-    //               textTransform: 'none',
-    //               border: `2px dashed`,
-    //             },
-    //           },
-    //           {
-    //             props: { variant: 'dashed', color: 'secondary' },
-    //             style: {
-    //               border: `4px dashed `,
-    //             },
-    //           },
-    //         ],
-    //       },
-    //     },
-    //   });
+  // const theme = createTheme({
+  //     components: {
+  //       MuiButton: {
+  //         variants: [
+  //           {
+  //             props: { variant: 'dashed' },
+  //             style: {
+  //               textTransform: 'none',
+  //               border: `2px dashed`,
+  //             },
+  //           },
+  //           {
+  //             props: { variant: 'dashed', color: 'secondary' },
+  //             style: {
+  //               border: `4px dashed `,
+  //             },
+  //           },
+  //         ],
+  //       },
+  //     },
+  //   });
   return (
     <>
-   {/* <ThemeProvider theme={theme}>
+      {/* <ThemeProvider theme={theme}>
   <Button variant="dashed" sx={{ m: 1 }}>
     Dashed
   </Button>
@@ -44,30 +43,33 @@ export default function ShowMap() {
     Secondary large
   </Button>
 </ThemeProvider> */}
-<Box sx={{display:'flex',justifyContent:'center',marginBottom:"5rem"}}>
-           <ButtonBase
+      <Box
+        sx={{ display: "flex", justifyContent: "center", marginBottom: "5rem" }}
+      >
+        <ButtonBase
+          style={{ backgroundColor: "#444" }}
           sx={{
             // display: { xs: 'none', md: 'block' },
-            border: '1px solid #222',
+            border: "1px solid #222",
             minWidth: 90,
-            justifyContent: 'space-between',
+            justifyContent: "space-between",
             borderRadius: 10,
-            textTransform: 'capitalize',
+            textTransform: "capitalize",
             p: 1.5,
-            color: 'white',
-            position:'fixed',
+            color: "white",
+            position: "fixed",
             bottom: 0,
-            backgroundColor:'#222',
-            marginX:"auto",
-            marginBottom:"2rem",
-            zIndex:20,
-            fontWeight:'bold'
+            backgroundColor: "#222",
+            marginX: "auto",
+            marginBottom: "2rem",
+            zIndex: 20,
+            fontWeight: "bold",
+            variant: "black",
           }}
-          variant="outlined" 
         >
-           Show map <FaMap style={{marginLeft:"3px"}}/>
+          Show map <FaMap style={{ marginLeft: "3px" }} />
         </ButtonBase>
-        </Box>
+      </Box>
     </>
   );
 }

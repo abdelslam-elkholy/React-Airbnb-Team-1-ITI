@@ -20,8 +20,8 @@ const Home = () => {
           sx={{
             display: "flex",
             flexDirection: "column",
-            height: "100vh",
-            overflowY: "scroll",
+            // height: "100vh",
+            // overflowY: "scroll",
           }}
         >
           <Box>

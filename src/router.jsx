@@ -2,7 +2,7 @@ import React from "react";
 import { createBrowserRouter } from "react-router-dom";
 import AppLayout from "./Pages/AppLayout";
 import WishList from "./Pages/WishList";
-import Messages from "./Pages/Messages";
+import Messages from "./Pages/Messages/Messages";
 import Trips from "./Pages/Trips";
 import NotFound from "./Pages/NotFound";
 import Reservation from "./Pages/Reservation";
@@ -17,7 +17,12 @@ import Notifications from "./Components/Account/Notifications/Notifications";
 import PrivacyAndSharing from "./Components/Account/PrivacyAndSharing/PrivacyAndSharing";
 import GlobalPreferences from "./Components/Account/GlobalPreferences/GlobalPreferences";
 import TravelForWork from "./Components/Account/TravelForWork/TravelForWork";
-
+import PaymentHome from "./Pages/Reservation/PaymentHome";
+import PaymentForm from "./Components/Reservation/Payment_Form/PaymentForm";
+import Credit from "./Components/Reservation/Payment_Form/Credit";
+import PayPal from "./Components/Reservation/Payment_Form/PayPal";
+import GooglePay from "./Components/Reservation/Payment_Form/GooglePay";
+import Homes from "./Pages/Homes/Homes";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -40,6 +45,24 @@ const router = createBrowserRouter([
       { path: "/privacyAndSharing", element: <PrivacyAndSharing /> },
       { path: "/globalPreferences", element: <GlobalPreferences /> },
       { path: "/travelForWork", element: <TravelForWork /> },
+      { path: "/message", element: <Messages /> },
+      { path: "/host/homes", element: <Homes /> },
+      {
+        path: "/reservation",
+        element: <PaymentHome />,
+        children: [
+          {
+            path: "/reservation/",
+            element: <PaymentForm />,
+            children: [
+              { index: true, element: <Credit /> },
+              { path: "/reservation/Credit", element: <Credit /> },
+              { path: "/reservation/PayPal", element: <PayPal /> },
+              { path: "/reservation/GooglePay", element: <GooglePay /> },
+            ],
+          },
+        ],
+      },
     ],
   },
 

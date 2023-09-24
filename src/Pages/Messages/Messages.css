@@ -1,0 +1,36 @@
+.aaaaa{
+    padding: 0;
+    margin: 0;
+    height: 39em !important;
+}
+.middel{
+    border-left:1px solid #0000002b;
+    border-right:1px solid #0000002b;
+   
+}
+.box{
+    height: 100% !important; 
+}
+.border_bold{
+    border:  1px solid #0000007b;
+}
+
+ .Messages_icon_dropdown{
+    width: 35px !important;
+    height: 35px !important;
+  cursor: pointer;
+  bottom: -17px;
+  left: 66%;
+   position: absolute;
+ border-radius: 50% !important;
+ } 
+ .Messages_icon_dropdown:hover{
+    background-color:#e5e3e321 !important;
+    border: 1px solid #4444442e;
+ }
+ .Messages_icon_menu{
+    width: 86%;
+    position: absolute !important;
+    left: 14% !important;
+    top: 36px;
+ }

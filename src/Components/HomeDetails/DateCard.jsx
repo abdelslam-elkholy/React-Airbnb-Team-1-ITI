@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { useNavigate } from "react-router-dom";
 
 const DateCard = () => {
   const [startDate, setStartDate] = useState(new Date());
@@ -8,7 +9,7 @@ const DateCard = () => {
   const [guests, setGuests] = useState(1);
   const pricePerNight = 100; // Sample price per night
   const taxes = 0.1; // Sample tax rate
-
+  const navigate = useNavigate();
   const reservedDates = [
     new Date("2023-09-15"),
     new Date("2023-09-16"),
@@ -25,6 +26,9 @@ const DateCard = () => {
     return 0;
   };
 
+  const goToReservation = () => {
+    navigate("/reservation");
+  };
   return (
     <div className=" w-full max-w-md p-4 bg-white rounded shadow-md flex  md:flex-col">
       <div className="mb-4">
@@ -92,6 +96,7 @@ const DateCard = () => {
       <button
         className="w-1/2 mx-auto bg-pink-700 hover:bg-pink-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
         disabled={!startDate || !endDate}
+        onClick={goToReservation}
       >
         Reserve
       </button>

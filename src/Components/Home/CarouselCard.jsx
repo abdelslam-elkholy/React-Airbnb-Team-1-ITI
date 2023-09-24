@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import MobileStepper from "@mui/material/MobileStepper";
 import Typography from "@mui/material/Typography";
@@ -25,10 +25,11 @@ import {
 import "./CarouselCard.css";
 import { ThemeProvider } from "@material-ui/core";
 import { createTheme } from "@material-ui/core";
+import { useNavigate } from "react-router-dom";
 
 export default function CarouselCard({ location }) {
-  const [activeStep, setActiveStep] = React.useState(0);
-
+  const [activeStep, setActiveStep] = useState(0);
+  const navigate = useNavigate();
   const maxSteps = location.locationImages.length; // so that we know how many dots
 
   const handleNext = () => {
@@ -43,6 +44,9 @@ export default function CarouselCard({ location }) {
     setActiveStep(step); // handle swipe change
   };
 
+  const navigateToDetails = () => {
+    navigate("/homedetails");
+  };
   return (
     <>
       <Box
@@ -123,7 +127,7 @@ export default function CarouselCard({ location }) {
           />
         </Box>
 
-        <Box sx={flexBetween}>
+        <Box sx={flexBetween} onClick={navigateToDetails}>
           <Box sx={{ mt: 2 }}>
             <Typography style={{ fontWeight: "bold" }} component="h3">
               {" "}

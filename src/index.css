@@ -1,8 +1,12 @@
-/* @tailwind base;
+@tailwind base;
 @tailwind components;
-@tailwind utilities; */
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap');
-html, body{
-    height: 100vh;
-    overflow: hidden;
+@tailwind utilities;
+
+.maplibregl-canvas-container.maplibregl-touch-zoom-rotate.maplibregl-touch-drag-pan,
+.maplibregl-canvas-container.maplibregl-touch-zoom-rotate.maplibregl-touch-drag-pan
+  .maplibregl-canvas {
+  display: none !important;
+}
+.maplibregl-map {
+  display: none !important;
 }
