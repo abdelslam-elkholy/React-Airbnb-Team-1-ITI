@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 // react icons
@@ -16,6 +16,8 @@ import { styled } from "@mui/system";
 import Box from "@mui/material/Box";
 import { FiGlobe } from "react-icons/fi";
 import "./ProfileSettings.css";
+import Register from "../Register/Register";
+import Login from "../Login/Login";
 
 export default function ProfileSettings() {
   const createHandleMenuClick = (menuItem) => {
@@ -23,7 +25,17 @@ export default function ProfileSettings() {
       console.log(`Clicked on ${menuItem}`);
     };
   };
+  const [showRegisterModal, setShowRegisterModal] = useState(false);
+  const [showloginModal, setShowloginModal] = useState(false);
 
+  const handleAirbnbloginClick = (e) => {
+    e.stopPropagation();
+    setShowloginModal(true);
+  };
+
+  const handleAirbnbSetupClick = () => {
+    setShowRegisterModal(true);
+  };
   return (
     <Container>
       <Box sx={{ ...flexCenter, justifyContent: "space-between", gap: 2 }}>
@@ -56,11 +68,19 @@ export default function ProfileSettings() {
               </Stack>
             </TriggerButton>
             <Menu style={{ zIndex: "20" }} slots={{ listbox: StyledListbox }}>
-              <StyledMenuItem onClick={createHandleMenuClick("Log in")}>
+              <StyledMenuItem onClick={handleAirbnbloginClick}>
                 Log in
+                <Login
+                  showLpog={showloginModal}
+                  onCloselogin={() => setShowloginModal(false)}
+                />
               </StyledMenuItem>
-              <StyledMenuItem onClick={createHandleMenuClick("Sing up")}>
+              <StyledMenuItem onClick={handleAirbnbSetupClick}>
                 Sing up
+                <Register
+                  show={showRegisterModal}
+                  onClose={() => setShowRegisterModal(false)}
+                />
               </StyledMenuItem>
               <hr class="my-2" />
               <StyledMenuItem
