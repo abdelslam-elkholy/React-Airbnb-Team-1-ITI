@@ -41,7 +41,7 @@ const Account = () => {
           <div className="boxes mt-5 d-flex flex-wrap justify-content-start">
             <div className="box mx-2 rounded-4 shadow p-3 mb-4">
               <NavLink
-                to="/personalInfo"
+                to="account/personalInfo"
                 className="text-black text-decoration-none"
               >
                 <AiOutlineIdcard size={"35px"} />
@@ -56,7 +56,7 @@ const Account = () => {
 
             <div className="box mx-2 rounded-4 shadow p-3 mb-4">
               <NavLink
-                to="/loginAndSecurity"
+                to="account/loginAndSecurity"
                 className="text-black text-decoration-none"
               >
                 <RiSecurePaymentLine size={"35px"} />
@@ -71,7 +71,7 @@ const Account = () => {
 
             <div className="box mx-2 rounded-4 shadow p-3 mb-4">
               <NavLink
-                to="/paymentsAndPayouts"
+                to="account/paymentsAndPayouts"
                 className="text-black text-decoration-none"
               >
                 <MdOutlinePayments size={"35px"} />
@@ -84,7 +84,10 @@ const Account = () => {
               </NavLink>
             </div>
             <div className="box mx-2 rounded-4 shadow p-3 mb-4">
-              <NavLink to="/taxes" className="text-black text-decoration-none">
+              <NavLink
+                to="account/taxes"
+                className="text-black text-decoration-none"
+              >
                 <IoDocumentOutline size={"35px"} />
                 <div className="mt-3">
                   <h6 className="fw-semibold">Taxes</h6>
@@ -96,7 +99,7 @@ const Account = () => {
             </div>
             <div className="box mx-2 rounded-4 shadow p-3 mb-4">
               <NavLink
-                to="/notifications"
+                to="account/notifications"
                 className="text-black text-decoration-none"
               >
                 <HiOutlineSpeakerphone size={"35px"} />
@@ -111,7 +114,7 @@ const Account = () => {
             </div>
             <div className="box mx-2 rounded-4 shadow p-3 mb-4">
               <NavLink
-                to="/privacyAndSharing"
+                to="account/privacyAndSharing"
                 className="text-black text-decoration-none"
               >
                 <AiOutlineEye size={"35px"} />
@@ -126,7 +129,7 @@ const Account = () => {
             </div>
             <div className="box mx-2 rounded-4 shadow p-3 mb-4">
               <NavLink
-                to="/globalPreferences"
+                to="account/globalPreferences"
                 className="text-black text-decoration-none"
               >
                 <BsToggles size={"35px"} />
@@ -141,7 +144,7 @@ const Account = () => {
             </div>
             <div className="box mx-2 rounded-4 shadow p-3 mb-4">
               <NavLink
-                to="/travelForWork"
+                to="account/travelForWork"
                 className="text-black text-decoration-none"
               >
                 <GiDesk size={"35px"} />
@@ -155,7 +158,7 @@ const Account = () => {
             </div>
             <div className="box mx-2 rounded-4 shadow p-3 mb-4">
               <NavLink
-                to="/professionalHostingTools"
+                to="account/professionalHostingTools"
                 className="text-black text-decoration-none"
               >
                 <LiaChartBarSolid size={"35px"} />
@@ -170,7 +173,7 @@ const Account = () => {
             </div>
             <div className="box mx-2 rounded-4 shadow p-3 mb-4">
               <NavLink
-                to="/referralCreditAndCoupon"
+                to="account/referralCreditAndCoupon"
                 className="text-black text-decoration-none"
               >
                 <HiOutlineGiftTop size={"35px"} />

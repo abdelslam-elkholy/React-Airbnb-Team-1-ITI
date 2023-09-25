@@ -69,14 +69,14 @@ export default function CarouselCard({ location }) {
             onChangeIndex={handleStepChange}
             enableMouseEvents
           >
-            {location.images.map((step, index) => {
+            {location.images.map((image, index) => {
               return (
-                <div key={step}>
+                <div key={image}>
                   <Box
                     component="img"
                     sx={carouselImage}
-                    src={`http://localhost:3000/img/houses/${step}`}
-                    alt={step}
+                    src={`http://localhost:3000/img/houses/${image}`}
+                    alt={image}
                   ></Box>
                 </div>
               );
