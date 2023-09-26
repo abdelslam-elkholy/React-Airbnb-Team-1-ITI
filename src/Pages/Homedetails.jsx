@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import Photogrid from "../Components/HomeDetails/Photogrid";
 import MiddleSection from "../Components/HomeDetails/MiddleSection";
@@ -8,12 +8,13 @@ import Comments from "../Components/HomeDetails/Comments";
 import Maps from "../Components/HomeDetails/Maps";
 import Footer from "../Components/HomeDetails/Footer";
 import { FaStar, FaMapMarkerAlt, FaShareAlt, FaHeart } from "react-icons/fa";
-
-const UpperPart = () => {
+import { useParams } from "react-router-dom";
+import axiosInstance from "../AxiosConfig/instance";
+const UpperPart = ({ house }) => {
   return (
     <>
       <div className="text-left font-semibold text-xl lg:text-3xl">
-        <p>Hotel 1</p>
+        <p>{house.name}</p>
       </div>
 
       <div className="hidden md:flex justify-between items-center font-semibold mt-1 text-sm lg:text-xl">
@@ -31,10 +32,7 @@ const UpperPart = () => {
             <FaMapMarkerAlt />
           </span>
           <p className="font-normal">Superhost</p>
-          <p className="underline">
-            23-haram
-            <span> Gyza</span>
-          </p>
+          <p className="underline">{house.address}</p>
         </div>
 
         <div className="flex items-center gap-5 mr-6">
@@ -57,17 +55,32 @@ const UpperPart = () => {
 };
 
 const HomeDetails = () => {
+  const [house, setHouse] = useState({});
+
+  const { id } = useParams();
+
+  useEffect(() => {
+    axiosInstance
+      .get(`/houses/${id}`)
+      .then((res) => {
+        console.log(res.data.data);
+        setHouse(res.data.data.house);
+        console.log(house);
+      })
+      .catch(() => navigate(-1));
+  }, [id]);
+
   return (
     <div className="p-2">
       <div className="md:px-20 mt-9">
-        <UpperPart />
+        <UpperPart house={house} />
 
         <div className="mt-5 ">
-          <Photogrid />
+          <Photogrid images={house.images} />
         </div>
 
         <div className="">
-          <MiddleSection />
+          <MiddleSection house={house} />
         </div>
 
         <div className="w-full h-[1px] bg-gray-500 mt-24"></div>

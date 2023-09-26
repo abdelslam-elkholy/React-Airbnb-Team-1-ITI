@@ -9,12 +9,12 @@ import DateCard from "./DateCard";
 
 import { BsFillKeyboardFill } from "react-icons/bs";
 
-const MiddleSection = () => {
+const MiddleSection = ({ house }) => {
   return (
     <div className="w-full flex md-flex-col ">
       <div className="w-full md:w-[60%] h-auto pr-24 pl-2 pt-10    scrollbar-hide">
         <div className="">
-          <Header />
+          <Header house={house} />
 
           <Line />
         </div>
@@ -38,13 +38,7 @@ const MiddleSection = () => {
         </div>
 
         <div className="mt-7 flex flex-col gap-5 text-left">
-          <p>
-            Jannat blends the most luxurious backdrop of your fantasy with
-            nature’s incredible marvels to create a tranquil utopia that caters
-            to your comfort where Breakfast is complimentary! This 3Bed pool
-            villa in Nashik is a hidden paradise waiting to dazzle you with its
-            tranquil charm.
-          </p>
+          <p>{house.description}</p>
           <p className=" text-[17px] font-semibold underline">Learn more</p>
         </div>
 
@@ -62,7 +56,7 @@ const MiddleSection = () => {
       </div>
 
       <div className="w-[40%]  md:mt-10  md:pl-14   ">
-        <DateCard />
+        <DateCard house={house} />
       </div>
     </div>
   );

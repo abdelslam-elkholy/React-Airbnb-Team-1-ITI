@@ -1,14 +1,15 @@
 import React from "react";
 
-const Header = () => {
+const Header = ({ house }) => {
   return (
     <div className="flex justify-between items-center">
       <div className="text-left">
         <p className="text-3xl font-semibold text-[#20262E]">
-          Farm stay hosted by
+          Farm stay hosted by Admin
         </p>
         <p className=" text-[17px] text-gray-700">
-          5 guests . 2bedrooms . 3beds . 2bathrooms
+          {house.guestNumber} guests . {house.numberOfRooms}bedrooms .
+          {house.numberOfBedrooms}beds . 2bathrooms
         </p>
       </div>
       <div className="ml-20">

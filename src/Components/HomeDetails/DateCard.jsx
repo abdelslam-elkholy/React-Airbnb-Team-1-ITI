@@ -3,10 +3,11 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useNavigate } from "react-router-dom";
 
-const DateCard = () => {
-  const [startDate, setStartDate] = useState(new Date());
+const DateCard = ({ house }) => {
+  const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [guests, setGuests] = useState(1);
+
   const pricePerNight = 100; // Sample price per night
   const taxes = 0.1; // Sample tax rate
   const navigate = useNavigate();

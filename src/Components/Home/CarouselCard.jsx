@@ -44,8 +44,8 @@ export default function CarouselCard({ location }) {
     setActiveStep(step); // handle swipe change
   };
 
-  const navigateToDetails = () => {
-    navigate("/homedetails");
+  const navigateToDetails = (id) => {
+    navigate(`/homedetails/${id}`);
   };
   return (
     <>
@@ -127,7 +127,7 @@ export default function CarouselCard({ location }) {
           />
         </Box>
 
-        <Box sx={flexBetween} onClick={navigateToDetails}>
+        <Box sx={flexBetween} onClick={() => navigateToDetails(location._id)}>
           <Box sx={{ mt: 2 }}>
             <Typography style={{ fontWeight: "bold" }} component="h3">
               {" "}
