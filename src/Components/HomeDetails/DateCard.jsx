@@ -84,7 +84,7 @@ const DateCard = ({ house }) => {
           onChange={(e) => setGuests(Number(e.target.value))}
           className="w-1/2 px-4 py-2 border rounded focus:outline-none focus:border-blue-500"
           min={1}
-          max={10}
+          max={house.guestNumber}
         />
       </div>
 
