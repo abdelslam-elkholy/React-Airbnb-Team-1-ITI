@@ -1,26 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useNavigate } from "react-router-dom";
-
+import axiosInstance from "../../AxiosConfig/instance";
 const DateCard = ({ house }) => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [guests, setGuests] = useState(1);
 
-  const pricePerNight = 100; // Sample price per night
-  const taxes = 0.1; // Sample tax rate
+  const [reserved, setReserved] = useState(false);
+
+  // useEffect(() => {
+  //   axiosInstance
+  //   .get()
+  const taxes = 0.1;
   const navigate = useNavigate();
   const reservedDates = [
-    new Date("2023-09-15"),
-    new Date("2023-09-16"),
-    new Date("2023-09-17"),
+    ...house.unavailableDates.map((date) => new Date(date)),
   ];
 
   const calculateTotalPrice = () => {
     if (startDate && endDate) {
       const nights = Math.ceil((endDate - startDate) / (1000 * 60 * 60 * 24));
-      const subtotal = pricePerNight * nights;
+      const subtotal = house.price * nights;
       const total = subtotal + subtotal * taxes;
       return total.toFixed(2);
     }
@@ -36,7 +38,7 @@ const DateCard = ({ house }) => {
         <label className="block text-gray-700 text-sm font-bold mb-2">
           Price per Night
         </label>
-        <span className="text-gray-700">{`$${pricePerNight}`}</span>
+        <span className="text-gray-700">{house.price}$</span>
       </div>
       <div className="mb-4 flex">
         <div className="mr-2">
@@ -46,10 +48,10 @@ const DateCard = ({ house }) => {
           <DatePicker
             selected={startDate}
             onChange={(date) => setStartDate(date)}
-            selectsStart
+            // selectsStart
             startDate={startDate}
             endDate={endDate}
-            minDate={startDate}
+            minDate={new Date()}
             className="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500"
             placeholderText="Select check-in date"
             excludeDates={reservedDates}
@@ -62,7 +64,7 @@ const DateCard = ({ house }) => {
           <DatePicker
             selected={endDate}
             onChange={(date) => setEndDate(date)}
-            selectsEnd
+            // selectsEnd
             startDate={startDate}
             endDate={endDate}
             minDate={startDate}
