@@ -1,7 +1,7 @@
 import React from "react";
-import SecondNav from "../components/SecondNav";
+import SecondNav from "../Components/Reservation/Payment_Nav/PaymentNavbar";
 import { useSelector } from "react-redux";
-import Photogrid from "../components/Photogrid";
+import Photogrid from "../components";
 import MiddleSection from "../components/MiddleSection";
 import LoadingBar from "react-top-loading-bar";
 import Line from "../components/Line";
@@ -70,7 +70,7 @@ const Reserve = () => {
             </div>
             <div className="flex items-center gap-1 p-1 hover:bg-gray-100 cursor-pointer hover:rounded-md">
               <span className="text-red-600">
-              <ion-icon name="heart"></ion-icon>
+                <ion-icon name="heart"></ion-icon>
               </span>
               <p className="mb-1 underline" onClick={() => handleTarget()}>
                 {/* save */}
@@ -138,9 +138,11 @@ const Reserve = () => {
           <div className="text-left mt-3 flex flex-col gap-3">
             <p className="font-bold">{item.location}</p>
             <p>{item.desc}</p>
-            <p>The HATCH is directly on HIN KONG BEACH FRONT! 
-              Ocean views, on the beach - sandy feet very welcome!!</p>
-            <p className="underline font-semibold">Show More</p>  
+            <p>
+              The HATCH is directly on HIN KONG BEACH FRONT! Ocean views, on the
+              beach - sandy feet very welcome!!
+            </p>
+            <p className="underline font-semibold">Show More</p>
           </div>
         </div>
 
@@ -148,7 +150,7 @@ const Reserve = () => {
       </div>
       {/* footer section */}
       <div className="mt-9">
-          <Footer/>
+        <Footer />
       </div>
     </div>
   );

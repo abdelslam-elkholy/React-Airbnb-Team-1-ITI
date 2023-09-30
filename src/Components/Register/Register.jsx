@@ -81,14 +81,6 @@ const Register = () => {
   }
   return (
     <div>
-      <span
-        className="btn "
-        style={{ border: "1px solid #444" }}
-        onClick={handleShow}
-      >
-        add
-      </span>
-
       <Modal show={show} onHide={handleClose}>
         {/* <Modal.Header closeButton>
       

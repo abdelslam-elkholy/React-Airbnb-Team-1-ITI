@@ -5,7 +5,6 @@ import WishList from "./Pages/WishList";
 import Messages from "./Pages/Messages/Messages";
 import Trips from "./Pages/Trips";
 import NotFound from "./Pages/NotFound";
-import Reservation from "./Pages/Reservation";
 import Homedetails from "./Pages/Homedetails";
 import Home from "./Pages/Home";
 import Account from "./Pages/Account/Account";
@@ -23,6 +22,7 @@ import Credit from "./Components/Reservation/Payment_Form/Credit";
 import PayPal from "./Components/Reservation/Payment_Form/PayPal";
 import GooglePay from "./Components/Reservation/Payment_Form/GooglePay";
 import Homes from "./Pages/Homes/Homes";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -52,7 +52,7 @@ const router = createBrowserRouter([
           { path: "account/travelForWork", element: <TravelForWork /> },
         ],
       },
-      { path: "/reservation", element: <Reservation /> },
+      // { path: "/reservation", element: <Reservation /> },
       // { path: "/account", element: <Account /> },
       // { path: "/personalInfo", element: <PersonalInfo /> },
       // { path: "/loginAndSecurity", element: <LoginAndSecurity /> },
