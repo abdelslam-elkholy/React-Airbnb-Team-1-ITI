@@ -15,7 +15,7 @@ const Login = ({ showLogin, onCloseLogin }) => {
     password: "",
   });
 
-  const [Errors, setErros] = useState([]);
+  const [Errors, setErrors] = useState([]);
   const [ListErrors, setListErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -33,7 +33,8 @@ const Login = ({ showLogin, onCloseLogin }) => {
       window.location.reload();
     } catch (error) {
       setIsLoading(false);
-      setErros(response.data.message);
+      console.log(error.response.data.message);
+      setErrors(error.response.data.message);
 
       console.error("Error:", error);
     }
@@ -150,7 +151,7 @@ const Login = ({ showLogin, onCloseLogin }) => {
               ) : (
                 ""
               )}
-
+              {Errors && <div className="  text-danger  my-1 ">{Errors}</div>}
               {/* ========= handel error */}
 
               <div className="form-group">

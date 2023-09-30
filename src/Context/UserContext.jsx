@@ -13,9 +13,11 @@ export const UserProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   const logout = () => {
+    console.log("context logout");
     Cookies.remove("token");
     setUser(null);
   };
+
   console.log("context");
 
   useEffect(() => {

@@ -20,12 +20,9 @@ const Home = () => {
           sx={{
             display: "flex",
             flexDirection: "column",
-            // height: "100vh",
-            // overflowY: "scroll",
           }}
         >
           <Box>
-            {/* <Header /> */}
             <OptionsTabs />
           </Box>
           <Box

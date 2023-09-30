@@ -5,6 +5,7 @@ import Login from "../Login/Login";
 import Cookies from "js-cookie";
 
 import { useUser } from "../../Context/UserContext";
+import { Link } from "react-router-dom";
 const ProfileSettings = () => {
   const { user, loading, logout } = useUser();
   console.log(user);
@@ -54,7 +55,9 @@ const ProfileSettings = () => {
             <div className="border-bottom my-2">
               <li className="dropdown-item my-2 fw-bold">Messages</li>
               <li className="dropdown-item my-2 fw-bold">Trips</li>
-              <li className="dropdown-item my-2 fw-bold"> Wishlists</li>
+              <li className="dropdown-item my-2 fw-bold">
+                <Link to="/wishList">Wishlists</Link>
+              </li>
             </div>
             <div className="border-bottom my-2 ">
               <li className="dropdown-item my-2 text_gary">Airbnb your home</li>
@@ -65,7 +68,7 @@ const ProfileSettings = () => {
               className="dropdown-item my-2 text_gary"
               onClick={() => {
                 window.location.reload();
-                logout;
+                logout();
               }}
             >
               Log Out
