@@ -120,10 +120,296 @@ export default function LocationSearch() {
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
-    const createHandleMenuClick = (menuItem) => {
-        return () => {
-            console.log(`Clicked on ${menuItem}`);
-        };
+    // const createHandleMenuClick = (menuItem) => {
+    //     return () => {
+    //         console.log(`Clicked on ${menuItem}`);
+    //     };
+    // };
+
+    // const [modalDisplay, setModalDisplay] = useState('none');
+
+    // const closeModal = () => {
+    //     setModalDisplay('none');
+    // };
+
+    // const handleModalClick = (event) => {
+    //     if (event.target === modalRef.current) {
+    //         closeModal();
+    //     }
+    // };
+    const [moveInOptionsSearchLocation, setmoveInOptionsSearchLocation] = React.useState(false);
+    const [moveInOptionsSearchCheckInAndCheckOut, setmoveInOptionsSearcCheckInAndCheckOut] = React.useState(false);
+    const [moveInOptionsSearchGuests, setmoveInOptionsSearchGuests] = React.useState(false);
+    const moveInOptionsSearchTabsFunc = (CurrentTab) => {
+        if (CurrentTab == 'Location') {
+            setmoveInOptionsSearchLocation(true);
+            setmoveInOptionsSearchGuests(false);
+            setmoveInOptionsSearcCheckInAndCheckOut(false)
+            // handleOpen()
+        } else if (CurrentTab == 'CheckInAndCheckOut') {
+            setmoveInOptionsSearchLocation(false);
+            setmoveInOptionsSearchGuests(false);
+            setmoveInOptionsSearcCheckInAndCheckOut(true)
+        } else if (CurrentTab == 'Guests') {
+            setmoveInOptionsSearchLocation(false);
+            setmoveInOptionsSearchGuests(true);
+            setmoveInOptionsSearcCheckInAndCheckOut(false)
+        }
+
+    };
+    const [FlexibleWeekendOption, setFlexibleWeekendOption] = React.useState(false);
+    const [FlexibleWeekOption, setFlexibleWeekOption] = React.useState(false);
+    const [FlexibleMonthOption, setFlexibleMonthOption] = React.useState(true);
+    const moveInFlexibleOptions = (CurrentFlexibleOption) => {
+        if (CurrentFlexibleOption == 'Month') {
+            setFlexibleWeekendOption(false);
+            setFlexibleWeekOption(false);
+            setFlexibleMonthOption(true)
+        } else if (CurrentFlexibleOption == 'Week') {
+            setFlexibleWeekendOption(false);
+            setFlexibleWeekOption(true);
+            setFlexibleMonthOption(false)
+        } else if (CurrentFlexibleOption == 'Weekend') {
+            setFlexibleWeekendOption(true);
+            setFlexibleWeekOption(false);
+            setFlexibleMonthOption(false)
+        }
+
+    };
+    const [moveInOptionsSearchLocationFlexible, setmoveInOptionsSearchLocationFlexible] = React.useState(false);
+    const [moveInOptionsSearchLocationEurope, setmoveInOptionsSearchLocationEurope] = React.useState(false);
+    const [moveInOptionsSearchLocationItaly, setmoveInOptionsSearchLocationItaly] = React.useState(false);
+    const [moveInOptionsSearchLocationUnitedStates, setmoveInOptionsSearchLocationUnitedStates] = React.useState(false);
+    const [moveInOptionsSearchLocationTurkey, setmoveInOptionsSearchLocationTurkey] = React.useState(false);
+    const [moveInOptionsSearchLocationAfrica, setmoveInOptionsSearchLocationAfrica] = React.useState(false);
+
+    const SearchByRegion = (CurrentRegion) => {
+        if (CurrentRegion == 'Flexible') {
+            setmoveInOptionsSearchLocationFlexible(!moveInOptionsSearchLocationFlexible);
+            setmoveInOptionsSearchLocationEurope(false);
+            setmoveInOptionsSearchLocationItaly(false)
+            setmoveInOptionsSearchLocationUnitedStates(false);
+            setmoveInOptionsSearchLocationTurkey(false)
+            setmoveInOptionsSearchLocationAfrica(false)
+            // handleOpen()
+        } else if (CurrentRegion == 'Europe') {
+            setmoveInOptionsSearchLocationFlexible(false);
+            setmoveInOptionsSearchLocationEurope(!moveInOptionsSearchLocationEurope);
+            setmoveInOptionsSearchLocationItaly(false)
+            setmoveInOptionsSearchLocationUnitedStates(false);
+            setmoveInOptionsSearchLocationTurkey(false)
+            setmoveInOptionsSearchLocationAfrica(false)
+        } else if (CurrentRegion == 'Italy') {
+            setmoveInOptionsSearchLocationFlexible(false);
+            setmoveInOptionsSearchLocationEurope(false);
+            setmoveInOptionsSearchLocationItaly(!moveInOptionsSearchLocationItaly)
+            setmoveInOptionsSearchLocationUnitedStates(false);
+            setmoveInOptionsSearchLocationTurkey(false)
+            setmoveInOptionsSearchLocationAfrica(false)
+        } else if (CurrentRegion == 'UnitedStates') {
+            setmoveInOptionsSearchLocationFlexible(false);
+            setmoveInOptionsSearchLocationEurope(false);
+            setmoveInOptionsSearchLocationItaly(false)
+            setmoveInOptionsSearchLocationUnitedStates(!moveInOptionsSearchLocationUnitedStates);
+            setmoveInOptionsSearchLocationTurkey(false)
+            setmoveInOptionsSearchLocationAfrica(false)
+        } else if (CurrentRegion == 'Turkey') {
+            setmoveInOptionsSearchLocationFlexible(false);
+            setmoveInOptionsSearchLocationEurope(false);
+            setmoveInOptionsSearchLocationItaly(false)
+            setmoveInOptionsSearchLocationUnitedStates(false);
+            setmoveInOptionsSearchLocationTurkey(!moveInOptionsSearchLocationTurkey)
+            setmoveInOptionsSearchLocationAfrica(false)
+        } else if (CurrentRegion == 'Africa') {
+            setmoveInOptionsSearchLocationFlexible(false);
+            setmoveInOptionsSearchLocationEurope(false);
+            setmoveInOptionsSearchLocationItaly(false)
+            setmoveInOptionsSearchLocationUnitedStates(false);
+            setmoveInOptionsSearchLocationTurkey(false)
+            setmoveInOptionsSearchLocationAfrica(!moveInOptionsSearchLocationAfrica)
+        }
+    }
+    const [JanuaryMonth, setJanuaryMonth] = React.useState(true);
+    const [FebruaryMonth, setFebruaryMonth] = React.useState(false);
+    const [MarchMonth, setMarchMonth] = React.useState(false);
+    const [AprilMonth, setAprilMonth] = React.useState(false);
+    const [MayMonth, setMayMonth] = React.useState(false);
+    const [JuneMonth, setJuneMonth] = React.useState(false);
+    const [JulyMonth, setJulyMonth] = React.useState(false);
+    const [AugustMonth, setAugustMonth] = React.useState(false);
+    const [SeptemberMonth, setSeptemberMonth] = React.useState(false);
+    const [OctoberMonth, setOctoberMonth] = React.useState(false);
+    const [NovemberMonth, setNovemberMonth] = React.useState(false);
+    const [DecemberMonth, setDecemberMonth] = React.useState(false);
+
+
+    const slectMonthsOptionsCarsoul = (CurrentMonth) => {
+        if (CurrentMonth == 'January') {
+            setJanuaryMonth(!JanuaryMonth);
+
+        } else if (CurrentMonth == 'February') {
+
+            setFebruaryMonth(!FebruaryMonth);
+
+        } else if (CurrentMonth == 'March') {
+
+            setMarchMonth(!MarchMonth)
+
+        } else if (CurrentMonth == 'April') {
+
+            setAprilMonth(!AprilMonth);
+
+        } else if (CurrentMonth == 'May') {
+
+            setMayMonth(!MayMonth)
+
+        } else if (CurrentMonth == 'June') {
+
+            setJuneMonth(!JuneMonth)
+
+        } else if (CurrentMonth == 'July') {
+
+            setJulyMonth(!JulyMonth);
+
+        } else if (CurrentMonth == 'August') {
+
+            setAugustMonth(!AugustMonth)
+
+        } else if (CurrentMonth == 'September') {
+
+            setSeptemberMonth(!SeptemberMonth);
+
+        } else if (CurrentMonth == 'October') {
+
+            setOctoberMonth(!OctoberMonth)
+
+        } else if (CurrentMonth == 'November') {
+
+            setNovemberMonth(!NovemberMonth)
+        } else if (CurrentMonth == 'December') {
+
+            setDecemberMonth(!DecemberMonth)
+        }
+
+    };
+    const [AdultsGuest, setAdultsGuest] = React.useState(0);
+    const [ChildrenGuest, setChildrenGuest] = React.useState(0);
+    const [InfantsGuest, setInfantsGuest] = React.useState(0);
+    const [PetsGuest, setPetsGuest] = React.useState(0);
+    const [GuestsPlusBTNAdults, setGuestsPlusBTNAdults] = React.useState(false);
+    const [GuestsMinusBTNAdults, setGuestsMinusBTNAdults] = React.useState(true);
+    const [GuestsPlusBTNChildren, setGuestsPlusBTNChildren] = React.useState(false);
+    const [GuestsMinusBTNChildren, setGuestsMinusBTNChildren] = React.useState(true);
+    const [GuestsPlusBTNInfants, setGuestsPlusBTNInfants] = React.useState(false);
+    const [GuestsMinusBTNInfants, setGuestsMinusBTNInfants] = React.useState(true);
+    const [GuestsPlusBTNPets, setGuestsPlusBTNPets] = React.useState(false);
+    const [GuestsMinusBTNPets, setGuestsMinusBTNPets] = React.useState(true);
+
+    const GuestsNumberPlus = (target) => {
+        if (target == 'Adults') {
+            if (AdultsGuest >= 0 && AdultsGuest < 16) {
+                setAdultsGuest(AdultsGuest + 1);
+                setGuestsPlusBTNAdults(false)
+                if (AdultsGuest >= 0) {
+                    setGuestsMinusBTNAdults(false)
+                } else {
+                    setGuestsMinusBTNAdults(true)
+                }
+            } else if (AdultsGuest >= 16) {
+                setGuestsPlusBTNAdults(true);
+            }
+        } else if (target == 'Children') {
+            if (ChildrenGuest >= 0 && ChildrenGuest < 16) {
+                setChildrenGuest(ChildrenGuest + 1);
+                setGuestsPlusBTNChildren(false)
+                if (ChildrenGuest >= 0) {
+                    setGuestsMinusBTNChildren(false)
+                } else {
+                    setGuestsMinusBTNChildren(true)
+                }
+            } else if (ChildrenGuest >= 16) {
+                setGuestsPlusBTNChildren(true);
+            }
+        } else if (target == 'Infants') {
+            if (InfantsGuest >= 0 && InfantsGuest < 5) {
+                setInfantsGuest(InfantsGuest + 1);
+                setGuestsPlusBTNInfants(false)
+                if (InfantsGuest >= 0) {
+                    setGuestsMinusBTNInfants(false)
+                } else {
+                    setGuestsMinusBTNInfants(true)
+                }
+            } else if (InfantsGuest >= 5) {
+                setGuestsPlusBTNInfants(true);
+            }
+        } else if (target == 'Pets') {
+            if (PetsGuest >= 0 && PetsGuest < 5) {
+                setPetsGuest(PetsGuest + 1);
+                setGuestsPlusBTNPets(false)
+                if (PetsGuest >= 0) {
+                    setGuestsMinusBTNPets(false)
+                } else {
+                    setGuestsMinusBTNPets(true)
+                }
+            } else if (PetsGuest >= 5) {
+                setGuestsPlusBTNPets(true);
+            }
+        }
+
+    }
+    const GuestsNumberMinus = (target) => {
+        if (target == 'Adults') {
+            if (AdultsGuest >= 1 && AdultsGuest <= 16) {
+                setAdultsGuest(AdultsGuest - 1);
+                setGuestsPlusBTNAdults(false)
+                if (AdultsGuest > 1) {
+                    setGuestsMinusBTNAdults(false)
+                } else {
+                    setGuestsMinusBTNAdults(true)
+                }
+            } else if (AdultsGuest > 16) {
+                setGuestsPlusBTNAdults(true);
+            }
+        } else if (target == 'Children') {
+            if (ChildrenGuest >= 1 && ChildrenGuest <= 16) {
+                setChildrenGuest(ChildrenGuest - 1);
+                setGuestsPlusBTNChildren(false)
+                if (ChildrenGuest > 1) {
+                    setGuestsMinusBTNChildren(false)
+                } else {
+                    setGuestsMinusBTNChildren(true)
+                }
+            } else if (ChildrenGuest > 16) {
+                setGuestsPlusBTNChildren(true);
+            }
+
+        } else if (target == 'Infants') {
+            if (InfantsGuest >= 1 && InfantsGuest <= 5) {
+                setInfantsGuest(InfantsGuest - 1);
+                setGuestsPlusBTNInfants(false)
+                if (InfantsGuest > 1) {
+                    setGuestsMinusBTNInfants(false)
+                } else {
+                    setGuestsMinusBTNInfants(true)
+                }
+            } else if (InfantsGuest > 5) {
+                setGuestsPlusBTNInfants(true);
+            }
+
+        } else if (target == 'Pets') {
+            if (PetsGuest >= 1 && PetsGuest <= 5) {
+                setPetsGuest(PetsGuest - 1);
+                setGuestsPlusBTNPets(false)
+                if (PetsGuest > 1) {
+                    setGuestsMinusBTNPets(false)
+                } else {
+                    setGuestsMinusBTNPets(true)
+                }
+            } else if (PetsGuest > 5) {
+                setGuestsPlusBTNPets(true);
+            }
+
+        }
     };
     return (
         <>
@@ -172,7 +458,7 @@ export default function LocationSearch() {
             </Container>
             <Container sx={{ display: (isHiden == false) ? 'none' : 'flex', justifyContent: 'center', p: 0, m: 0, flexDirection: 'column', alignContent: 'center' }}>
                 <Box sx={{ width: '100%' }}>
-                    <Box sx={{ borderColor: 'divider' }}>
+                    <Box sx={{ borderColor: 'divider', marginLeft: 20 }}>
                         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" style={{ justifyContent: 'center' }}>
                             <Tab label="Stays" {...a11yProps(0)} />
                             <Tab label="Experiences" {...a11yProps(1)} />
@@ -183,38 +469,38 @@ export default function LocationSearch() {
                         <div class="bar p-0 m-0" style={{ height: '50%' }}>
 
                             <Dropdown sx={{ p: 0 }}>
-                                <TriggerButton   onClick={handleOpen} className="location actv rounded-pill border-0 " >
-                                    <p  className='ps-3 BarTitle text-start'>Location</p>
+                                <TriggerButton onClick={() => { moveInOptionsSearchTabsFunc('Location') }} className={`location ${moveInOptionsSearchLocation ? 'actv' : ''} rounded-pill border-0 `} >
+                                    <p className='ps-3 BarTitle text-start'>Location</p>
                                     <input type="text" placeholder="Where are you going?" />
                                 </TriggerButton>
-                                <Menu   style={{ zIndex: "20" }} slots={{ listbox: StyledListbox }}>
+                                <Menu style={{ zIndex: "20" }} slots={{ listbox: StyledListbox }}>
                                     <div className='p-4'>
                                         <div><p style={{ fontWeight: 'bold' }}>Search by region</p></div>
                                         <div className='d-flex'>
                                             <div>
-                                                <img width={'100rem'} className='m-2 map rounded' src='https://a0.muscache.com/pictures/f9ec8a23-ed44-420b-83e5-10ff1f071a13.jpg' />
+                                                <img onClick={() => { SearchByRegion('Flexible') }} width={'100rem'} className={`m-2 ${moveInOptionsSearchLocationFlexible ? 'mapActive' : ''}  map rounded`} src='https://a0.muscache.com/pictures/f9ec8a23-ed44-420b-83e5-10ff1f071a13.jpg' />
                                                 <p className='ps-2'>I’m flexible</p>
                                             </div>
                                             <div>
-                                                <img width={'100rem'} className='m-2 map rounded' src='https://a0.muscache.com/im/pictures/7b5cf816-6c16-49f8-99e5-cbc4adfd97e2.jpg?im_w=320' />
+                                                <img onClick={() => { SearchByRegion('Europe') }} width={'100rem'} className={`m-2 ${moveInOptionsSearchLocationEurope ? 'mapActive' : ''}  map rounded`} src='https://a0.muscache.com/im/pictures/7b5cf816-6c16-49f8-99e5-cbc4adfd97e2.jpg?im_w=320' />
                                                 <p className='ps-2'>Europe</p>
                                             </div>
                                             <div>
-                                                <img width={'100rem'} className='m-2 map rounded' src='https://a0.muscache.com/im/pictures/ea5598d7-2b07-4ed7-84da-d1eabd9f2714.jpg?im_w=320' />
+                                                <img onClick={() => { SearchByRegion('Italy') }} width={'100rem'} className={`m-2 ${moveInOptionsSearchLocationItaly ? 'mapActive' : ''}  map rounded`} src='https://a0.muscache.com/im/pictures/ea5598d7-2b07-4ed7-84da-d1eabd9f2714.jpg?im_w=320' />
                                                 <p className='ps-2'>Italy</p>
                                             </div>
                                         </div>
                                         <div className='d-flex'>
                                             <div>
-                                                <img width={'100rem'} className='m-2 map rounded' src='https://a0.muscache.com/im/pictures/4e762891-75a3-4fe1-b73a-cd7e673ba915.jpg?im_w=320' />
+                                                <img onClick={() => { SearchByRegion('UnitedStates') }} width={'100rem'} className={`m-2 ${moveInOptionsSearchLocationUnitedStates ? 'mapActive' : ''}  map rounded`} src='https://a0.muscache.com/im/pictures/4e762891-75a3-4fe1-b73a-cd7e673ba915.jpg?im_w=320' />
                                                 <p className='ps-2'>United States</p>
                                             </div>
                                             <div>
-                                                <img width={'100rem'} className='m-2 map rounded' src='https://a0.muscache.com/im/pictures/97d76097-22b3-4d87-9459-ad1b90b18d2f.jpg?im_w=320' />
+                                                <img onClick={() => { SearchByRegion('Turkey') }} width={'100rem'} className={`m-2 ${moveInOptionsSearchLocationTurkey ? 'mapActive' : ''}  map rounded`} src='https://a0.muscache.com/im/pictures/97d76097-22b3-4d87-9459-ad1b90b18d2f.jpg?im_w=320' />
                                                 <p className='ps-2'>Turkey</p>
                                             </div>
                                             <div>
-                                                <img width={'100rem'} className='m-2 map rounded' src='https://a0.muscache.com/im/pictures/7e9673a5-4164-4708-a047-8d281b5980e7.jpg?im_w=320' />
+                                                <img onClick={() => { SearchByRegion('Africa') }} width={'100rem'} className={`m-2 ${moveInOptionsSearchLocationAfrica ? 'mapActive' : ''}  map rounded`} src='https://a0.muscache.com/im/pictures/7e9673a5-4164-4708-a047-8d281b5980e7.jpg?im_w=320' />
                                                 <p className='ps-2'>Africa</p>
                                             </div>
                                         </div>
@@ -224,14 +510,14 @@ export default function LocationSearch() {
                             </Dropdown>
 
                             <Dropdown sx={{ p: 0 }}>
-                                <TriggerButton className="Date rounded-pill  border-0 " >
-                                    <p className='ps-5 BarTitle text-start'>Check in & Check out</p>
-                                    <input disabled type="text" placeholder="Add dates" />
+                                <TriggerButton onClick={() => { moveInOptionsSearchTabsFunc('CheckInAndCheckOut') }} className={`Date ${moveInOptionsSearchCheckInAndCheckOut ? 'actv' : ''}  rounded-pill  border-0 `} >
+                                    <p className='px-3 BarTitle text-start'>Check in & Check out</p>
+                                    <input className='px-3' disabled type="text" placeholder="Add dates" />
                                 </TriggerButton>
                                 <Menu style={{ zIndex: "20" }} slots={{ listbox: StyledListbox }}>
                                     <div className='p-3'>
                                         <div style={{ backgroundColor: '#ebebeb ' }} className='p-2 rounded-pill w-50 d-flex mx-auto justify-content-evenly'>
-                                            <button style={{ backgroundColor: '#ebebeb ' }} type="button" class="btn btn-light rounded-pill px-4 border-0 DateType" onClick={() => { toggleDate() }}>Dates</button>
+                                            <button style={{ backgroundColor: '#ebebeb ' }} type="button" class="btn btn-light rounded-pill px-4 border-0 DateType " onClick={() => { toggleDate() }}>Dates</button>
                                             <button style={{ backgroundColor: '#ebebeb ' }} type="button" class="btn btn-light rounded-pill px-4 border-0 DateType">Months</button>
                                             <button style={{ backgroundColor: '#ebebeb ' }} type="button" class="btn btn-light rounded-pill px-4 border-0 DateType" onClick={() => { toggleDate() }}>Flexible</button>
                                         </div>
@@ -243,14 +529,14 @@ export default function LocationSearch() {
                                             </LocalizationProvider>
                                         </div>
                                         <div className='p-0 m-0 d-flex flex-column align-items-center' style={{ display: (isFlexible == true) ? 'flex' : 'none' }}>
-                                            <h6 className='mt-5'>How long would you like to stay?</h6>
-                                            <div>
-                                                <button type="button" class="btn btn-outline-dark rounded-pill mx-1 my-2">Weekend</button>
-                                                <button type="button" class="btn btn-outline-dark rounded-pill mx-1 my-2">Week</button>
-                                                <button type="button" class="btn btn-outline-dark rounded-pill mx-1 my-2">Month</button>
+                                            <h6 style={{ display: (isFlexible == true) ? 'flex' : 'none' }} className='mt-5'>How long would you like to stay?</h6>
+                                            <div style={{ display: (isFlexible == true) ? 'flex' : 'none' }}>
+                                                <button onClick={() => { moveInFlexibleOptions('Weekend') }} type="button" class={` ${FlexibleWeekendOption ? 'active' : ''} btn btn-outline-dark rounded-pill mx-1 my-2`}>Weekend</button>
+                                                <button onClick={() => { moveInFlexibleOptions('Week') }} type="button" class={` ${FlexibleWeekOption ? 'active' : ''} btn btn-outline-dark rounded-pill mx-1 my-2`}>Week</button>
+                                                <button onClick={() => { moveInFlexibleOptions('Month') }} type="button" class={` ${FlexibleMonthOption ? 'active' : ''} btn btn-outline-dark rounded-pill mx-1 my-2`}>Month</button>
                                             </div>
-                                            <h6 className='mt-4'>When do you want to go?</h6>
-                                            <Box sx={{ maxWidth: {  sm: 700 }, bgcolor: 'background.paper' ,marginBottom:2}}>
+                                            <h6 style={{ display: (isFlexible == true) ? 'flex' : 'none' }} className='mt-4'>When do you want to go?</h6>
+                                            <Box style={{ display: (isFlexible == true) ? 'flex' : 'none' }} sx={{ maxWidth: { sm: 700 }, bgcolor: 'background.paper', marginBottom: 2 }}>
                                                 <Tabs
                                                     value={value2}
                                                     onChange={handleChange2}
@@ -259,24 +545,19 @@ export default function LocationSearch() {
                                                     allowScrollButtonsMobile
                                                     aria-label="scrollable force tabs example"
                                                 >
-                                                    <Tab label="January " />
-                                                    <Tab label="January " />
-                                                    <Tab icon={<CalendarTodayIcon />} />
-                                                    <Tab icon={<CalendarTodayIcon />} />
-                                                    <Tab icon={<CalendarTodayIcon />} />
-                                                    <Tab icon={<CalendarTodayIcon />} />
-                                                    <Tab icon={<CalendarTodayIcon />} className='slectedDate' label="January" />
-                                                    <Tab icon={<CalendarTodayIcon />} label="February" />
-                                                    <Tab icon={<CalendarTodayIcon />} label="March" />
-                                                    <Tab icon={<CalendarTodayIcon />} label="April" />
-                                                    <Tab icon={<CalendarTodayIcon />} label="May" />
-                                                    <Tab icon={<CalendarTodayIcon />} label="June " />
-                                                    <Tab icon={<CalendarTodayIcon />} label="July  " />
-                                                    <Tab icon={<CalendarTodayIcon />} label="August  " />
-                                                    <Tab icon={<CalendarTodayIcon />} label="September " />
-                                                    <Tab icon={<CalendarTodayIcon />} label="October  " />
-                                                    <Tab icon={<CalendarTodayIcon />} label="November " />
-                                                    <Tab icon={<CalendarTodayIcon />} label="December  " />
+
+                                                    <Tab icon={<CalendarTodayIcon />} onClick={() => { slectMonthsOptionsCarsoul('January') }} className={` ${JanuaryMonth ? 'slectedDate' : ''} `} label="January" />
+                                                    <Tab icon={<CalendarTodayIcon />} onClick={() => { slectMonthsOptionsCarsoul('February') }} className={` ${FebruaryMonth ? 'slectedDate' : ''} `} label="February" />
+                                                    <Tab icon={<CalendarTodayIcon />} onClick={() => { slectMonthsOptionsCarsoul('March') }} className={` ${MarchMonth ? 'slectedDate' : ''} `} label="March" />
+                                                    <Tab icon={<CalendarTodayIcon />} onClick={() => { slectMonthsOptionsCarsoul('April') }} className={` ${AprilMonth ? 'slectedDate' : ''} `} label="April" />
+                                                    <Tab icon={<CalendarTodayIcon />} onClick={() => { slectMonthsOptionsCarsoul('May') }} className={` ${MayMonth ? 'slectedDate' : ''} `} label="May" />
+                                                    <Tab icon={<CalendarTodayIcon />} onClick={() => { slectMonthsOptionsCarsoul('June') }} className={` ${JuneMonth ? 'slectedDate' : ''} `} label="June" />
+                                                    <Tab icon={<CalendarTodayIcon />} onClick={() => { slectMonthsOptionsCarsoul('July') }} className={` ${JulyMonth ? 'slectedDate' : ''} `} label="July" />
+                                                    <Tab icon={<CalendarTodayIcon />} onClick={() => { slectMonthsOptionsCarsoul('August') }} className={` ${AugustMonth ? 'slectedDate' : ''} `} label="August" />
+                                                    <Tab icon={<CalendarTodayIcon />} onClick={() => { slectMonthsOptionsCarsoul('September') }} className={` ${SeptemberMonth ? 'slectedDate' : ''} `} label="September" />
+                                                    <Tab icon={<CalendarTodayIcon />} onClick={() => { slectMonthsOptionsCarsoul('October') }} className={` ${OctoberMonth ? 'slectedDate' : ''} `} label="October" />
+                                                    <Tab icon={<CalendarTodayIcon />} onClick={() => { slectMonthsOptionsCarsoul('November') }} className={` ${NovemberMonth ? 'slectedDate' : ''} `} label="November" />
+                                                    <Tab icon={<CalendarTodayIcon />} onClick={() => { slectMonthsOptionsCarsoul('December') }} className={` ${DecemberMonth ? 'slectedDate' : ''} `} label="December" />
 
                                                 </Tabs>
                                             </Box>
@@ -287,10 +568,10 @@ export default function LocationSearch() {
                                 </Menu>
                             </Dropdown>
                             <Dropdown sx={{ p: 0 }}>
-                                <TriggerButton className="guests rounded-pill  border-0" >
-                                    <p className='BarTitle text-start'>Guests</p>
-                                    <input disabled type="text" placeholder="Add guests" />
-                                    <span><i class="fa-solid fa-magnifying-glass"></i></span>
+                                <TriggerButton onClick={() => { moveInOptionsSearchTabsFunc('Guests') }} className={`guests ${moveInOptionsSearchGuests ? 'actv' : ''} rounded-pill border-0 `} >
+                                    <p className='px-3 BarTitle text-start'>Guests</p>
+                                    <input className='px-3' disabled type="text" placeholder="Add guests" />
+                                    {/* <span onClick={() => { toggleSearchBar() }}  ><i class="fa-solid fa-magnifying-glass"></i></span> */}
                                 </TriggerButton>
                                 <Menu style={{ zIndex: "20" }} slots={{ listbox: StyledListbox }}>
                                     <ol class="list-group list-group-flush p-2" >
@@ -300,11 +581,11 @@ export default function LocationSearch() {
                                                 <span className='text-secondary'>Ages 13 or above</span>
                                             </div>
                                             <span class="rounded-pill d-flex">
-                                                <button type="button" class="btn btn-outline-dark rounded-circle btn-sm">
+                                                <button onClick={() => { GuestsNumberMinus('Adults') }} type="button" class={`${GuestsMinusBTNAdults ? 'disabled' : ''} btn btn-outline-dark rounded-circle btn-sm`}>
                                                     <i class="fa-solid fa-minus"></i>
                                                 </button>
-                                                <p className='p-2 m-0'>0</p>
-                                                <button type="button" class="btn btn-outline-dark rounded-circle btn-sm">
+                                                <p className='p-2 m-0'>{AdultsGuest}</p>
+                                                <button onClick={() => { GuestsNumberPlus('Adults') }} type="button" class={` ${GuestsPlusBTNAdults ? 'disabled' : ''}  btn btn-outline-dark rounded-circle btn-sm`}>
                                                     <i class="fa-solid fa-plus"></i>
                                                 </button>
                                             </span>
@@ -315,11 +596,11 @@ export default function LocationSearch() {
                                                 <span className='text-secondary'>Ages 2–12</span>
                                             </div>
                                             <span class="rounded-pill d-flex">
-                                                <button type="button" class="btn btn-outline-dark rounded-circle btn-sm">
+                                                <button onClick={() => { GuestsNumberMinus('Children') }} type="button" class={`${GuestsMinusBTNChildren ? 'disabled' : ''} btn btn-outline-dark rounded-circle btn-sm`}>
                                                     <i class="fa-solid fa-minus"></i>
                                                 </button>
-                                                <p className='p-2 m-0'>0</p>
-                                                <button type="button" class="btn btn-outline-dark rounded-circle btn-sm">
+                                                <p className='p-2 m-0'>{ChildrenGuest}</p>
+                                                <button onClick={() => { GuestsNumberPlus('Children') }} type="button" class={` ${GuestsPlusBTNChildren ? 'disabled' : ''}  btn btn-outline-dark rounded-circle btn-sm`}>
                                                     <i class="fa-solid fa-plus"></i>
                                                 </button>
                                             </span>
@@ -330,11 +611,11 @@ export default function LocationSearch() {
                                                 <span className='text-secondary'>Under 2</span>
                                             </div>
                                             <span class="rounded-pill d-flex">
-                                                <button type="button" class="btn btn-outline-dark rounded-circle btn-sm">
+                                                <button onClick={() => { GuestsNumberMinus('Infants') }} type="button" class={`${GuestsMinusBTNInfants ? 'disabled' : ''} btn btn-outline-dark rounded-circle btn-sm`}>
                                                     <i class="fa-solid fa-minus"></i>
                                                 </button>
-                                                <p className='p-2 m-0'>0</p>
-                                                <button type="button" class="btn btn-outline-dark rounded-circle btn-sm">
+                                                <p className='p-2 m-0'>{InfantsGuest}</p>
+                                                <button onClick={() => { GuestsNumberPlus('Infants') }} type="button" class={` ${GuestsPlusBTNInfants ? 'disabled' : ''}  btn btn-outline-dark rounded-circle btn-sm`}>
                                                     <i class="fa-solid fa-plus"></i>
                                                 </button>
                                             </span>
@@ -345,11 +626,11 @@ export default function LocationSearch() {
                                                 <a className='link-secondary'>Bringing a service animal?</a>
                                             </div>
                                             <span class="rounded-pill d-flex">
-                                                <button type="button" class="btn btn-outline-dark rounded-circle btn-sm">
+                                                <button onClick={() => { GuestsNumberMinus('Pets') }} type="button" class={`${GuestsMinusBTNPets ? 'disabled' : ''} btn btn-outline-dark rounded-circle btn-sm`}>
                                                     <i class="fa-solid fa-minus"></i>
                                                 </button>
-                                                <p className='p-2 m-0'>0</p>
-                                                <button type="button" class="disabled  btn btn-outline-dark rounded-circle btn-sm">
+                                                <p className='p-2 m-0'>{PetsGuest}</p>
+                                                <button onClick={() => { GuestsNumberPlus('Pets') }} type="button" class={` ${GuestsPlusBTNPets ? 'disabled' : ''}  btn btn-outline-dark rounded-circle btn-sm`}>
                                                     <i class="fa-solid fa-plus"></i>
                                                 </button>
                                             </span>
@@ -357,43 +638,46 @@ export default function LocationSearch() {
                                     </ol>
                                 </Menu>
                             </Dropdown>
+                            <span onClick={() => { moveInOptionsSearchTabsFunc('Guests') }} className={`guests  rounded-pill border-0 `} >
+                                <span onClick={() => { toggleSearchBar() }}  ><i class="fa-solid fa-magnifying-glass"></i></span>
+                            </span>
                         </div>
                     </CustomTabPanel>
                     <CustomTabPanel value={value} index={1}>
                         <div class="bar p-0 m-0" style={{ height: '50%' }}>
                             <Dropdown sx={{ p: 0 }}>
-                                <TriggerButton className="location actv rounded-pill border-0 " >
-                                    <p className='ps-3 BarTitle text-start'>Location</p>
-                                    <input type="text" placeholder="Where are you going?" />
+                                <TriggerButton onClick={() => { moveInOptionsSearchTabsFunc('Location') }} className={`location ${moveInOptionsSearchLocation ? 'actv' : ''} rounded-pill border-0 `} >
+                                    <p className='px-3 BarTitle text-start'>Location</p>
+                                    <input className='px-3' type="text" placeholder="Where are you going?" />
                                 </TriggerButton>
                                 <Menu style={{ zIndex: "20" }} slots={{ listbox: StyledListbox }}>
                                     <div className='p-4'>
                                         <div><p style={{ fontWeight: 'bold' }}>Search by region</p></div>
                                         <div className='d-flex'>
                                             <div>
-                                                <img width={'100rem'} className='m-2  rounded map' src='https://a0.muscache.com/pictures/f9ec8a23-ed44-420b-83e5-10ff1f071a13.jpg' />
+                                                <img onClick={() => { SearchByRegion('Flexible') }} width={'100rem'} className={`m-2 ${moveInOptionsSearchLocationFlexible ? 'mapActive' : ''}  map rounded`} src='https://a0.muscache.com/pictures/f9ec8a23-ed44-420b-83e5-10ff1f071a13.jpg' />
                                                 <p className='ps-2'>I’m flexible</p>
                                             </div>
                                             <div>
-                                                <img width={'100rem'} className='m-2 rounded map' src='https://a0.muscache.com/im/pictures/7b5cf816-6c16-49f8-99e5-cbc4adfd97e2.jpg?im_w=320' />
+                                                <img onClick={() => { SearchByRegion('Europe') }} width={'100rem'} className={`m-2 ${moveInOptionsSearchLocationEurope ? 'mapActive' : ''}  map rounded`} src='https://a0.muscache.com/im/pictures/7b5cf816-6c16-49f8-99e5-cbc4adfd97e2.jpg?im_w=320' />
                                                 <p className='ps-2'>Europe</p>
                                             </div>
                                             <div>
-                                                <img width={'100rem'} className='m-2 rounded map' src='https://a0.muscache.com/im/pictures/ea5598d7-2b07-4ed7-84da-d1eabd9f2714.jpg?im_w=320' />
+                                                <img onClick={() => { SearchByRegion('Italy') }} width={'100rem'} className={`m-2 ${moveInOptionsSearchLocationItaly ? 'mapActive' : ''}  map rounded`} src='https://a0.muscache.com/im/pictures/ea5598d7-2b07-4ed7-84da-d1eabd9f2714.jpg?im_w=320' />
                                                 <p className='ps-2'>Italy</p>
                                             </div>
                                         </div>
                                         <div className='d-flex'>
                                             <div>
-                                                <img width={'100rem'} className='m-2  rounded map' src='https://a0.muscache.com/im/pictures/4e762891-75a3-4fe1-b73a-cd7e673ba915.jpg?im_w=320' />
+                                                <img onClick={() => { SearchByRegion('UnitedStates') }} width={'100rem'} className={`m-2 ${moveInOptionsSearchLocationUnitedStates ? 'mapActive' : ''}  map rounded`} src='https://a0.muscache.com/im/pictures/4e762891-75a3-4fe1-b73a-cd7e673ba915.jpg?im_w=320' />
                                                 <p className='ps-2'>United States</p>
                                             </div>
                                             <div>
-                                                <img width={'100rem'} className='m-2 rounded map' src='https://a0.muscache.com/im/pictures/97d76097-22b3-4d87-9459-ad1b90b18d2f.jpg?im_w=320' />
+                                                <img onClick={() => { SearchByRegion('Turkey') }} width={'100rem'} className={`m-2 ${moveInOptionsSearchLocationTurkey ? 'mapActive' : ''}  map rounded`} src='https://a0.muscache.com/im/pictures/97d76097-22b3-4d87-9459-ad1b90b18d2f.jpg?im_w=320' />
                                                 <p className='ps-2'>Turkey</p>
                                             </div>
                                             <div>
-                                                <img width={'100rem'} className='m-2 rounded map' src='https://a0.muscache.com/im/pictures/7e9673a5-4164-4708-a047-8d281b5980e7.jpg?im_w=320' />
+                                                <img onClick={() => { SearchByRegion('Africa') }} width={'100rem'} className={`m-2 ${moveInOptionsSearchLocationAfrica ? 'mapActive' : ''}  map rounded`} src='https://a0.muscache.com/im/pictures/7e9673a5-4164-4708-a047-8d281b5980e7.jpg?im_w=320' />
                                                 <p className='ps-2'>Africa</p>
                                             </div>
                                         </div>
@@ -402,9 +686,9 @@ export default function LocationSearch() {
                                 </Menu>
                             </Dropdown>
                             <Dropdown sx={{ p: 0 }}>
-                                <TriggerButton className="Date rounded-pill  border-0 " >
-                                    <p className='ps-5 BarTitle text-start'>Date</p>
-                                    <input disabled type="text" placeholder="Add dates" />
+                                <TriggerButton onClick={() => { moveInOptionsSearchTabsFunc('CheckInAndCheckOut') }} className={`Date ${moveInOptionsSearchCheckInAndCheckOut ? 'actv' : ''}  rounded-pill  border-0 `} >
+                                    <p className='px-3 BarTitle text-start'>Date</p>
+                                    <input className='px-3' disabled type="text" placeholder="Add dates" />
                                 </TriggerButton>
                                 <Menu style={{ zIndex: "20" }} slots={{ listbox: StyledListbox }}>
 
@@ -417,10 +701,10 @@ export default function LocationSearch() {
                             </Dropdown>
 
                             <Dropdown sx={{ p: 0 }}>
-                                <TriggerButton className="guests rounded-pill  border-0" >
-                                    <p className='BarTitle text-start'>Guests</p>
-                                    <input disabled type="text" placeholder="Add guests" />
-                                    <span><i class="fa-solid fa-magnifying-glass"></i></span>
+                                <TriggerButton onClick={() => { moveInOptionsSearchTabsFunc('Guests') }} className={`guests ${moveInOptionsSearchGuests ? 'actv' : ''} rounded-pill border-0 `} >
+                                    <p className='px-2 BarTitle text-start'>Guests</p>
+                                    <input className='px-2' disabled type="text" placeholder="Add guests" />
+                                    {/* <span onClick={() => { toggleSearchBar() }}  ><i class="fa-solid fa-magnifying-glass"></i></span> */}
                                 </TriggerButton>
                                 <Menu style={{ zIndex: "20" }} slots={{ listbox: StyledListbox }}>
                                     <ol class="list-group list-group-flush p-2" >
@@ -430,11 +714,11 @@ export default function LocationSearch() {
                                                 <span className='text-secondary'>Ages 13 or above</span>
                                             </div>
                                             <span class="rounded-pill d-flex">
-                                                <button type="button" class="btn btn-outline-dark rounded-circle btn-sm">
+                                                <button onClick={() => { GuestsNumberMinus('Adults') }} type="button" class={`${GuestsMinusBTNAdults ? 'disabled' : ''} btn btn-outline-dark rounded-circle btn-sm`}>
                                                     <i class="fa-solid fa-minus"></i>
                                                 </button>
-                                                <p className='p-2 m-0'>0</p>
-                                                <button type="button" class="btn btn-outline-dark rounded-circle btn-sm">
+                                                <p className='p-2 m-0'>{AdultsGuest}</p>
+                                                <button onClick={() => { GuestsNumberPlus('Adults') }} type="button" class={` ${GuestsPlusBTNAdults ? 'disabled' : ''}  btn btn-outline-dark rounded-circle btn-sm`}>
                                                     <i class="fa-solid fa-plus"></i>
                                                 </button>
                                             </span>
@@ -445,11 +729,11 @@ export default function LocationSearch() {
                                                 <span className='text-secondary'>Ages 2–12</span>
                                             </div>
                                             <span class="rounded-pill d-flex">
-                                                <button type="button" class="btn btn-outline-dark rounded-circle btn-sm">
+                                                <button onClick={() => { GuestsNumberMinus('Children') }} type="button" class={`${GuestsMinusBTNChildren ? 'disabled' : ''} btn btn-outline-dark rounded-circle btn-sm`}>
                                                     <i class="fa-solid fa-minus"></i>
                                                 </button>
-                                                <p className='p-2 m-0'>0</p>
-                                                <button type="button" class="btn btn-outline-dark rounded-circle btn-sm">
+                                                <p className='p-2 m-0'>{ChildrenGuest}</p>
+                                                <button onClick={() => { GuestsNumberPlus('Children') }} type="button" class={` ${GuestsPlusBTNChildren ? 'disabled' : ''}  btn btn-outline-dark rounded-circle btn-sm`}>
                                                     <i class="fa-solid fa-plus"></i>
                                                 </button>
                                             </span>
@@ -460,11 +744,11 @@ export default function LocationSearch() {
                                                 <span className='text-secondary'>Under 2</span>
                                             </div>
                                             <span class="rounded-pill d-flex">
-                                                <button type="button" class="btn btn-outline-dark rounded-circle btn-sm">
+                                                <button onClick={() => { GuestsNumberMinus('Infants') }} type="button" class={`${GuestsMinusBTNInfants ? 'disabled' : ''} btn btn-outline-dark rounded-circle btn-sm`}>
                                                     <i class="fa-solid fa-minus"></i>
                                                 </button>
-                                                <p className='p-2 m-0'>0</p>
-                                                <button type="button" class="btn btn-outline-dark rounded-circle btn-sm">
+                                                <p className='p-2 m-0'>{InfantsGuest}</p>
+                                                <button onClick={() => { GuestsNumberPlus('Infants') }} type="button" class={` ${GuestsPlusBTNInfants ? 'disabled' : ''}  btn btn-outline-dark rounded-circle btn-sm`}>
                                                     <i class="fa-solid fa-plus"></i>
                                                 </button>
                                             </span>
@@ -475,11 +759,11 @@ export default function LocationSearch() {
                                                 <a className='link-secondary'>Bringing a service animal?</a>
                                             </div>
                                             <span class="rounded-pill d-flex">
-                                                <button type="button" class="btn btn-outline-dark rounded-circle btn-sm">
+                                                <button onClick={() => { GuestsNumberMinus('Pets') }} type="button" class={`${GuestsMinusBTNPets ? 'disabled' : ''} btn btn-outline-dark rounded-circle btn-sm`}>
                                                     <i class="fa-solid fa-minus"></i>
                                                 </button>
-                                                <p className='p-2 m-0'>0</p>
-                                                <button type="button" class="disabled  btn btn-outline-dark rounded-circle btn-sm">
+                                                <p className='p-2 m-0'>{PetsGuest}</p>
+                                                <button onClick={() => { GuestsNumberPlus('Pets') }} type="button" class={` ${GuestsPlusBTNPets ? 'disabled' : ''}  btn btn-outline-dark rounded-circle btn-sm`}>
                                                     <i class="fa-solid fa-plus"></i>
                                                 </button>
                                             </span>
@@ -487,6 +771,9 @@ export default function LocationSearch() {
                                     </ol>
                                 </Menu>
                             </Dropdown>
+                            <span onClick={() => { moveInOptionsSearchTabsFunc('Guests') }} className={`guests  rounded-pill border-0 `} >
+                                <span onClick={() => { toggleSearchBar() }}  ><i class="fa-solid fa-magnifying-glass"></i></span>
+                            </span>
                         </div>
                     </CustomTabPanel>
                 </Box>

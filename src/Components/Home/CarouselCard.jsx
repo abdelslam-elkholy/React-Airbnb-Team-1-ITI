@@ -71,7 +71,7 @@ export default function CarouselCard({ location }) {
           >
             {location.images.map((image, index) => {
               return (
-                <div key={index}>
+                <div key={image}>
                   <Box
                     component="img"
                     sx={carouselImage}

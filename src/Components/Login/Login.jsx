@@ -1,28 +1,20 @@
 import React, { useEffect, useState } from "react";
-
 import { Modal } from "react-bootstrap";
-
 import { useNavigate } from "react-router-dom";
-
 import axios from "axios";
-
 import Joi from "joi";
 import Cookies from "js-cookie";
 import "./Login.css";
 
-// import jwt_decode from "jwt-decode";
 import { useDispatch, useSelector } from "react-redux";
 const Login = ({ showLogin, onCloseLogin }) => {
   const [user, setUser] = useState({
     email: "",
-
     password: "",
   });
 
   const [Errors, setErros] = useState([]);
-
   const [ListErrors, setListErrors] = useState([]);
-
   const [isLoading, setIsLoading] = useState(false);
   const [UserData, setUserData] = useState({});
 
@@ -43,46 +35,22 @@ const Login = ({ showLogin, onCloseLogin }) => {
 
       console.log(response.data.data.user);
       localStorage.setItem("DATA", userData);
-      const token = response.data.token;
-      if (response.data.status === "success") {
-        setIsLoading(false);
-        // Save the token in a cookie
-        Cookies.set("authToken", token, { expires: 1 });
-        setUserData(userData);
 
-        navogator("/home");
-        // window.location.reload();
-      } else {
-        setIsLoading(false);
-        // dispatch(actions.loginUserFail());
-        setErros(response.data.message);
-      }
-    } catch (error) {
+      const token = response.data.token;
+
       setIsLoading(false);
 
-      setErros(error);
+      Cookies.set("authToken", token, { expires: 20 });
+
+      onCloseLogin();
+      navogator("/home");
+    } catch (error) {
+      setIsLoading(false);
+      setErros(response.data.message);
 
       console.error("Error:", error);
     }
   }
-  // let i = localStorage.getItem("DATA");
-  // console.log(JSON.stringify(i));
-  // dispatch(getuserData(UserData))
-  // ================= git data from token by decode it ==============
-  //  function getTokenData(){
-  //   const authToken= Cookies.get("authToken")
-  //   // const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MGExMjEyYzVmYzZiNTcyYTYyNjllOSIsImlhdCI6MTY5NTgyMDcyMiwiZXhwIjoxNjk3NTQ4NzIyfQ.UCSwWLyGkh_IHomIRAZr9GH8-XkCZC0fLZuFcHnK0Xk"
-  //   const decodToken= jwt_decode(authToken)
-  //   return decodToken
-  //  }
-  // useEffect(()=>{
-  //   const decodedToken =getTokenData()
-  //   if( decodedToken){
-  //     console.log(decodedToken);
-  //   }
-  // },[])
-
-  // ============ handel form submitations ============
 
   function HandelFormSubmit(e) {
     e.preventDefault();

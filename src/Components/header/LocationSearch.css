@@ -33,8 +33,11 @@
   .location{
     width:34%;
   }
-  .check-in, .check-out, .guests{
+  .check-in, .check-out{
     width:22%;
+  }
+  .guests{
+    width:18%;
   }
   
   input[type="text"]{
@@ -95,10 +98,7 @@
     font-weight: bold;
     margin: 0;
   }
-  .css-heg063-MuiTabs-flexContainer {
 
-    justify-content: center;
-}
 .Date{
   width: 45%;
 }
@@ -107,6 +107,9 @@
   background-color: white;
 }
 .map:hover{
+  border: 1px solid black;
+}
+.mapActive{
   border: 1px solid black;
 }
 .DateType:hover{

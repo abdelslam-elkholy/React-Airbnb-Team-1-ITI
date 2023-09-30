@@ -10,7 +10,7 @@ const fetchAccount = createAsyncThunk("account/userAccount", async () => {
   try {
     const response = await instance.get("/users/getMe", {
       headers: {
-        Authorization: `token=${authToken}`,
+        Authorization: `Bearer ${authToken}`,
         "Content-Type": "application/json",
       },
     });

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-
 import Photogrid from "../Components/HomeDetails/Photogrid";
 import MiddleSection from "../Components/HomeDetails/MiddleSection";
 import Line from "../Components/HomeDetails/Line";
@@ -10,6 +9,7 @@ import Footer from "../Components/HomeDetails/Footer";
 import { FaStar, FaMapMarkerAlt, FaShareAlt, FaHeart } from "react-icons/fa";
 import { useParams } from "react-router-dom";
 import axiosInstance from "../AxiosConfig/instance";
+
 const UpperPart = ({ house }) => {
   return (
     <>
@@ -63,12 +63,11 @@ const HomeDetails = () => {
     axiosInstance
       .get(`/houses/${id}`)
       .then((res) => {
-        console.log(res.data.data);
         setHouse(() => res.data.data.house);
       })
       .catch(() => navigate(-1));
   }, [id]);
-  console.log(house);
+
   return (
     <div className="p-2">
       <div className="md:px-20 mt-9">

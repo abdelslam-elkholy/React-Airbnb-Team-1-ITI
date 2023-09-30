@@ -10,13 +10,12 @@ const ProfileSettings = () => {
   const [showLoginModal, setShowLoginModal] = useState(false);
   const authToken = Cookies.get("authToken");
 
-  //  ===== fitch user data =========
   useEffect(() => {
     async function getUserData() {
       try {
         const response = await axios.get("http://localhost:3000/users/getMe", {
           headers: {
-            Authorization: authToken,
+            Authorization: `Bearer ${authToken}`,
             "Content-Type": "application/json",
           },
         });

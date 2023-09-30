@@ -98,6 +98,396 @@ export default function OptionsTabs() {
   const handleClose = () => {
     setOpen(false);
   };
+  const [FiltersAnyTypeBTN, setFiltersAnyTypeBTN] = React.useState(true);
+  const [FiltersRoomBTN, setFiltersRoomBTN] = React.useState(false);
+  const [FiltersEntireHomeBTN, setFiltersEntireHomeBTN] = React.useState(false);
+
+  const FilterByTypeOfPlace = (CurrentOption) => {
+      if (CurrentOption == 'AnyType') {
+        setFiltersAnyTypeBTN(true);
+        setFiltersRoomBTN(false);
+        setFiltersEntireHomeBTN(false)
+      } else if (CurrentOption == 'Room') {
+        setFiltersAnyTypeBTN(false);
+        setFiltersRoomBTN(true);
+        setFiltersEntireHomeBTN(false)
+      } else if (CurrentOption == 'EntireHome') {
+        setFiltersAnyTypeBTN(false);
+        setFiltersRoomBTN(false);
+        setFiltersEntireHomeBTN(true)
+      }
+  };
+  const [FiltersBedroomsAny, setFiltersBedroomsBTNAny] = React.useState(true);
+  const [FiltersBedrooms1, setFiltersBedroomsBTN1] = React.useState(false);
+  const [FiltersBedrooms2, setFiltersBedroomsBTN2] = React.useState(false);
+  const [FiltersBedrooms3, setFiltersBedroomsBTN3] = React.useState(false);
+  const [FiltersBedrooms4, setFiltersBedroomsBTN4] = React.useState(false);
+  const [FiltersBedrooms5, setFiltersBedroomsBTN5] = React.useState(false);
+  const [FiltersBedrooms6, setFiltersBedroomsBTN6] = React.useState(false);
+  const [FiltersBedrooms7, setFiltersBedroomsBTN7] = React.useState(false);
+  const [FiltersBedrooms8, setFiltersBedroomsBTN8] = React.useState(false);
+
+
+  const FilterByRoomsAndBeds = (CurrentOption) => {
+      if (CurrentOption == 'Any') {
+        setFiltersBedroomsBTNAny(true)
+        setFiltersBedroomsBTN1(false)
+        setFiltersBedroomsBTN2(false)
+        setFiltersBedroomsBTN3(false)
+        setFiltersBedroomsBTN4(false)
+        setFiltersBedroomsBTN5(false)
+        setFiltersBedroomsBTN6(false)
+        setFiltersBedroomsBTN7(false)
+        setFiltersBedroomsBTN8(false)
+      }
+      else if (CurrentOption == 1) {
+        setFiltersBedroomsBTNAny(false)
+        setFiltersBedroomsBTN1(true)
+        setFiltersBedroomsBTN2(false)
+        setFiltersBedroomsBTN3(false)
+        setFiltersBedroomsBTN4(false)
+        setFiltersBedroomsBTN5(false)
+        setFiltersBedroomsBTN6(false)
+        setFiltersBedroomsBTN7(false)
+        setFiltersBedroomsBTN8(false)
+      }
+      else if (CurrentOption == 2) {
+        setFiltersBedroomsBTNAny(false)
+        setFiltersBedroomsBTN1(false)
+        setFiltersBedroomsBTN2(true)
+        setFiltersBedroomsBTN3(false)
+        setFiltersBedroomsBTN4(false)
+        setFiltersBedroomsBTN5(false)
+        setFiltersBedroomsBTN6(false)
+        setFiltersBedroomsBTN7(false)
+        setFiltersBedroomsBTN8(false)
+      }
+      else if (CurrentOption == 3) {
+        setFiltersBedroomsBTNAny(false)
+        setFiltersBedroomsBTN1(false)
+        setFiltersBedroomsBTN2(false)
+        setFiltersBedroomsBTN3(true)
+        setFiltersBedroomsBTN4(false)
+        setFiltersBedroomsBTN5(false)
+        setFiltersBedroomsBTN6(false)
+        setFiltersBedroomsBTN7(false)
+        setFiltersBedroomsBTN8(false)
+      }
+      else if (CurrentOption == 4) {
+        setFiltersBedroomsBTNAny(false)
+        setFiltersBedroomsBTN1(false)
+        setFiltersBedroomsBTN2(false)
+        setFiltersBedroomsBTN3(false)
+        setFiltersBedroomsBTN4(true)
+        setFiltersBedroomsBTN5(false)
+        setFiltersBedroomsBTN6(false)
+        setFiltersBedroomsBTN7(false)
+        setFiltersBedroomsBTN8(false)
+      }
+      else if (CurrentOption == 5) {
+        setFiltersBedroomsBTNAny(false)
+        setFiltersBedroomsBTN1(false)
+        setFiltersBedroomsBTN2(false)
+        setFiltersBedroomsBTN3(false)
+        setFiltersBedroomsBTN4(false)
+        setFiltersBedroomsBTN5(true)
+        setFiltersBedroomsBTN6(false)
+        setFiltersBedroomsBTN7(false)
+        setFiltersBedroomsBTN8(false)
+      }
+      else if (CurrentOption == 6) {
+        setFiltersBedroomsBTNAny(false)
+        setFiltersBedroomsBTN1(false)
+        setFiltersBedroomsBTN2(false)
+        setFiltersBedroomsBTN3(false)
+        setFiltersBedroomsBTN4(false)
+        setFiltersBedroomsBTN5(false)
+        setFiltersBedroomsBTN6(true)
+        setFiltersBedroomsBTN7(false)
+        setFiltersBedroomsBTN8(false)
+      }
+      else if (CurrentOption == 7) {
+        setFiltersBedroomsBTNAny(false)
+        setFiltersBedroomsBTN1(false)
+        setFiltersBedroomsBTN2(false)
+        setFiltersBedroomsBTN3(false)
+        setFiltersBedroomsBTN4(false)
+        setFiltersBedroomsBTN5(false)
+        setFiltersBedroomsBTN6(false)
+        setFiltersBedroomsBTN7(true)
+        setFiltersBedroomsBTN8(false)
+      }
+      else if (CurrentOption == 8) {
+        setFiltersBedroomsBTNAny(false)
+        setFiltersBedroomsBTN1(false)
+        setFiltersBedroomsBTN2(false)
+        setFiltersBedroomsBTN3(false)
+        setFiltersBedroomsBTN4(false)
+        setFiltersBedroomsBTN5(false)
+        setFiltersBedroomsBTN6(false)
+        setFiltersBedroomsBTN7(false)
+        setFiltersBedroomsBTN8(true)
+      }
+  };
+  const [FiltersBedsNumAny, setFiltersBedsNumAny] = React.useState(true);
+  const [FiltersBedsNum1, setFiltersBedsNum1] = React.useState(false);
+  const [FiltersBedsNum2, setFiltersBedsNum2] = React.useState(false);
+  const [FiltersBedsNum3, setFiltersBedsNum3] = React.useState(false);
+  const [FiltersBedsNum4, setFiltersBedsNum4] = React.useState(false);
+  const [FiltersBedsNum5, setFiltersBedsNum5] = React.useState(false);
+  const [FiltersBedsNum6, setFiltersBedsNum6] = React.useState(false);
+  const [FiltersBedsNum7, setFiltersBedsNum7] = React.useState(false);
+  const [FiltersBedsNum8, setFiltersBedsNum8] = React.useState(false);
+
+
+  const FilterByBeds = (CurrentOption) => {
+      if (CurrentOption == 'Any') {
+        setFiltersBedsNumAny(true)
+        setFiltersBedsNum1(false)
+        setFiltersBedsNum2(false)
+        setFiltersBedsNum3(false)
+        setFiltersBedsNum4(false)
+        setFiltersBedsNum5(false)
+        setFiltersBedsNum6(false)
+        setFiltersBedsNum7(false)
+        setFiltersBedsNum8(false)
+      }
+      else if (CurrentOption == 1) {
+        setFiltersBedsNumAny(false)
+        setFiltersBedsNum1(true)
+        setFiltersBedsNum2(false)
+        setFiltersBedsNum3(false)
+        setFiltersBedsNum4(false)
+        setFiltersBedsNum5(false)
+        setFiltersBedsNum6(false)
+        setFiltersBedsNum7(false)
+        setFiltersBedsNum8(false)
+      }
+      else if (CurrentOption == 2) {
+        setFiltersBedsNumAny(false)
+        setFiltersBedsNum1(false)
+        setFiltersBedsNum2(true)
+        setFiltersBedsNum3(false)
+        setFiltersBedsNum4(false)
+        setFiltersBedsNum5(false)
+        setFiltersBedsNum6(false)
+        setFiltersBedsNum7(false)
+        setFiltersBedsNum8(false)
+      }
+      else if (CurrentOption == 3) {
+        setFiltersBedsNumAny(false)
+        setFiltersBedsNum1(false)
+        setFiltersBedsNum2(false)
+        setFiltersBedsNum3(true)
+        setFiltersBedsNum4(false)
+        setFiltersBedsNum5(false)
+        setFiltersBedsNum6(false)
+        setFiltersBedsNum7(false)
+        setFiltersBedsNum8(false)
+      }
+      else if (CurrentOption == 4) {
+        setFiltersBedsNumAny(false)
+        setFiltersBedsNum1(false)
+        setFiltersBedsNum2(false)
+        setFiltersBedsNum3(false)
+        setFiltersBedsNum4(true)
+        setFiltersBedsNum5(false)
+        setFiltersBedsNum6(false)
+        setFiltersBedsNum7(false)
+        setFiltersBedsNum8(false)
+      }
+      else if (CurrentOption == 5) {
+        setFiltersBedsNumAny(false)
+        setFiltersBedsNum1(false)
+        setFiltersBedsNum2(false)
+        setFiltersBedsNum3(false)
+        setFiltersBedsNum4(false)
+        setFiltersBedsNum5(true)
+        setFiltersBedsNum6(false)
+        setFiltersBedsNum7(false)
+        setFiltersBedsNum8(false)
+      }
+      else if (CurrentOption == 6) {
+        setFiltersBedsNumAny(false)
+        setFiltersBedsNum1(false)
+        setFiltersBedsNum2(false)
+        setFiltersBedsNum3(false)
+        setFiltersBedsNum4(false)
+        setFiltersBedsNum5(false)
+        setFiltersBedsNum6(true)
+        setFiltersBedsNum7(false)
+        setFiltersBedsNum8(false)
+      }
+      else if (CurrentOption == 7) {
+        setFiltersBedsNumAny(false)
+        setFiltersBedsNum1(false)
+        setFiltersBedsNum2(false)
+        setFiltersBedsNum3(false)
+        setFiltersBedsNum4(false)
+        setFiltersBedsNum5(false)
+        setFiltersBedsNum6(false)
+        setFiltersBedsNum7(true)
+        setFiltersBedsNum8(false)
+      }
+      else if (CurrentOption == 8) {
+        setFiltersBedsNumAny(false)
+        setFiltersBedsNum1(false)
+        setFiltersBedsNum2(false)
+        setFiltersBedsNum3(false)
+        setFiltersBedsNum4(false)
+        setFiltersBedsNum5(false)
+        setFiltersBedsNum6(false)
+        setFiltersBedsNum7(false)
+        setFiltersBedsNum8(true)
+      }
+  };
+  const [FiltersBathroomsAny, setFiltersBathroomsBTNAny] = React.useState(true);
+  const [FiltersBathrooms1, setFiltersBathroomsBTN1] = React.useState(false);
+  const [FiltersBathrooms2, setFiltersBathroomsBTN2] = React.useState(false);
+  const [FiltersBathrooms3, setFiltersBathroomsBTN3] = React.useState(false);
+  const [FiltersBathrooms4, setFiltersBathroomsBTN4] = React.useState(false);
+  const [FiltersBathrooms5, setFiltersBathroomsBTN5] = React.useState(false);
+  const [FiltersBathrooms6, setFiltersBathroomsBTN6] = React.useState(false);
+  const [FiltersBathrooms7, setFiltersBathroomsBTN7] = React.useState(false);
+  const [FiltersBathrooms8, setFiltersBathroomsBTN8] = React.useState(false);
+
+
+  const FilterByBathRooms = (CurrentOption) => {
+      if (CurrentOption == 'Any') {
+        setFiltersBathroomsBTNAny(true)
+        setFiltersBathroomsBTN1(false)
+        setFiltersBathroomsBTN2(false)
+        setFiltersBathroomsBTN3(false)
+        setFiltersBathroomsBTN4(false)
+        setFiltersBathroomsBTN5(false)
+        setFiltersBathroomsBTN6(false)
+        setFiltersBathroomsBTN7(false)
+        setFiltersBathroomsBTN8(false)
+      }
+      else if (CurrentOption == 1) {
+        setFiltersBathroomsBTNAny(false)
+        setFiltersBathroomsBTN1(true)
+        setFiltersBathroomsBTN2(false)
+        setFiltersBathroomsBTN3(false)
+        setFiltersBathroomsBTN4(false)
+        setFiltersBathroomsBTN5(false)
+        setFiltersBathroomsBTN6(false)
+        setFiltersBathroomsBTN7(false)
+        setFiltersBathroomsBTN8(false)
+      }
+      else if (CurrentOption == 2) {
+        setFiltersBathroomsBTNAny(false)
+        setFiltersBathroomsBTN1(false)
+        setFiltersBathroomsBTN2(true)
+        setFiltersBathroomsBTN3(false)
+        setFiltersBathroomsBTN4(false)
+        setFiltersBathroomsBTN5(false)
+        setFiltersBathroomsBTN6(false)
+        setFiltersBathroomsBTN7(false)
+        setFiltersBathroomsBTN8(false)
+      }
+      else if (CurrentOption == 3) {
+        setFiltersBathroomsBTNAny(false)
+        setFiltersBathroomsBTN1(false)
+        setFiltersBathroomsBTN2(false)
+        setFiltersBathroomsBTN3(true)
+        setFiltersBathroomsBTN4(false)
+        setFiltersBathroomsBTN5(false)
+        setFiltersBathroomsBTN6(false)
+        setFiltersBathroomsBTN7(false)
+        setFiltersBathroomsBTN8(false)
+      }
+      else if (CurrentOption == 4) {
+        setFiltersBathroomsBTNAny(false)
+        setFiltersBathroomsBTN1(false)
+        setFiltersBathroomsBTN2(false)
+        setFiltersBathroomsBTN3(false)
+        setFiltersBathroomsBTN4(true)
+        setFiltersBathroomsBTN5(false)
+        setFiltersBathroomsBTN6(false)
+        setFiltersBathroomsBTN7(false)
+        setFiltersBathroomsBTN8(false)
+      }
+      else if (CurrentOption == 5) {
+        setFiltersBathroomsBTNAny(false)
+        setFiltersBathroomsBTN1(false)
+        setFiltersBathroomsBTN2(false)
+        setFiltersBathroomsBTN3(false)
+        setFiltersBathroomsBTN4(false)
+        setFiltersBathroomsBTN5(true)
+        setFiltersBathroomsBTN6(false)
+        setFiltersBathroomsBTN7(false)
+        setFiltersBathroomsBTN8(false)
+      }
+      else if (CurrentOption == 6) {
+        setFiltersBathroomsBTNAny(false)
+        setFiltersBathroomsBTN1(false)
+        setFiltersBathroomsBTN2(false)
+        setFiltersBathroomsBTN3(false)
+        setFiltersBathroomsBTN4(false)
+        setFiltersBathroomsBTN5(false)
+        setFiltersBathroomsBTN6(true)
+        setFiltersBathroomsBTN7(false)
+        setFiltersBathroomsBTN8(false)
+      }
+      else if (CurrentOption == 7) {
+        setFiltersBathroomsBTNAny(false)
+        setFiltersBathroomsBTN1(false)
+        setFiltersBathroomsBTN2(false)
+        setFiltersBathroomsBTN3(false)
+        setFiltersBathroomsBTN4(false)
+        setFiltersBathroomsBTN5(false)
+        setFiltersBathroomsBTN6(false)
+        setFiltersBathroomsBTN7(true)
+        setFiltersBathroomsBTN8(false)
+      }
+      else if (CurrentOption == 8) {
+        setFiltersBathroomsBTNAny(false)
+        setFiltersBathroomsBTN1(false)
+        setFiltersBathroomsBTN2(false)
+        setFiltersBathroomsBTN3(false)
+        setFiltersBathroomsBTN4(false)
+        setFiltersBathroomsBTN5(false)
+        setFiltersBathroomsBTN6(false)
+        setFiltersBathroomsBTN7(false)
+        setFiltersBathroomsBTN8(true)
+      }
+  };
+  const [FiltersPropertyTypeHouse, setFiltersPropertyTypeHouse] = React.useState(false);
+  const [FiltersPropertyTypeApartment, setFiltersPropertyTypeApartment] = React.useState(false);
+  const [FiltersPropertyTypeGuesthouse, setFiltersPropertyTypeGuesthouse] = React.useState(false);
+  const [FiltersPropertyTypeHotel, setFiltersPropertyTypeHotel] = React.useState(false);
+  const FilterByPropertyType = (CurrentOption) => {
+    if (CurrentOption == 'House') {
+      setFiltersPropertyTypeHouse(!FiltersPropertyTypeHouse)
+      setFiltersPropertyTypeApartment(false)
+      setFiltersPropertyTypeGuesthouse(false)
+      setFiltersPropertyTypeHotel(false)
+
+    }
+    else if (CurrentOption == 'Apartment') {
+      setFiltersPropertyTypeHouse(false)
+      setFiltersPropertyTypeApartment(!FiltersPropertyTypeApartment)
+      setFiltersPropertyTypeGuesthouse(false)
+      setFiltersPropertyTypeHotel(false)
+
+    }
+    else if (CurrentOption == 'Guesthouse') {
+      setFiltersPropertyTypeHouse(false)
+      setFiltersPropertyTypeApartment(false)
+      setFiltersPropertyTypeGuesthouse(!FiltersPropertyTypeGuesthouse)
+      setFiltersPropertyTypeHotel(false)
+
+    }
+    else if (CurrentOption == 'Hotel') {
+      setFiltersPropertyTypeHouse(false)
+      setFiltersPropertyTypeApartment(false)
+      setFiltersPropertyTypeGuesthouse(false)
+      setFiltersPropertyTypeHotel(!FiltersPropertyTypeHotel)
+
+    }
+   
+};
 
   return (
     <Container maxWidth="xl" className='shadow-sm'>
@@ -132,7 +522,8 @@ export default function OptionsTabs() {
           }}
           variant="outlined" onClick={handleClickOpen}
         >
-          <FaFilter /> Filters
+          {/* <FaFilter /> */}
+          Filters
         </ButtonBase>
         <BootstrapDialog
           onClose={handleClose}
@@ -164,9 +555,9 @@ export default function OptionsTabs() {
                     <p class="text-secondary">Search rooms, entire homes, or any type of place.</p>
                     <div className='d-flex justify-content-center'>
                       <div class="btn-group  mx-auto">
-                        <a href="#" class="btn btn-outline-dark px-5 py-3 active" aria-current="page">Any type</a>
-                        <a href="#" class="btn btn-outline-dark px-5 py-3">Room</a>
-                        <a href="#" class="btn btn-outline-dark px-5 py-3">Entire home</a>
+                        <a href="#" onClick={()=>{FilterByTypeOfPlace('AnyType')}} class={` ${FiltersAnyTypeBTN ? 'active' : ''} btn btn-outline-dark px-5 py-3 `} aria-current="page">Any type</a>
+                        <a href="#" onClick={()=>{FilterByTypeOfPlace('Room')}} class={` ${FiltersRoomBTN ? 'active' : ''} btn btn-outline-dark px-5 py-3 `}>Room</a>
+                        <a href="#" onClick={()=>{FilterByTypeOfPlace('EntireHome')}} class={` ${FiltersEntireHomeBTN ? 'active' : ''} btn btn-outline-dark px-5 py-3 `}>Entire home</a>
                       </div>
                     </div>
                   </div>
@@ -195,7 +586,8 @@ export default function OptionsTabs() {
                       <div class="col-6 py-3">
                         <Checkbox
                           sx={{ '& .MuiSvgIcon-root': { fontSize: 28 }, color: '#222', '&.Mui-checked': { color: '#222' } }}
-                        />                 <label class="form-check-label " for="flexCheckDefault">
+                        /> 
+                        <label class="form-check-label " for="inlineCheckbox1">
                           Entire place
                         </label>
                         <p class="ps-4 lh-sm">
@@ -205,9 +597,10 @@ export default function OptionsTabs() {
                         </p>
                       </div>
                       <div class="col-6 py-3">
-                        <Checkbox
+                        <Checkbox 
                           sx={{ '& .MuiSvgIcon-root': { fontSize: 28 }, color: '#222', '&.Mui-checked': { color: '#222' } }}
                         />
+
                         <label class="form-check-label " for="flexCheckDefault">
                           Room
                         </label>
@@ -236,94 +629,94 @@ export default function OptionsTabs() {
                     <h4 class="m-0 py-3">Rooms and beds</h4>
                     <p class="m-0 py-3">Bedrooms</p>
                     <p class="d-flex flex-wrap gap-1">
-                      <button type="button" class="btn btn-outline-dark rounded-pill ms-2 active px-4" data-bs-toggle="button">
+                      <button type="button"  onClick={()=>{FilterByRoomsAndBeds('Any')}} class={` ${FiltersBedroomsAny ? 'active' : ''} btn btn-outline-dark rounded-pill ms-2 px-4`} data-bs-toggle="button">
                         Any
                       </button>
-                      <button type="button" class="btn btn-outline-dark rounded-pill ms-2 px-4" data-bs-toggle="button"
+                      <button type="button" onClick={()=>{FilterByRoomsAndBeds(1)}} class={` ${FiltersBedrooms1 ? 'active' : ''} btn btn-outline-dark rounded-pill ms-2 px-4`} data-bs-toggle="button"
                         aria-pressed="true">
                         1
                       </button>
-                      <button type="button" class="btn btn-outline-dark rounded-pill ms-2 px-4" data-bs-toggle="button">
+                      <button type="button" onClick={()=>{FilterByRoomsAndBeds(2)}} class={` ${FiltersBedrooms2 ? 'active' : ''} btn btn-outline-dark rounded-pill ms-2 px-4`} data-bs-toggle="button">
                         2
                       </button>
-                      <button type="button" class="btn btn-outline-dark rounded-pill ms-2 px-4" data-bs-toggle="button">
+                      <button type="button" onClick={()=>{FilterByRoomsAndBeds(3)}} class={` ${FiltersBedrooms3 ? 'active' : ''} btn btn-outline-dark rounded-pill ms-2 px-4`} data-bs-toggle="button">
                         3
                       </button>
-                      <button type="button" class="btn btn-outline-dark rounded-pill ms-2 px-4" data-bs-toggle="button">
+                      <button type="button" onClick={()=>{FilterByRoomsAndBeds(4)}} class={` ${FiltersBedrooms4 ? 'active' : ''} btn btn-outline-dark rounded-pill ms-2 px-4`} data-bs-toggle="button">
                         4
                       </button>
-                      <button type="button" class="btn btn-outline-dark rounded-pill ms-2 px-4" data-bs-toggle="button">
+                      <button type="button" onClick={()=>{FilterByRoomsAndBeds(5)}} class={` ${FiltersBedrooms5 ? 'active' : ''} btn btn-outline-dark rounded-pill ms-2 px-4`} data-bs-toggle="button">
                         5
                       </button>
-                      <button type="button" class="btn btn-outline-dark rounded-pill ms-2 px-4" data-bs-toggle="button">
+                      <button type="button" onClick={()=>{FilterByRoomsAndBeds(6)}} class={` ${FiltersBedrooms6 ? 'active' : ''} btn btn-outline-dark rounded-pill ms-2 px-4`} data-bs-toggle="button">
                         6
                       </button>
-                      <button type="button" class="btn btn-outline-dark rounded-pill ms-2 px-4" data-bs-toggle="button">
+                      <button type="button" onClick={()=>{FilterByRoomsAndBeds(7)}} class={` ${FiltersBedrooms7 ? 'active' : ''} btn btn-outline-dark rounded-pill ms-2 px-4`} data-bs-toggle="button">
                         7
                       </button>
-                      <button type="button" class="btn btn-outline-dark rounded-pill ms-2 px-4" data-bs-toggle="button">
+                      <button type="button" onClick={()=>{FilterByRoomsAndBeds(8)}} class={` ${FiltersBedrooms8 ? 'active' : ''} btn btn-outline-dark rounded-pill ms-2 px-4`} data-bs-toggle="button">
                         8+
                       </button>
                     </p>
-                    <p class="m-0 py-3">Any</p>
+                    <p class="m-0 py-3">Beds</p>
                     <p class="d-flex flex-wrap gap-1">
-                      <button type="button" class="btn btn-outline-dark rounded-pill ms-2 active px-4" data-bs-toggle="button">
+                    <button type="button"  onClick={()=>{FilterByBeds('Any')}} class={` ${FiltersBedsNumAny ? 'active' : ''} btn btn-outline-dark rounded-pill ms-2 px-4`} data-bs-toggle="button">
                         Any
                       </button>
-                      <button type="button" class="btn btn-outline-dark rounded-pill ms-2 px-4" data-bs-toggle="button"
+                      <button type="button" onClick={()=>{FilterByBeds(1)}} class={` ${FiltersBedsNum1 ? 'active' : ''} btn btn-outline-dark rounded-pill ms-2 px-4`} data-bs-toggle="button"
                         aria-pressed="true">
                         1
                       </button>
-                      <button type="button" class="btn btn-outline-dark rounded-pill ms-2 px-4" data-bs-toggle="button">
+                      <button type="button" onClick={()=>{FilterByBeds(2)}} class={` ${FiltersBedsNum2 ? 'active' : ''} btn btn-outline-dark rounded-pill ms-2 px-4`} data-bs-toggle="button">
                         2
                       </button>
-                      <button type="button" class="btn btn-outline-dark rounded-pill ms-2 px-4" data-bs-toggle="button">
+                      <button type="button" onClick={()=>{FilterByBeds(3)}} class={` ${FiltersBedsNum3 ? 'active' : ''} btn btn-outline-dark rounded-pill ms-2 px-4`} data-bs-toggle="button">
                         3
                       </button>
-                      <button type="button" class="btn btn-outline-dark rounded-pill ms-2 px-4" data-bs-toggle="button">
+                      <button type="button" onClick={()=>{FilterByBeds(4)}} class={` ${FiltersBedsNum4 ? 'active' : ''} btn btn-outline-dark rounded-pill ms-2 px-4`} data-bs-toggle="button">
                         4
                       </button>
-                      <button type="button" class="btn btn-outline-dark rounded-pill ms-2 px-4" data-bs-toggle="button">
+                      <button type="button" onClick={()=>{FilterByBeds(5)}} class={` ${FiltersBedsNum5 ? 'active' : ''} btn btn-outline-dark rounded-pill ms-2 px-4`} data-bs-toggle="button">
                         5
                       </button>
-                      <button type="button" class="btn btn-outline-dark rounded-pill ms-2 px-4" data-bs-toggle="button">
+                      <button type="button" onClick={()=>{FilterByBeds(6)}} class={` ${FiltersBedsNum6 ? 'active' : ''} btn btn-outline-dark rounded-pill ms-2 px-4`} data-bs-toggle="button">
                         6
                       </button>
-                      <button type="button" class="btn btn-outline-dark rounded-pill ms-2 px-4" data-bs-toggle="button">
+                      <button type="button" onClick={()=>{FilterByBeds(7)}} class={` ${FiltersBedsNum7 ? 'active' : ''} btn btn-outline-dark rounded-pill ms-2 px-4`} data-bs-toggle="button">
                         7
                       </button>
-                      <button type="button" class="btn btn-outline-dark rounded-pill ms-2 px-4" data-bs-toggle="button">
+                      <button type="button" onClick={()=>{FilterByBeds(8)}} class={` ${FiltersBedsNum8 ? 'active' : ''} btn btn-outline-dark rounded-pill ms-2 px-4`} data-bs-toggle="button">
                         8+
                       </button>
                     </p>
                     <p class="m-0 py-3">Bathrooms</p>
                     <p class="d-flex flex-wrap gap-1">
-                      <button type="button" class="btn btn-outline-dark rounded-pill ms-2 active px-4" data-bs-toggle="button">
+                    <button type="button"  onClick={()=>{FilterByBathRooms('Any')}} class={` ${FiltersBathroomsAny ? 'active' : ''} btn btn-outline-dark rounded-pill ms-2 px-4`} data-bs-toggle="button">
                         Any
                       </button>
-                      <button type="button" class="btn btn-outline-dark rounded-pill ms-2 px-4" data-bs-toggle="button"
+                      <button type="button" onClick={()=>{FilterByBathRooms(1)}} class={` ${FiltersBathrooms1 ? 'active' : ''} btn btn-outline-dark rounded-pill ms-2 px-4`} data-bs-toggle="button"
                         aria-pressed="true">
                         1
                       </button>
-                      <button type="button" class="btn btn-outline-dark rounded-pill ms-2 px-4" data-bs-toggle="button">
+                      <button type="button" onClick={()=>{FilterByBathRooms(2)}} class={` ${FiltersBathrooms2 ? 'active' : ''} btn btn-outline-dark rounded-pill ms-2 px-4`} data-bs-toggle="button">
                         2
                       </button>
-                      <button type="button" class="btn btn-outline-dark rounded-pill ms-2 px-4" data-bs-toggle="button">
+                      <button type="button" onClick={()=>{FilterByBathRooms(3)}} class={` ${FiltersBathrooms3 ? 'active' : ''} btn btn-outline-dark rounded-pill ms-2 px-4`} data-bs-toggle="button">
                         3
                       </button>
-                      <button type="button" class="btn btn-outline-dark rounded-pill ms-2 px-4" data-bs-toggle="button">
+                      <button type="button" onClick={()=>{FilterByBathRooms(4)}} class={` ${FiltersBathrooms4 ? 'active' : ''} btn btn-outline-dark rounded-pill ms-2 px-4`} data-bs-toggle="button">
                         4
                       </button>
-                      <button type="button" class="btn btn-outline-dark rounded-pill ms-2 px-4" data-bs-toggle="button">
+                      <button type="button" onClick={()=>{FilterByBathRooms(5)}} class={` ${FiltersBathrooms5 ? 'active' : ''} btn btn-outline-dark rounded-pill ms-2 px-4`} data-bs-toggle="button">
                         5
                       </button>
-                      <button type="button" class="btn btn-outline-dark rounded-pill ms-2 px-4" data-bs-toggle="button">
+                      <button type="button" onClick={()=>{FilterByBathRooms(6)}} class={` ${FiltersBathrooms6 ? 'active' : ''} btn btn-outline-dark rounded-pill ms-2 px-4`} data-bs-toggle="button">
                         6
                       </button>
-                      <button type="button" class="btn btn-outline-dark rounded-pill ms-2 px-4" data-bs-toggle="button">
+                      <button type="button" onClick={()=>{FilterByBathRooms(7)}} class={` ${FiltersBathrooms7 ? 'active' : ''} btn btn-outline-dark rounded-pill ms-2 px-4`} data-bs-toggle="button">
                         7
                       </button>
-                      <button type="button" class="btn btn-outline-dark rounded-pill ms-2 px-4" data-bs-toggle="button">
+                      <button type="button" onClick={()=>{FilterByBathRooms(8)}} class={` ${FiltersBathrooms8 ? 'active' : ''} btn btn-outline-dark rounded-pill ms-2 px-4`} data-bs-toggle="button">
                         8+
                       </button>
                     </p>
@@ -333,8 +726,8 @@ export default function OptionsTabs() {
                     <p class="d-inline-flex gap-1 w-100">
                       <div class="row flex-wrap w-100">
                         <div class="col-lg-3 col-6 ">
-                          <button type="button"
-                            class="btn btn-outline-dark rounded  p-3  text-start border-dark-subtle w-100 filterProprty"
+                          <button type="button" onClick={()=>{FilterByPropertyType('House')}} 
+                            class={` ${FiltersPropertyTypeHouse ? 'active' : ''} btn btn-outline-dark rounded  p-3  text-start border-dark-subtle w-100 filterProprty`}
                             data-bs-toggle="button">
                             <div class="d-flex flex-column justify-content-between">
                               <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
@@ -347,8 +740,8 @@ export default function OptionsTabs() {
                           </button>
                         </div>
                         <div class="col-lg-3 col-6">
-                          <button type="button"
-                            class="btn btn-outline-dark rounded  p-3 col-3 border-dark-subtle text-start w-100 filterProprty"
+                          <button type="button" onClick={()=>{FilterByPropertyType('Apartment')}} 
+                            class={` ${FiltersPropertyTypeApartment ? 'active' : ''} btn btn-outline-dark rounded  p-3 col-3 border-dark-subtle text-start w-100 filterProprty`}
                             data-bs-toggle="button" aria-pressed="true">
                             <div class="d-flex flex-column justify-content-between">
                               <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
@@ -361,8 +754,8 @@ export default function OptionsTabs() {
                           </button>
                         </div>
                         <div class="col-lg-3 col-6">
-                          <button type="button"
-                            class="btn btn-outline-dark rounded  p-3 col-3 border-dark-subtle text-start w-100 filterProprty"
+                          <button type="button" onClick={()=>{FilterByPropertyType('Guesthouse')}} 
+                            class={` ${FiltersPropertyTypeGuesthouse ? 'active' : ''} btn btn-outline-dark rounded  p-3 col-3 border-dark-subtle text-start w-100 filterProprty`}
                             data-bs-toggle="button">
                             <div class="d-flex flex-column justify-content-between">
                               <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
@@ -377,8 +770,8 @@ export default function OptionsTabs() {
                           </button>
                         </div>
                         <div class="col-lg-3 col-6">
-                          <button type="button"
-                            class="btn btn-outline-dark rounded  p-3 col-3 border-dark-subtle text-start w-100 filterProprty"
+                          <button type="button"  onClick={()=>{FilterByPropertyType('Hotel')}} 
+                            class={` ${FiltersPropertyTypeHotel ? 'active' : ''} btn btn-outline-dark rounded  p-3 col-3 border-dark-subtle text-start w-100 filterProprty`}
                             data-bs-toggle="button">
                             <div class="d-flex flex-column justify-content-between">
                               <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
