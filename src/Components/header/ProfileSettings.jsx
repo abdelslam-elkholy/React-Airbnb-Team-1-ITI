@@ -2,37 +2,16 @@ import React, { useEffect, useState } from "react";
 import "./ProfileSettings.css";
 import Register from "../Register/Register";
 import Login from "../Login/Login";
-import axios from "axios";
 import Cookies from "js-cookie";
 
+import { useUser } from "../../Context/UserContext";
 const ProfileSettings = () => {
+  const { user, loading, logout } = useUser();
+  console.log(user);
   const [showRegisterModal, setShowRegisterModal] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
-  const authToken = Cookies.get("authToken");
+  const authToken = Cookies.get("token");
 
-  useEffect(() => {
-    async function getUserData() {
-      try {
-        const response = await axios.get("http://localhost:3000/users/getMe", {
-          headers: {
-            Authorization: `Bearer ${authToken}`,
-            "Content-Type": "application/json",
-          },
-        });
-        console.log(response);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-
-    getUserData();
-  }, []);
-
-  // ===== delete token====
-  function deletToken() {
-    Cookies.remove("authToken");
-  }
-  // ======== end Fitch user data ===========
   const handleAirbnbSetupClick = () => {
     setShowRegisterModal(true);
   };
@@ -66,7 +45,7 @@ const ProfileSettings = () => {
             <i className="fa-regular fa-user" style={{ fontSize: "25px" }}></i>
           </div>
         </div>
-        {authToken ? (
+        {user ? (
           <ul
             className={`dropdown-menu border-none shadow Header_profile_icon_menu ${
               isOpen ? "show" : ""
@@ -82,7 +61,13 @@ const ProfileSettings = () => {
               <li className="dropdown-item my-2 text_gary">Account</li>
             </div>
             <li className="dropdown-item my-2 text_gary">Help Center</li>
-            <li className="dropdown-item my-2 text_gary" onClick={deletToken}>
+            <li
+              className="dropdown-item my-2 text_gary"
+              onClick={() => {
+                window.location.reload();
+                logout;
+              }}
+            >
               Log Out
             </li>
           </ul>

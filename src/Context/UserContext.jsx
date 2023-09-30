@@ -24,7 +24,7 @@ export const UserProvider = ({ children }) => {
     console.log(token);
     if (token) {
       instance
-        .get("/getme")
+        .get("users/getme")
         .then((response) => {
           console.log(response.data.data.user);
           console.log("context");
@@ -39,10 +39,10 @@ export const UserProvider = ({ children }) => {
     } else {
       setLoading(false);
     }
-  }, [logout]);
+  }, []);
 
   return (
-    <UserContext.Provider value={{ user, loading, logout }}>
+    <UserContext.Provider value={{ user, loading, logout, setUser }}>
       {children}
     </UserContext.Provider>
   );
