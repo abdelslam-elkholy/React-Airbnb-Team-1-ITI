@@ -5,10 +5,12 @@ import axios from "axios";
 import Joi from "joi";
 import Cookies from "js-cookie";
 import "./Login.css";
+import { useUser } from "../../Context/UserContext";
+import instance from "../../AxiosConfig/instance";
 
-import { useDispatch, useSelector } from "react-redux";
 const Login = ({ showLogin, onCloseLogin }) => {
-  const [user, setUser] = useState({
+  const { setUser } = useUser();
+  const [userData, setUserData] = useState({
     email: "",
     password: "",
   });
@@ -16,34 +18,19 @@ const Login = ({ showLogin, onCloseLogin }) => {
   const [Errors, setErros] = useState([]);
   const [ListErrors, setListErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [UserData, setUserData] = useState({});
 
-  const navogator = useNavigate();
-  const getuserData = useSelector((state) => state.x);
-  console.log(getuserData);
-  const dispatch = useDispatch();
+  const navigator = useNavigate();
 
   // ========= api ========
 
   async function HandelApi() {
     try {
-      const response = await axios.post(
-        "http://localhost:3000/users/signin",
-        user
-      );
-      const userData = response.data.data.user;
-
-      console.log(response.data.data.user);
-      localStorage.setItem("DATA", userData);
-
-      const token = response.data.token;
-
+      const response = await instance.post("/users/signin", userData);
       setIsLoading(false);
-
-      Cookies.set("authToken", token, { expires: 20 });
-
+      Cookies.set("token", response.data.token, { expires: 7 });
       onCloseLogin();
-      navogator("/home");
+      setUser(response.data.user);
+      window.location.reload();
     } catch (error) {
       setIsLoading(false);
       setErros(response.data.message);
@@ -70,16 +57,14 @@ const Login = ({ showLogin, onCloseLogin }) => {
     }
   }
 
-  // =========== handel user inputs ===========
+  // =========== handel userData inputs ===========
 
   function HandelUserInputs(ev) {
-    let myUser = { ...user };
+    let myUser = { ...userData };
 
     myUser[ev.target.name] = ev.target.value;
 
-    setUser(myUser);
-
-    console.log(user);
+    setUserData(myUser);
   }
 
   // ========== validate Login Form ======
@@ -96,7 +81,7 @@ const Login = ({ showLogin, onCloseLogin }) => {
       password: Joi.string().required().min(8),
     });
 
-    return schema.validate(user, { abortEarly: false });
+    return schema.validate(userData, { abortEarly: false });
   }
 
   return (
