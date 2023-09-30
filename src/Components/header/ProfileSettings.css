@@ -1,7 +1,24 @@
-.pointer:hover{
-    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
-    background-color: white;
+.pointer2:hover {
+  background-color: #f7f7f7;
 }
-.pointer2:hover{
-    background-color: #F7F7F7;
+.main_Header_icon_dropdown {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+  background-color: white;
+  width: 100px !important;
+  border-radius: 40px !important;
+}
+
+.Header_profile_icon_menu {
+  width: 250px;
+  position: absolute !important;
+  left: -100% !important;
+  top: 60px;
+  cursor: pointer;
+}
+.text_gary {
+  color: rgba(0, 0, 0, 0.868) !important;
+  transition: all 0.8s ease-in-out;
+}
+.text_gary:hover {
+  color: #000000ef !important;
 }

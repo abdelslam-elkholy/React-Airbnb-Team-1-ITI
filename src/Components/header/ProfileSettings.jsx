@@ -1,223 +1,140 @@
-import React, { useState } from "react";
-import Link from "@mui/material/Link";
-import Stack from "@mui/material/Stack";
-// react icons
-import { BsGlobe } from "react-icons/bs";
-import { AiOutlineMenu } from "react-icons/ai";
-import { FaRegUserCircle } from "react-icons/fa";
-import { flexCenter } from "../../Themes/commonStyles";
-import { ButtonBase } from "@mui/material";
-import Container from "@mui/material/Container";
-import { Dropdown } from "@mui/base/Dropdown";
-import { Menu } from "@mui/base/Menu";
-import { MenuButton } from "@mui/base/MenuButton";
-import { MenuItem, menuItemClasses } from "@mui/base/MenuItem";
-import { styled } from "@mui/system";
-import Box from "@mui/material/Box";
-import { FiGlobe } from "react-icons/fi";
+import React, { useEffect, useState } from "react";
 import "./ProfileSettings.css";
 import Register from "../Register/Register";
 import Login from "../Login/Login";
+import axios from "axios";
+import Cookies from "js-cookie";
 
-export default function ProfileSettings() {
-  const createHandleMenuClick = (menuItem) => {
-    return () => {
-      console.log(`Clicked on ${menuItem}`);
-    };
-  };
+const ProfileSettings = () => {
   const [showRegisterModal, setShowRegisterModal] = useState(false);
-  const [showloginModal, setShowloginModal] = useState(false);
+  const [showLoginModal, setShowLoginModal] = useState(false);
+  const authToken = Cookies.get("authToken");
 
-  const handleAirbnbloginClick = (e) => {
-    // e.stopPropagation();
-    setShowloginModal(true);
-  };
+  //  ===== fitch user data =========
+  useEffect(() => {
+    async function getUserData() {
+      try {
+        const response = await axios.get("http://localhost:3000/users/getMe", {
+          headers: {
+            Authorization: authToken,
+            "Content-Type": "application/json",
+          },
+        });
+        console.log(response);
+      } catch (error) {
+        console.log(error);
+      }
+    }
 
+    getUserData();
+  }, []);
+
+  // ===== delete token====
+  function deletToken() {
+    Cookies.remove("authToken");
+  }
+  // ======== end Fitch user data ===========
   const handleAirbnbSetupClick = () => {
     setShowRegisterModal(true);
   };
+  const handleAirbnbLoginClick = () => {
+    setShowLoginModal(true);
+  };
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
-    <Container>
-      <Box sx={{ ...flexCenter, justifyContent: "space-between", gap: 2 }}>
-        <ButtonBase>
-          <span
-            className="m-0 p-2 rounded-pill pointer2"
-            style={{ fontWeight: 600 }}
+    <>
+      <div className=" d-flex align-items-center justify-content-center mx-2 ">
+        <div className="mx-2 " style={{ fontSize: "18px" }}>
+          Airbnb your home
+        </div>
+        <div className="rightDiv2 mx-2">
+          <i className="fa-solid fa-globe fs-5"></i>
+        </div>
+        <div className="dropdown " onClick={toggleDropdown}>
+          <div
+            className="main_Header_icon_dropdown  py-2 d-flex align-items-center justify-content-around mx-2 "
+            onClick={toggleDropdown}
           >
-            Airbnb your home
-          </span>
-        </ButtonBase>
-        <ButtonBase>
-          <span className="m-0 p-2 rounded-circle pointer2">
-            <FiGlobe size={18} />
-          </span>
-        </ButtonBase>
-        <Stack sx={{ paddingRight: 1 }}>
-          <Dropdown sx={{ p: 0 }}>
-            <TriggerButton
-              className="pointer"
-              sx={{
-                borderRadius: 10,
-                border: "1px solid #ddd",
-                p: 0,
-              }}
+            <div>
+              <i className="fa-solid fa-equals"></i>
+            </div>
+            <div className="  person_profile " style={{ borderRadius: "50%" }}>
+              {" "}
+              <i
+                className="fa-regular fa-user"
+                style={{ fontSize: "25px" }}
+              ></i>
+            </div>
+          </div>
+          {authToken ? (
+            <ul
+              className={`dropdown-menu border-none shadow Header_profile_icon_menu ${
+                isOpen ? "show" : ""
+              } dropdown-menu-reverse`}
             >
-              <Stack sx={{ p: 1 }}>
-                <AiOutlineMenu size={24} />
-                <FaRegUserCircle size={24} />
-              </Stack>
-            </TriggerButton>
-            <Menu style={{ zIndex: "20" }} slots={{ listbox: StyledListbox }}>
-              {/* <StyledMenuItem onClick={handleAirbnbloginClick}>
-                Log in
-                <Login
-                  showLpog={showloginModal}
-                  onCloselogin={() => setShowloginModal(false)}
-                />
-              </StyledMenuItem>
-              <StyledMenuItem onClick={handleAirbnbSetupClick}>
-                Sing up
-                <Register
-                  show={showRegisterModal}
-                  onClose={() => setShowRegisterModal(false)}
-                />
-              </StyledMenuItem>
-              <hr class="my-2" />
-              <StyledMenuItem
-                onClick={createHandleMenuClick("Airbnb your home")}
-              >
-                Airbnb your home
-              </StyledMenuItem>
-              <StyledMenuItem onClick={createHandleMenuClick("Help center")}>
-                Help center
-              </StyledMenuItem> */}
-              {/* 
-              <div onClick={handleAirbnbloginClick}>
-                <Login
-                  showLpog={showloginModal}
-                  onCloselogin={() => setShowloginModal(false)}
-                />
+              <div className="border-bottom my-2">
+                <li className="dropdown-item my-2 fw-bold">Messages</li>
+                <li className="dropdown-item my-2 fw-bold">Trips</li>
+                <li className="dropdown-item my-2 fw-bold"> Wishlists</li>
               </div>
-
-              <div onClick={handleAirbnbSetupClick}>
-                <Register
-                  show={showRegisterModal}
-                  onClose={() => setShowRegisterModal(false)}
-                />
-              </div> */}
-            </Menu>
-          </Dropdown>
-        </Stack>
-      </Box>
-    </Container>
+              <div className="border-bottom my-2 ">
+                <li className="dropdown-item my-2 text_gary">
+                  Airbnb your home
+                </li>
+                <li className="dropdown-item my-2 text_gary">Account</li>
+              </div>
+              <li className="dropdown-item my-2 text_gary">Help Center</li>
+              <li className="dropdown-item my-2 text_gary" onClick={deletToken}>
+                Log Out
+              </li>
+            </ul>
+          ) : (
+            <ul
+              className={`dropdown-menu border-none shadow Header_profile_icon_menu ${
+                isOpen ? "show" : ""
+              } dropdown-menu-reverse`}
+            >
+              <div className="border-bottom my-2">
+                <li
+                  onClick={handleAirbnbLoginClick}
+                  className="dropdown-item my-2"
+                >
+                  log in
+                </li>
+                <li
+                  onClick={handleAirbnbSetupClick}
+                  className="dropdown-item my-2"
+                >
+                  sign up
+                </li>
+              </div>
+              <li className="dropdown-item my-2">Airbnb your home</li>
+              <li className="dropdown-item my-2">Help Center</li>
+            </ul>
+          )}
+        </div>
+        <div>
+          <Register
+            key={1}
+            show={showRegisterModal}
+            onClose={() => setShowRegisterModal(false)}
+          />
+        </div>
+        <div>
+          <Login
+            key={2}
+            showLogin={showLoginModal}
+            onCloseLogin={() => setShowLoginModal(false)}
+          />
+        </div>
+      </div>
+    </>
   );
-}
-const blue = {
-  100: "#DAECFF",
-  200: "#99CCF3",
-  400: "#3399FF",
-  500: "#007FFF",
-  600: "#0072E5",
-  900: "#003A75",
 };
 
-const grey = {
-  50: "#f6f8fa",
-  100: "#eaeef2",
-  200: "#d0d7de",
-  300: "#afb8c1",
-  400: "#8c959f",
-  500: "#6e7781",
-  600: "#57606a",
-  700: "#424a53",
-  800: "#32383f",
-  900: "#24292f",
-};
-
-const StyledListbox = styled("ul")(
-  ({ theme }) => `
-    font-family: IBM Plex Sans, sans-serif;
-    font-size: 0.875rem;
-    box-sizing: border-box;
-    padding: 6px;
-    margin: 12px 0;
-    min-width: 200px;
-    border-radius: 12px;
-    overflow: auto;
-    outline: 0px;
-    background: ${theme.palette.mode === "dark" ? grey[900] : "#fff"};
-    border: 1px solid ${theme.palette.mode === "dark" ? grey[700] : grey[200]};
-    color: ${theme.palette.mode === "dark" ? grey[300] : grey[900]};
-    box-shadow: 0px 4px 30px ${
-      theme.palette.mode === "dark" ? grey[900] : grey[200]
-    };
-    z-index: 1;
-    `
-);
-
-const StyledMenuItem = styled(MenuItem)(
-  ({ theme }) => `
-    list-style: none;
-    padding: 8px;
-    border-radius: 8px;
-    cursor: default;
-    user-select: none;
-  
-    &:last-of-type {
-      border-bottom: none;
-    }
-  
-    &.${menuItemClasses.focusVisible} {
-      outline: 3px solid ${
-        theme.palette.mode === "dark" ? blue[600] : blue[200]
-      };
-      background-color: ${
-        theme.palette.mode === "dark" ? grey[800] : grey[100]
-      };
-      color: ${theme.palette.mode === "dark" ? grey[300] : grey[900]};
-    }
-  
-    &.${menuItemClasses.disabled} {
-      color: ${theme.palette.mode === "dark" ? grey[700] : grey[400]};
-    }
-  
-    &:hover:not(.${menuItemClasses.disabled}) {
-      background-color: ${
-        theme.palette.mode === "dark" ? grey[800] : grey[100]
-      };
-      color: ${theme.palette.mode === "dark" ? grey[300] : grey[900]};
-    }
-    `
-);
-
-const TriggerButton = styled(MenuButton)(
-  ({ theme }) => `
-    font-family: IBM Plex Sans, sans-serif;
-    font-size: 0.875rem;
-    font-weight: 600;
-    box-sizing: border-box;
-    min-height: calc(1.5em + 22px);
-    border-radius: 12px;
-    padding: 8px 14px;
-    line-height: 1.5;
-    background: ${theme.palette.mode === "dark" ? grey[900] : "#fff"};
-    border: 1px solid ${theme.palette.mode === "dark" ? grey[700] : grey[200]};
-    color: ${theme.palette.mode === "dark" ? grey[300] : grey[900]};
-  
-    transition-property: all;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 120ms;
-  
-    &:hover {
-      background: ${theme.palette.mode === "dark" ? grey[800] : grey[50]};
-      border-color: ${theme.palette.mode === "dark" ? grey[600] : grey[300]};
-    }
-  
-    &:focus-visible {
-      border-color: ${blue[400]};
-      outline: 3px solid ${
-        theme.palette.mode === "dark" ? blue[500] : blue[200]
-      };
-    }
-    `
-);
+export default ProfileSettings;
