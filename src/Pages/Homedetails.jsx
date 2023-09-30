@@ -64,12 +64,11 @@ const HomeDetails = () => {
       .get(`/houses/${id}`)
       .then((res) => {
         console.log(res.data.data);
-        setHouse(res.data.data.house);
-        console.log(house);
+        setHouse(() => res.data.data.house);
       })
       .catch(() => navigate(-1));
   }, [id]);
-
+  console.log(house);
   return (
     <div className="p-2">
       <div className="md:px-20 mt-9">
@@ -80,7 +79,7 @@ const HomeDetails = () => {
         </div>
 
         <div className="">
-          <MiddleSection house={house} />
+          {Object.keys(house).length > 0 && <MiddleSection house={house} />}
         </div>
 
         <div className="w-full h-[1px] bg-gray-500 mt-24"></div>

@@ -3,21 +3,14 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useNavigate } from "react-router-dom";
 import axiosInstance from "../../AxiosConfig/instance";
+
 const DateCard = ({ house }) => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [guests, setGuests] = useState(1);
-
-  const [reserved, setReserved] = useState(false);
-
-  // useEffect(() => {
-  //   axiosInstance
-  //   .get()
+  const reservedDates = house.unavailableDates.map((date) => new Date(date));
   const taxes = 0.1;
   const navigate = useNavigate();
-  const reservedDates = [
-    ...house.unavailableDates.map((date) => new Date(date)),
-  ];
 
   const calculateTotalPrice = () => {
     if (startDate && endDate) {

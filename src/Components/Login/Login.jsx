@@ -27,7 +27,7 @@ const Login = ({ showLogin, onCloseLogin }) => {
   const [UserData, setUserData] = useState({});
 
   const navogator = useNavigate();
-  const { getuserData } = useSelector((state) => state.x);
+  const getuserData = useSelector((state) => state.x);
   console.log(getuserData);
   const dispatch = useDispatch();
 
@@ -65,8 +65,8 @@ const Login = ({ showLogin, onCloseLogin }) => {
       console.error("Error:", error);
     }
   }
-  let i = localStorage.getItem("DATA");
-  console.log(JSON.stringify(i));
+  // let i = localStorage.getItem("DATA");
+  // console.log(JSON.stringify(i));
   // dispatch(getuserData(UserData))
   // ================= git data from token by decode it ==============
   //  function getTokenData(){
