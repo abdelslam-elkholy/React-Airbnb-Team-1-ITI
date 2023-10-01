@@ -102,8 +102,8 @@ const ProfileSettings = () => {
       <div>
         <Register
           key={1}
-          show={showRegisterModal}
-          onClose={() => setShowRegisterModal(false)}
+          showRegister={showRegisterModal}
+          onCloseRegister={() => setShowRegisterModal(false)}
         />
       </div>
       <div>

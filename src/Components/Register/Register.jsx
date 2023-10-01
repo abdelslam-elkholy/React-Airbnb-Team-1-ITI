@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { Modal } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import Cookies from "js-cookie";
 import Joi from "joi";
 import "./Register.css";
-const Register = () => {
+import instance from "../../AxiosConfig/instance";
+const Register = ({ showRegister, onCloseRegister }) => {
   const [user, setUser] = useState({
     name: "",
     email: "",
@@ -16,27 +17,20 @@ const Register = () => {
   const [isLoading, setIsLoading] = useState(false);
   const navogator = useNavigate();
   const [userData, setUserData] = useState([]);
-  const [show, setShow] = useState(false);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
   // ========= api ========
   async function HandelApi() {
     try {
-      const response = await axios.post(
-        "http://localhost:3000/users/signup",
-        user
-      );
-      if (response.data.status === "success") {
-        setIsLoading(false);
-        navogator("/login");
-      } else {
-        setIsLoading(false);
-        setErros(response.data.message);
-      }
+      const response = await instance.post("/users/signup", user);
+
+      console.log(response);
+      setIsLoading(false);
+      Cookies.set("token", response.data.token, { expires: 7 });
+      onCloseRegister();
+      window.location.reload();
     } catch (error) {
       setIsLoading(false);
-      console.error("Error:", error);
+      setErros(error.response.data.message);
     }
   }
 
@@ -81,14 +75,14 @@ const Register = () => {
   }
   return (
     <div>
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={showRegister} onHide={onCloseRegister}>
         {/* <Modal.Header closeButton>
       
         </Modal.Header> */}
         <div className="d-flex align-items-center justify-content-between mt-2 row ">
           <span
             className="mx-3  span_Modal_register fw-bold col-4 mt-2 d-flex align-items-center justify-content-center"
-            onClick={handleClose}
+            onClick={onCloseRegister}
           >
             X
           </span>
