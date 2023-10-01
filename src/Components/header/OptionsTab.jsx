@@ -87,6 +87,7 @@ export default function OptionsTabs() {
     },
   }));
 
+  const [query, setQuery] = React.useState("");
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
