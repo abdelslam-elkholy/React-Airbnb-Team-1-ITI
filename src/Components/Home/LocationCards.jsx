@@ -15,6 +15,7 @@ export default function LocationCards() {
 
   useEffect(() => {
     dispatch(fetchHouses());
+    console.log(cards);
   }, []);
 
   return (

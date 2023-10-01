@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Tabs, { tabsClasses } from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Container from "@mui/material/Container";
@@ -21,7 +21,13 @@ import Stack from "@mui/material/Stack";
 import "./OptionsTab.css";
 import Box from "@mui/material/Box";
 import Checkbox from "@mui/material/Checkbox";
-
+import instance from "../../AxiosConfig/instance";
+import { useDispatch } from "react-redux";
+import { fetchHouses, setCategory } from "../../Store/slices/houses";
+// function parseIcon(iconString) {
+//   const IconComponent = eval(iconString);
+//   return <IconComponent size={24} />;
+// }
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
     padding: theme.spacing(2),
@@ -32,6 +38,22 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
 }));
 
 export default function OptionsTabs() {
+  const [categories, setCategories] = useState([]);
+  const dispatch = useDispatch();
+
+  const handleCategory = (category) => {
+    dispatch(fetchHouses(category));
+
+    console.log("working and category is :" + category);
+  };
+  // const category = useSelector((state) => state.houses.category);
+  useEffect(() => {
+    instance.get("/categories").then((response) => {
+      console.log(response.data.data.categories);
+      setCategories(response.data.data.categories);
+    });
+  }, []);
+
   const IOSSwitch = styled((props) => (
     <Switch
       focusVisibleClassName=".Mui-focusVisible"
@@ -477,16 +499,22 @@ export default function OptionsTabs() {
           variant="scrollable"
           scrollButtons
         >
-          {locationsTab.map((tab) => {
-            return (
-              <Tab
-                sx={{ fontSize: 12 }}
-                key={tab.id}
-                icon={tab.icon}
-                label={tab.label}
-              />
-            );
-          })}
+          {categories &&
+            categories.length > 0 &&
+            categories.map((tab, index) => {
+              console.log();
+              return (
+                <Tab
+                  sx={{ fontSize: 12 }}
+                  key={tab._id}
+                  icon={locationsTab[index]["icon"]}
+                  label={tab.name}
+                  onClick={() => {
+                    handleCategory(tab._id);
+                  }}
+                />
+              );
+            })}
         </Tabs>
         <ButtonBase
           sx={{
