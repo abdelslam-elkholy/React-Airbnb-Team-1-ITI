@@ -12,7 +12,7 @@ const fetchHouses = createAsyncThunk("houses/fetchHouses", async (category) => {
         }
       : null
   );
-  console.log(response.data.data);
+
   return response.data.data;
 });
 
@@ -32,7 +32,6 @@ const housesSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(fetchHouses.fulfilled, (state, action) => {
       state.houses = action.payload.houses;
-      console.log(state.houses);
     });
   },
 });

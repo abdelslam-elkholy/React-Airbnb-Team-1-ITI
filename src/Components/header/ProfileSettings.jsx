@@ -2,16 +2,14 @@ import React, { useEffect, useState } from "react";
 import "./ProfileSettings.css";
 import Register from "../Register/Register";
 import Login from "../Login/Login";
-import Cookies from "js-cookie";
 
 import { useUser } from "../../Context/UserContext";
 import { Link } from "react-router-dom";
 const ProfileSettings = () => {
-  const { user, loading, logout } = useUser();
-  console.log(user);
+  const { user, logout } = useUser();
+
   const [showRegisterModal, setShowRegisterModal] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
-  const authToken = Cookies.get("token");
 
   const handleAirbnbSetupClick = () => {
     setShowRegisterModal(true);

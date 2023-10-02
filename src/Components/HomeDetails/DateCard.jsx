@@ -11,14 +11,14 @@ const DateCard = ({ house }) => {
   const [endDate, setEndDate] = useState(null);
   const [guests, setGuests] = useState(1);
   const reservedDates = house.unavailableDates.map((date) => new Date(date));
-  const taxes = 0.1;
+
   const navigate = useNavigate();
 
   const calculateTotalPrice = () => {
     if (startDate && endDate) {
       const nights = Math.ceil((endDate - startDate) / (1000 * 60 * 60 * 24));
       const subtotal = house.price * nights;
-      const total = subtotal + subtotal * taxes;
+      const total = subtotal;
       return total.toFixed(2);
     }
     return 0;
@@ -43,8 +43,7 @@ const DateCard = ({ house }) => {
         // totalPrice: calculateTotalPrice(),
       })
       .then((res) => {
-        console.log(res.data);
-        window.open(res.data.session.url);
+        window.open(res.data.session.url, "_self");
       });
   };
   return (
@@ -53,7 +52,7 @@ const DateCard = ({ house }) => {
         <label className="block text-gray-700 text-sm font-bold mb-2">
           Price per Night
         </label>
-        <span className="text-gray-700">{house.price}$</span>
+        <span className="text-gray-700 text-xxl">{house.price}$</span>
       </div>
       <div className="mb-4 flex">
         <div className="mr-2">
@@ -108,12 +107,11 @@ const DateCard = ({ house }) => {
           <label className="block text-gray-700 text-sm font-bold mb-2">
             Total Price
           </label>
-          <span className="text-gray-700">{`$${calculateTotalPrice()}`}</span>
+          <span className="text-gray-700 text-xxl">{`$${calculateTotalPrice()}`}</span>
         </div>
       )}
       <button
         className="w-1/2 mx-auto bg-pink-700 hover:bg-pink-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-        disabled={!startDate || !endDate}
         onClick={goToReservation}
       >
         Reserve

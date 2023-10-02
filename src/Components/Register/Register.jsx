@@ -15,18 +15,16 @@ const Register = ({ showRegister, onCloseRegister }) => {
   const [Errors, setErros] = useState("");
   const [ListErrors, setListErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const navogator = useNavigate();
   const [userData, setUserData] = useState([]);
 
-  // ========= api ========
   async function HandelApi() {
     try {
       const response = await instance.post("/users/signup", user);
-
-      console.log(response);
       setIsLoading(false);
+
       Cookies.set("token", response.data.token, { expires: 7 });
       onCloseRegister();
+
       window.location.reload();
     } catch (error) {
       setIsLoading(false);
@@ -34,31 +32,27 @@ const Register = ({ showRegister, onCloseRegister }) => {
     }
   }
 
-  console.log(userData);
-  // ============ handel form submitations ============
   function HandelFormSubmit(e) {
     e.preventDefault();
+
     const validate = validateRegisterForm();
+
     if (validate.error) {
       setIsLoading(false);
       setListErrors(validate.error.details);
     } else {
       setIsLoading(true);
       HandelApi();
-      //   HandelApito()
     }
   }
 
-  // =========== handel user inputs ===========
   function HandelUserInputs(ev) {
     let myUser = { ...user };
-    // NewUser[e.target.name] =e.taeget.value
-    // setUser(NewUser)
+
     myUser[ev.target.name] = ev.target.value;
     setUser(myUser);
-    console.log(user);
   }
-  // ========== validate Register Form ======
+
   function validateRegisterForm() {
     const schema = Joi.object({
       name: Joi.string().min(2).max(40).required().trim(),
@@ -76,9 +70,6 @@ const Register = ({ showRegister, onCloseRegister }) => {
   return (
     <div>
       <Modal show={showRegister} onHide={onCloseRegister}>
-        {/* <Modal.Header closeButton>
-      
-        </Modal.Header> */}
         <div className="d-flex align-items-center mt-2 justify-content-between m-2 row p-2 border-bottom">
           <span
             className="mx-2  span_Modal_register align-items-center fw-bold col-4 d-flex  justify-content-center"
@@ -90,9 +81,7 @@ const Register = ({ showRegister, onCloseRegister }) => {
         </div>
         <Modal.Body>
           <form onSubmit={HandelFormSubmit}>
-            {/* <div className="alert alert-danger">{Errors}</div> */}
             <div className="form-group">
-              {/* <label htmlFor=""></label> */}
               <input
                 onChange={HandelUserInputs}
                 className="form-control mt-4 mb-2 border-none p-3 nameinput"
@@ -101,7 +90,7 @@ const Register = ({ showRegister, onCloseRegister }) => {
                 placeholder="Enter name"
               />
             </div>
-            {/* ========= handel name error */}
+
             {ListErrors.filter((err) => err.context.label == "name")[0]
               ?.message ? (
               <div className=" text-danger  my-1 ">
@@ -113,7 +102,7 @@ const Register = ({ showRegister, onCloseRegister }) => {
             ) : (
               ""
             )}
-            {/* ========= handel name error */}
+
             <div className="form-group">
               <input
                 onChange={HandelUserInputs}
@@ -123,7 +112,7 @@ const Register = ({ showRegister, onCloseRegister }) => {
                 placeholder="Enter email"
               />
             </div>
-            {/* ========= handel error */}
+
             {ListErrors.filter((err) => err.context.label == "email")[0]
               ?.message ? (
               <div className="  text-danger  my-1 ">
@@ -135,7 +124,7 @@ const Register = ({ showRegister, onCloseRegister }) => {
             ) : (
               ""
             )}
-            {/* ========= handel error */}
+
             <div className="form-group">
               <input
                 onChange={HandelUserInputs}
@@ -145,7 +134,7 @@ const Register = ({ showRegister, onCloseRegister }) => {
                 placeholder="Enter password"
               />
             </div>
-            {/* ========= handel error */}
+
             {ListErrors.filter((err) => err.context.label == "password")[0]
               ?.message ? (
               <div className="  text-danger  my-1 ">
@@ -157,7 +146,7 @@ const Register = ({ showRegister, onCloseRegister }) => {
             ) : (
               ""
             )}
-            {/* ========= handel error */}
+
             <div className="form-group">
               <input
                 onChange={HandelUserInputs}
@@ -167,7 +156,7 @@ const Register = ({ showRegister, onCloseRegister }) => {
                 placeholder="Enter confirmPassword"
               />
             </div>
-            {/* ========= handel error */}
+
             {ListErrors.filter(
               (err) => err.context.label == "confirmPassword"
             )[0]?.message ? (
@@ -181,7 +170,7 @@ const Register = ({ showRegister, onCloseRegister }) => {
             ) : (
               ""
             )}
-            {/* ========= handel error */}
+
             <div className="form-group">
               <button
                 type="submit"

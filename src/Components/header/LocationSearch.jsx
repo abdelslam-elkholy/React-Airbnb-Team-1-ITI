@@ -501,8 +501,8 @@ export default function LocationSearch() {
             </Tabs>
           </Box>
           <CustomTabPanel value={value} index={0}>
-            <div class="bar p-0 m-0" style={{ height: "50%" }}>
-              <Dropdown sx={{ p: 0 }}>
+            <div className="bar p-0 m-0" style={{ height: "50%" }}>
+              <Dropdown>
                 <TriggerButton
                   onClick={() => {
                     moveInOptionsSearchTabsFunc("Location");
@@ -612,7 +612,7 @@ export default function LocationSearch() {
                 </Menu>
               </Dropdown>
 
-              <Dropdown sx={{ p: 0 }}>
+              <Dropdown>
                 <TriggerButton
                   onClick={() => {
                     moveInOptionsSearchTabsFunc("CheckInAndCheckOut");
@@ -643,7 +643,7 @@ export default function LocationSearch() {
                       <button
                         style={{ backgroundColor: "#ebebeb " }}
                         type="button"
-                        class="btn btn-light rounded-pill px-4 border-0 DateType "
+                        className="btn btn-light rounded-pill px-4 border-0 DateType "
                         onClick={() => {
                           toggleDate();
                         }}
@@ -653,14 +653,14 @@ export default function LocationSearch() {
                       <button
                         style={{ backgroundColor: "#ebebeb " }}
                         type="button"
-                        class="btn btn-light rounded-pill px-4 border-0 DateType"
+                        className="btn btn-light rounded-pill px-4 border-0 DateType"
                       >
                         Months
                       </button>
                       <button
                         style={{ backgroundColor: "#ebebeb " }}
                         type="button"
-                        class="btn btn-light rounded-pill px-4 border-0 DateType"
+                        className="btn btn-light rounded-pill px-4 border-0 DateType"
                         onClick={() => {
                           toggleDate();
                         }}
@@ -706,7 +706,7 @@ export default function LocationSearch() {
                             moveInFlexibleOptions("Weekend");
                           }}
                           type="button"
-                          class={` ${
+                          className={` ${
                             FlexibleWeekendOption ? "active" : ""
                           } btn btn-outline-dark rounded-pill mx-1 my-2`}
                         >
@@ -717,7 +717,7 @@ export default function LocationSearch() {
                             moveInFlexibleOptions("Week");
                           }}
                           type="button"
-                          class={` ${
+                          className={` ${
                             FlexibleWeekOption ? "active" : ""
                           } btn btn-outline-dark rounded-pill mx-1 my-2`}
                         >
@@ -728,7 +728,7 @@ export default function LocationSearch() {
                             moveInFlexibleOptions("Month");
                           }}
                           type="button"
-                          class={` ${
+                          className={` ${
                             FlexibleMonthOption ? "active" : ""
                           } btn btn-outline-dark rounded-pill mx-1 my-2`}
                         >
@@ -871,7 +871,7 @@ export default function LocationSearch() {
                   </div>
                 </Menu>
               </Dropdown>
-              <Dropdown sx={{ p: 0 }}>
+              <Dropdown>
                 <TriggerButton
                   onClick={() => {
                     moveInOptionsSearchTabsFunc("Guests");
@@ -887,32 +887,32 @@ export default function LocationSearch() {
                     type="text"
                     placeholder="Add guests"
                   />
-                  {/* <span onClick={() => { toggleSearchBar() }}  ><i class="fa-solid fa-magnifying-glass"></i></span> */}
+                  {/* <span onClick={() => { toggleSearchBar() }}  ><i className="fa-solid fa-magnifying-glass"></i></span> */}
                 </TriggerButton>
                 <Menu
                   style={{ zIndex: "20" }}
                   slots={{ listbox: StyledListbox }}
                 >
-                  <ol class="list-group list-group-flush p-2">
+                  <ol className="list-group list-group-flush p-2">
                     <li
-                      class="list-group-item d-flex justify-content-between align-items-start py-3"
+                      className="list-group-item d-flex justify-content-between align-items-start py-3"
                       style={{ width: "350px" }}
                     >
-                      <div class="ms-2 me-auto">
-                        <div class="fw-bold">Adults</div>
+                      <div className="ms-2 me-auto">
+                        <div className="fw-bold">Adults</div>
                         <span className="text-secondary">Ages 13 or above</span>
                       </div>
-                      <span class="rounded-pill d-flex">
+                      <span className="rounded-pill d-flex">
                         <button
                           onClick={() => {
                             GuestsNumberMinus("Adults");
                           }}
                           type="button"
-                          class={`${
+                          className={`${
                             GuestsMinusBTNAdults ? "disabled" : ""
                           } btn btn-outline-dark rounded-circle btn-sm`}
                         >
-                          <i class="fa-solid fa-minus"></i>
+                          <i className="fa-solid fa-minus"></i>
                         </button>
                         <p className="p-2 m-0">{AdultsGuest}</p>
                         <button
@@ -920,30 +920,30 @@ export default function LocationSearch() {
                             GuestsNumberPlus("Adults");
                           }}
                           type="button"
-                          class={` ${
+                          className={` ${
                             GuestsPlusBTNAdults ? "disabled" : ""
                           }  btn btn-outline-dark rounded-circle btn-sm`}
                         >
-                          <i class="fa-solid fa-plus"></i>
+                          <i className="fa-solid fa-plus"></i>
                         </button>
                       </span>
                     </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-start py-3">
-                      <div class="ms-2 me-auto">
-                        <div class="fw-bold">Children</div>
+                    <li className="list-group-item d-flex justify-content-between align-items-start py-3">
+                      <div className="ms-2 me-auto">
+                        <div className="fw-bold">Children</div>
                         <span className="text-secondary">Ages 2–12</span>
                       </div>
-                      <span class="rounded-pill d-flex">
+                      <span className="rounded-pill d-flex">
                         <button
                           onClick={() => {
                             GuestsNumberMinus("Children");
                           }}
                           type="button"
-                          class={`${
+                          className={`${
                             GuestsMinusBTNChildren ? "disabled" : ""
                           } btn btn-outline-dark rounded-circle btn-sm`}
                         >
-                          <i class="fa-solid fa-minus"></i>
+                          <i className="fa-solid fa-minus"></i>
                         </button>
                         <p className="p-2 m-0">{ChildrenGuest}</p>
                         <button
@@ -951,30 +951,30 @@ export default function LocationSearch() {
                             GuestsNumberPlus("Children");
                           }}
                           type="button"
-                          class={` ${
+                          className={` ${
                             GuestsPlusBTNChildren ? "disabled" : ""
                           }  btn btn-outline-dark rounded-circle btn-sm`}
                         >
-                          <i class="fa-solid fa-plus"></i>
+                          <i className="fa-solid fa-plus"></i>
                         </button>
                       </span>
                     </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-start py-3">
-                      <div class="ms-2 me-auto">
-                        <div class="fw-bold">Infants</div>
+                    <li className="list-group-item d-flex justify-content-between align-items-start py-3">
+                      <div className="ms-2 me-auto">
+                        <div className="fw-bold">Infants</div>
                         <span className="text-secondary">Under 2</span>
                       </div>
-                      <span class="rounded-pill d-flex">
+                      <span className="rounded-pill d-flex">
                         <button
                           onClick={() => {
                             GuestsNumberMinus("Infants");
                           }}
                           type="button"
-                          class={`${
+                          className={`${
                             GuestsMinusBTNInfants ? "disabled" : ""
                           } btn btn-outline-dark rounded-circle btn-sm`}
                         >
-                          <i class="fa-solid fa-minus"></i>
+                          <i className="fa-solid fa-minus"></i>
                         </button>
                         <p className="p-2 m-0">{InfantsGuest}</p>
                         <button
@@ -982,32 +982,32 @@ export default function LocationSearch() {
                             GuestsNumberPlus("Infants");
                           }}
                           type="button"
-                          class={` ${
+                          className={` ${
                             GuestsPlusBTNInfants ? "disabled" : ""
                           }  btn btn-outline-dark rounded-circle btn-sm`}
                         >
-                          <i class="fa-solid fa-plus"></i>
+                          <i className="fa-solid fa-plus"></i>
                         </button>
                       </span>
                     </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-start py-3">
-                      <div class="ms-2 me-auto">
-                        <div class="fw-bold ">Pets</div>
+                    <li className="list-group-item d-flex justify-content-between align-items-start py-3">
+                      <div className="ms-2 me-auto">
+                        <div className="fw-bold ">Pets</div>
                         <a className="link-secondary">
                           Bringing a service animal?
                         </a>
                       </div>
-                      <span class="rounded-pill d-flex">
+                      <span className="rounded-pill d-flex">
                         <button
                           onClick={() => {
                             GuestsNumberMinus("Pets");
                           }}
                           type="button"
-                          class={`${
+                          className={`${
                             GuestsMinusBTNPets ? "disabled" : ""
                           } btn btn-outline-dark rounded-circle btn-sm`}
                         >
-                          <i class="fa-solid fa-minus"></i>
+                          <i className="fa-solid fa-minus"></i>
                         </button>
                         <p className="p-2 m-0">{PetsGuest}</p>
                         <button
@@ -1015,11 +1015,11 @@ export default function LocationSearch() {
                             GuestsNumberPlus("Pets");
                           }}
                           type="button"
-                          class={` ${
+                          className={` ${
                             GuestsPlusBTNPets ? "disabled" : ""
                           }  btn btn-outline-dark rounded-circle btn-sm`}
                         >
-                          <i class="fa-solid fa-plus"></i>
+                          <i className="fa-solid fa-plus"></i>
                         </button>
                       </span>
                     </li>
@@ -1037,14 +1037,14 @@ export default function LocationSearch() {
                     toggleSearchBar();
                   }}
                 >
-                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <i className="fa-solid fa-magnifying-glass"></i>
                 </span>
               </span>
             </div>
           </CustomTabPanel>
           <CustomTabPanel value={value} index={1}>
-            <div class="bar p-0 m-0" style={{ height: "50%" }}>
-              <Dropdown sx={{ p: 0 }}>
+            <div className="bar p-0 m-0" style={{ height: "50%" }}>
+              <Dropdown>
                 <TriggerButton
                   onClick={() => {
                     moveInOptionsSearchTabsFunc("Location");
@@ -1157,7 +1157,7 @@ export default function LocationSearch() {
                   </div>
                 </Menu>
               </Dropdown>
-              <Dropdown sx={{ p: 0 }}>
+              <Dropdown>
                 <TriggerButton
                   onClick={() => {
                     moveInOptionsSearchTabsFunc("CheckInAndCheckOut");
@@ -1189,7 +1189,7 @@ export default function LocationSearch() {
                 </Menu>
               </Dropdown>
 
-              <Dropdown sx={{ p: 0 }}>
+              <Dropdown>
                 <TriggerButton
                   onClick={() => {
                     moveInOptionsSearchTabsFunc("Guests");
@@ -1205,32 +1205,32 @@ export default function LocationSearch() {
                     type="text"
                     placeholder="Add guests"
                   />
-                  {/* <span onClick={() => { toggleSearchBar() }}  ><i class="fa-solid fa-magnifying-glass"></i></span> */}
+                  {/* <span onClick={() => { toggleSearchBar() }}  ><i className="fa-solid fa-magnifying-glass"></i></span> */}
                 </TriggerButton>
                 <Menu
                   style={{ zIndex: "20" }}
                   slots={{ listbox: StyledListbox }}
                 >
-                  <ol class="list-group list-group-flush p-2">
+                  <ol className="list-group list-group-flush p-2">
                     <li
-                      class="list-group-item d-flex justify-content-between align-items-start py-3"
+                      className="list-group-item d-flex justify-content-between align-items-start py-3"
                       style={{ width: "350px" }}
                     >
-                      <div class="ms-2 me-auto">
-                        <div class="fw-bold">Adults</div>
+                      <div className="ms-2 me-auto">
+                        <div className="fw-bold">Adults</div>
                         <span className="text-secondary">Ages 13 or above</span>
                       </div>
-                      <span class="rounded-pill d-flex">
+                      <span className="rounded-pill d-flex">
                         <button
                           onClick={() => {
                             GuestsNumberMinus("Adults");
                           }}
                           type="button"
-                          class={`${
+                          className={`${
                             GuestsMinusBTNAdults ? "disabled" : ""
                           } btn btn-outline-dark rounded-circle btn-sm`}
                         >
-                          <i class="fa-solid fa-minus"></i>
+                          <i className="fa-solid fa-minus"></i>
                         </button>
                         <p className="p-2 m-0">{AdultsGuest}</p>
                         <button
@@ -1238,30 +1238,30 @@ export default function LocationSearch() {
                             GuestsNumberPlus("Adults");
                           }}
                           type="button"
-                          class={` ${
+                          className={` ${
                             GuestsPlusBTNAdults ? "disabled" : ""
                           }  btn btn-outline-dark rounded-circle btn-sm`}
                         >
-                          <i class="fa-solid fa-plus"></i>
+                          <i className="fa-solid fa-plus"></i>
                         </button>
                       </span>
                     </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-start py-3">
-                      <div class="ms-2 me-auto">
-                        <div class="fw-bold">Children</div>
+                    <li className="list-group-item d-flex justify-content-between align-items-start py-3">
+                      <div className="ms-2 me-auto">
+                        <div className="fw-bold">Children</div>
                         <span className="text-secondary">Ages 2–12</span>
                       </div>
-                      <span class="rounded-pill d-flex">
+                      <span className="rounded-pill d-flex">
                         <button
                           onClick={() => {
                             GuestsNumberMinus("Children");
                           }}
                           type="button"
-                          class={`${
+                          className={`${
                             GuestsMinusBTNChildren ? "disabled" : ""
                           } btn btn-outline-dark rounded-circle btn-sm`}
                         >
-                          <i class="fa-solid fa-minus"></i>
+                          <i className="fa-solid fa-minus"></i>
                         </button>
                         <p className="p-2 m-0">{ChildrenGuest}</p>
                         <button
@@ -1269,30 +1269,30 @@ export default function LocationSearch() {
                             GuestsNumberPlus("Children");
                           }}
                           type="button"
-                          class={` ${
+                          className={` ${
                             GuestsPlusBTNChildren ? "disabled" : ""
                           }  btn btn-outline-dark rounded-circle btn-sm`}
                         >
-                          <i class="fa-solid fa-plus"></i>
+                          <i className="fa-solid fa-plus"></i>
                         </button>
                       </span>
                     </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-start py-3">
-                      <div class="ms-2 me-auto">
-                        <div class="fw-bold">Infants</div>
+                    <li className="list-group-item d-flex justify-content-between align-items-start py-3">
+                      <div className="ms-2 me-auto">
+                        <div className="fw-bold">Infants</div>
                         <span className="text-secondary">Under 2</span>
                       </div>
-                      <span class="rounded-pill d-flex">
+                      <span className="rounded-pill d-flex">
                         <button
                           onClick={() => {
                             GuestsNumberMinus("Infants");
                           }}
                           type="button"
-                          class={`${
+                          className={`${
                             GuestsMinusBTNInfants ? "disabled" : ""
                           } btn btn-outline-dark rounded-circle btn-sm`}
                         >
-                          <i class="fa-solid fa-minus"></i>
+                          <i className="fa-solid fa-minus"></i>
                         </button>
                         <p className="p-2 m-0">{InfantsGuest}</p>
                         <button
@@ -1300,32 +1300,32 @@ export default function LocationSearch() {
                             GuestsNumberPlus("Infants");
                           }}
                           type="button"
-                          class={` ${
+                          className={` ${
                             GuestsPlusBTNInfants ? "disabled" : ""
                           }  btn btn-outline-dark rounded-circle btn-sm`}
                         >
-                          <i class="fa-solid fa-plus"></i>
+                          <i className="fa-solid fa-plus"></i>
                         </button>
                       </span>
                     </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-start py-3">
-                      <div class="ms-2 me-auto">
-                        <div class="fw-bold ">Pets</div>
+                    <li className="list-group-item d-flex justify-content-between align-items-start py-3">
+                      <div className="ms-2 me-auto">
+                        <div className="fw-bold ">Pets</div>
                         <a className="link-secondary">
                           Bringing a service animal?
                         </a>
                       </div>
-                      <span class="rounded-pill d-flex">
+                      <span className="rounded-pill d-flex">
                         <button
                           onClick={() => {
                             GuestsNumberMinus("Pets");
                           }}
                           type="button"
-                          class={`${
+                          className={`${
                             GuestsMinusBTNPets ? "disabled" : ""
                           } btn btn-outline-dark rounded-circle btn-sm`}
                         >
-                          <i class="fa-solid fa-minus"></i>
+                          <i className="fa-solid fa-minus"></i>
                         </button>
                         <p className="p-2 m-0">{PetsGuest}</p>
                         <button
@@ -1333,11 +1333,11 @@ export default function LocationSearch() {
                             GuestsNumberPlus("Pets");
                           }}
                           type="button"
-                          class={` ${
+                          className={` ${
                             GuestsPlusBTNPets ? "disabled" : ""
                           }  btn btn-outline-dark rounded-circle btn-sm`}
                         >
-                          <i class="fa-solid fa-plus"></i>
+                          <i className="fa-solid fa-plus"></i>
                         </button>
                       </span>
                     </li>
@@ -1355,7 +1355,7 @@ export default function LocationSearch() {
                     toggleSearchBar();
                   }}
                 >
-                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <i className="fa-solid fa-magnifying-glass"></i>
                 </span>
               </span>
             </div>

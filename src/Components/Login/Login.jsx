@@ -19,24 +19,19 @@ const Login = ({ showLogin, onCloseLogin }) => {
   const [ListErrors, setListErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  const navigator = useNavigate();
-
-  // ========= api ========
-
   async function HandelApi() {
     try {
       const response = await instance.post("/users/signin", userData);
       setIsLoading(false);
+
       Cookies.set("token", response.data.token, { expires: 7 });
       onCloseLogin();
+
       setUser(response.data.user);
       window.location.reload();
     } catch (error) {
       setIsLoading(false);
-      console.log(error.response.data.message);
       setErrors(error.response.data.message);
-
-      console.error("Error:", error);
     }
   }
 
@@ -53,12 +48,8 @@ const Login = ({ showLogin, onCloseLogin }) => {
       setIsLoading(true);
 
       HandelApi();
-
-      //   HandelApito()
     }
   }
-
-  // =========== handel userData inputs ===========
 
   function HandelUserInputs(ev) {
     let myUser = { ...userData };
@@ -67,8 +58,6 @@ const Login = ({ showLogin, onCloseLogin }) => {
 
     setUserData(myUser);
   }
-
-  // ========== validate Login Form ======
 
   function validateLoginForm() {
     const schema = Joi.object({
@@ -168,8 +157,8 @@ const Login = ({ showLogin, onCloseLogin }) => {
                 </button>
               </div>
             </form>
-            <div class="_k3vzc58">
-              <div class="_16fq9mb">or</div>
+            <div className="_k3vzc58">
+              <div className="_16fq9mb">or</div>
             </div>
           </Modal.Body>
 
