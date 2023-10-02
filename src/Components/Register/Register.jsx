@@ -79,23 +79,23 @@ const Register = ({ showRegister, onCloseRegister }) => {
         {/* <Modal.Header closeButton>
       
         </Modal.Header> */}
-        <div className="d-flex align-items-center justify-content-between mt-2 row ">
+        <div className="d-flex align-items-center mt-2 justify-content-between m-2 row p-2 border-bottom">
           <span
-            className="mx-3  span_Modal_register fw-bold col-4 mt-2 d-flex align-items-center justify-content-center"
+            className="mx-2  span_Modal_register align-items-center fw-bold col-4 d-flex  justify-content-center"
             onClick={onCloseRegister}
           >
             X
           </span>
-          <h6 className="col-8 mt-2 fw-bold">Finsh signing up</h6>
+          <h6 className="col-7 px-4 align-items-center fw-bold">Sign up</h6>
         </div>
         <Modal.Body>
           <form onSubmit={HandelFormSubmit}>
-            <div className="alert alert-danger">{Errors}</div>
+            {/* <div className="alert alert-danger">{Errors}</div> */}
             <div className="form-group">
-              <label htmlFor=""></label>
+              {/* <label htmlFor=""></label> */}
               <input
                 onChange={HandelUserInputs}
-                className="form-control my-4  border-none p-3"
+                className="form-control mt-4 mb-2 border-none p-3 nameinput"
                 type="text"
                 name="name"
                 placeholder="Enter name"
@@ -117,7 +117,7 @@ const Register = ({ showRegister, onCloseRegister }) => {
             <div className="form-group">
               <input
                 onChange={HandelUserInputs}
-                className="form-control my-4  border-none p-3"
+                className="form-control mt-4 mb-2 border-none p-3 p-3"
                 type="email"
                 name="email"
                 placeholder="Enter email"
@@ -139,7 +139,7 @@ const Register = ({ showRegister, onCloseRegister }) => {
             <div className="form-group">
               <input
                 onChange={HandelUserInputs}
-                className="form-control my-4  border-none p-3"
+                className="form-control mt-4 mb-2 border-none p-3 p-3"
                 type="password"
                 name="password"
                 placeholder="Enter password"
@@ -161,7 +161,7 @@ const Register = ({ showRegister, onCloseRegister }) => {
             <div className="form-group">
               <input
                 onChange={HandelUserInputs}
-                className="form-control my-4  border-none p-3"
+                className="form-control mt-4 mb-2 border-none p-3 p-3"
                 type="password"
                 name="confirmPassword"
                 placeholder="Enter confirmPassword"
@@ -183,11 +183,14 @@ const Register = ({ showRegister, onCloseRegister }) => {
             )}
             {/* ========= handel error */}
             <div className="form-group">
-              <button type="submit" className="w-100 my-3 py-3 btn btn-danger">
+              <button
+                type="submit"
+                className="w-100 my-3 py-3 btn btn-danger AgreeAndSubmit t1dqvypu dir dir-ltr"
+              >
                 {isLoading == true ? (
                   <i className="fa fa-spinner fa-spin"></i>
                 ) : (
-                  "Agree And Supmit"
+                  "Continue"
                 )}
               </button>
             </div>
