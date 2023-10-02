@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useNavigate } from "react-router-dom";
-import axiosInstance from "../../AxiosConfig/instance";
-
+import instance from "../../AxiosConfig/instance";
+import { useUser } from "../../Context/UserContext";
 const DateCard = ({ house }) => {
+  const { user } = useUser();
+
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [guests, setGuests] = useState(1);
@@ -23,7 +25,27 @@ const DateCard = ({ house }) => {
   };
 
   const goToReservation = () => {
-    navigate("/reservation");
+    if (!user) {
+      alert("Please login to reserve");
+      return;
+    }
+    if (!startDate || !endDate) {
+      alert("Please select dates");
+      return;
+    }
+
+    instance
+      .post("/reservations", {
+        id: house._id,
+        checkIn: startDate,
+        checkOut: endDate,
+        guests: guests,
+        // totalPrice: calculateTotalPrice(),
+      })
+      .then((res) => {
+        console.log(res.data);
+        window.open(res.data.session.url);
+      });
   };
   return (
     <div className=" w-full max-w-md p-4 bg-white rounded shadow-md flex  md:flex-col">
