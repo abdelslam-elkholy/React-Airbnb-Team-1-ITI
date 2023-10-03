@@ -12,7 +12,7 @@ const fetchHouses = createAsyncThunk("houses/fetchHouses", async (category) => {
         }
       : null
   );
-
+  console.log(response.data.data);
   return response.data.data;
 });
 

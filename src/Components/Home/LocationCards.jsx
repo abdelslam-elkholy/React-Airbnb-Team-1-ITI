@@ -6,10 +6,6 @@ import CarouselCard from "./CarouselCard";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchHouses } from "../../Store/slices/houses";
 export default function LocationCards() {
-  // const [cards] = useState(cardLocations);
-  // if (!cards.length) {
-  //   return null;
-  // }
   const dispatch = useDispatch();
   const cards = useSelector((state) => state.houses.houses);
 
