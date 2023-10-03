@@ -3,21 +3,21 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 // import { locations as cardLocations } from "../header/data/mock-data";
 import CarouselCard from "../Components/Home/CarouselCard";
-import instance from "../AxiosConfig/instance";
+import { useDispatch, useSelector } from "react-redux";
 
+import { fetchWishlist } from "../Store/slices/wishlist";
 export default function WishList() {
-  const [cards, setCards] = React.useState([]);
+  const cards = useSelector((state) => state.wishlist.wishlist);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    instance.get("/wishlists/me").then((response) => {
-      console.log(response.data.data);
-      setCards(response.data.data);
-    });
+    dispatch(fetchWishlist());
+    console.log(cards);
   }, []);
 
   return (
     <Box sx={{ mx: 2 }}>
-      <Grid container rowSpacing={3} columnSpacing={3}>
+      {/* <Grid container rowSpacing={3} columnSpacing={3}>
         {cards && cards.length > 0 ? (
           cards.map((location) => {
             return (
@@ -29,7 +29,7 @@ export default function WishList() {
         ) : (
           <h1 className="m-auto mx-30">No WishList</h1>
         )}
-      </Grid>
+      </Grid> */}
     </Box>
   );
 }

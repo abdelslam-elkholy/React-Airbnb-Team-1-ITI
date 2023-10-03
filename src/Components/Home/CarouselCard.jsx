@@ -12,7 +12,7 @@ import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import SwipeableViews from "react-swipeable-views";
 
 // react icons
-import { AiFillStar } from "react-icons/ai";
+import { AiFillHeart, AiFillStar } from "react-icons/ai";
 import { FaRegHeart } from "react-icons/fa";
 import {
   flexBetween,
@@ -27,7 +27,12 @@ import { ThemeProvider } from "@material-ui/core";
 import { createTheme } from "@material-ui/core";
 import { useNavigate } from "react-router-dom";
 
-export default function CarouselCard({ location }) {
+export default function CarouselCard({
+  location,
+  isInWishlist,
+  addItem,
+  deleteItem,
+}) {
   const [activeStep, setActiveStep] = useState(0);
   const navigate = useNavigate();
   const maxSteps = location.images.length; // so that we know how many dots
@@ -47,6 +52,8 @@ export default function CarouselCard({ location }) {
   const navigateToDetails = (id) => {
     navigate(`/homedetails/${id}`);
   };
+
+  console.log(isInWishlist(location._id));
   return (
     <>
       <Box
@@ -59,7 +66,20 @@ export default function CarouselCard({ location }) {
         }}
       >
         <Box sx={fixedIcon}>
-          <FaRegHeart size={24} color="#fff" />
+          {isInWishlist(location._id) ? (
+            <AiFillHeart
+              size={24}
+              color="#FF0000"
+              fill="#FF0000"
+              onClick={() => deleteItem(location._id)}
+            />
+          ) : (
+            <FaRegHeart
+              size={24}
+              color="#fff"
+              onClick={() => addItem(location._id)}
+            />
+          )}
         </Box>
 
         {location.images.length && (

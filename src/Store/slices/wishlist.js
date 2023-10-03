@@ -25,16 +25,10 @@ const deleteWishlist = createAsyncThunk(
   }
 );
 
-// make a function to check if the house is in the wishlist
-// if it is, then delete it
-// if it is not, then add it
-// the function happens locally, and then the delete/add wishlist is called
-// the delete/add wishlist will update the state
-
 const checkWishlist = (houseId) => {
   return (dispatch, getState) => {
     const wishlist = getState().wishlist.wishlist;
-    const house = wishlist.find((house) => house.id === houseId);
+    const house = wishlist.find((house) => house._id === houseId);
     if (house) {
       dispatch(deleteWishlist(houseId));
     } else {
@@ -49,12 +43,6 @@ const wishlistSlice = createSlice({
     wishlist: [],
   },
 
-  reducers: {
-    setWishlist(state, action) {
-      state.wishlist = action.payload;
-    },
-  },
-
   extraReducers: (builder) => {
     builder.addCase(fetchWishlist.fulfilled, (state, action) => {
       state.wishlist = action.payload.wishlist;
@@ -64,12 +52,11 @@ const wishlistSlice = createSlice({
     });
     builder.addCase(deleteWishlist.fulfilled, (state, action) => {
       state.wishlist = state.wishlist.filter(
-        (house) => house.id !== action.payload.id
+        (house) => house._id !== action.payload.id
       );
     });
   },
 });
 
-export const { setWishlist } = wishlistSlice.actions;
 export { fetchWishlist, addWishlist, deleteWishlist, checkWishlist };
 export default wishlistSlice.reducer;
