@@ -26,13 +26,40 @@ import "./CarouselCard.css";
 import { ThemeProvider } from "@material-ui/core";
 import { createTheme } from "@material-ui/core";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addWishlist,
+  deleteWishlist,
+  fetchWishlist,
+} from "../../Store/slices/wishlist";
 
-export default function CarouselCard({
-  location,
-  isInWishlist,
-  addItem,
-  deleteItem,
-}) {
+export default function CarouselCard({ location }) {
+  const dispatch = useDispatch();
+  const wishlist = useSelector((state) => state.wishlist.wishlist);
+
+  const [isInWishlist, setIsInWishlist] = useState();
+
+  const addToWishlist = (id) => {
+    dispatch(addWishlist(id));
+    setIsInWishlist(!isInWishlist);
+  };
+
+  const deleteFromWishlist = (id) => {
+    dispatch(deleteWishlist(id));
+    setIsInWishlist(!isInWishlist);
+  };
+
+  useEffect(() => {
+    dispatch(fetchWishlist());
+    setIsInWishlist(wishlist.some((item) => item._id === location._id));
+    console.log("wishlist", wishlist);
+  }, [isInWishlist]);
+
+  useEffect(() => {}, []);
+
+  // console.log("isInWishlist", isInWishlist, Date.now() / 1000 / 60 / 60 / 24);
+  // console.log(wishlist);
+
   const [activeStep, setActiveStep] = useState(0);
   const navigate = useNavigate();
   const maxSteps = location.images.length; // so that we know how many dots
@@ -53,7 +80,6 @@ export default function CarouselCard({
     navigate(`/homedetails/${id}`);
   };
 
-  useEffect(() => {}, [addItem, deleteItem]);
   return (
     <>
       <Box
@@ -66,18 +92,18 @@ export default function CarouselCard({
         }}
       >
         <Box sx={fixedIcon}>
-          {isInWishlist(location._id) ? (
+          {isInWishlist ? (
             <AiFillHeart
               size={24}
               color="#FF0000"
               fill="#FF0000"
-              onClick={() => deleteItem(location._id)}
+              onClick={() => deleteFromWishlist(location._id)}
             />
           ) : (
             <FaRegHeart
               size={24}
               color="#fff"
-              onClick={() => addItem(location._id)}
+              onClick={() => addToWishlist(location._id)}
             />
           )}
         </Box>
@@ -91,7 +117,7 @@ export default function CarouselCard({
           >
             {location.images.map((image, index) => {
               return (
-                <div key={image}>
+                <div key={index}>
                   <Box
                     component="img"
                     sx={carouselImage}
