@@ -28,34 +28,34 @@ import { createTheme } from "@material-ui/core";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  fetchWishlist,
   addWishlist,
   deleteWishlist,
-  fetchWishlist,
 } from "../../Store/slices/wishlist";
 
-export default function CarouselCard({ location }) {
+export default function CarouselCard({ location, wishlist }) {
   const dispatch = useDispatch();
-  const wishlist = useSelector((state) => state.wishlist.wishlist);
 
-  const [isInWishlist, setIsInWishlist] = useState();
+  const isInWishlist = wishlist.some((item) =>
+    item ? item._id === location._id : false
+  );
 
-  const addToWishlist = (id) => {
-    dispatch(addWishlist(id));
-    setIsInWishlist(!isInWishlist);
+  const toggleItem = (id) => {
+    isInWishlist ? dispatch(deleteWishlist(id)) : dispatch(addWishlist(id));
   };
 
-  const deleteFromWishlist = (id) => {
-    dispatch(deleteWishlist(id));
-    setIsInWishlist(!isInWishlist);
-  };
+  // const deleteFromWishlist = (id) => {
+  //   dispatch(deleteWishlist(id));
+  //   setIsInWishlist(!isInWishlist);
+  // };
 
-  useEffect(() => {
-    dispatch(fetchWishlist());
-    setIsInWishlist(wishlist.some((item) => item._id === location._id));
-    console.log("wishlist", wishlist);
-  }, [isInWishlist]);
+  // useEffect(() => {
+  //   dispatch(fetchWishlist());
+  //   setIsInWishlist(wishlist.some((item) => item._id === location._id));
+  //   console.log("wishlist", wishlist);
+  // }, [isInWishlist]);
 
-  useEffect(() => {}, []);
+  // useEffect(() => {}, []);
 
   // console.log("isInWishlist", isInWishlist, Date.now() / 1000 / 60 / 60 / 24);
   // console.log(wishlist);
@@ -97,13 +97,13 @@ export default function CarouselCard({ location }) {
               size={24}
               color="#FF0000"
               fill="#FF0000"
-              onClick={() => deleteFromWishlist(location._id)}
+              onClick={() => toggleItem(location._id)}
             />
           ) : (
             <FaRegHeart
               size={24}
               color="#fff"
-              onClick={() => addToWishlist(location._id)}
+              onClick={() => toggleItem(location._id)}
             />
           )}
         </Box>

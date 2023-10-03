@@ -3,7 +3,7 @@ import instance from "../../AxiosConfig/instance";
 
 const fetchWishlist = createAsyncThunk("wishlist/fetchWishlist", async () => {
   const response = await instance.get("/wishlists/me");
-  console.log(response.data.data);
+
   return response.data.data;
 });
 
@@ -29,28 +29,24 @@ const wishlistSlice = createSlice({
     wishlist: [],
   },
 
-  reducers: {
-    toggleWishlist: (state, action) => {
-      const houseId = action.payload.houseId;
-      const houseIndex = state.wishlist.findIndex(
-        (house) => house._id === houseId
-      );
-      if (houseIndex >= 0) {
-        state.wishlist.splice(houseIndex, 1);
-        addWishlist(houseId);
-      } else {
-        state.wishlist.push(action.payload.house);
-        deleteWishlist(houseId);
-      }
-    },
-  },
   extraReducers: (builder) => {
     builder.addCase(fetchWishlist.fulfilled, (state, action) => {
       state.wishlist = action.payload.wishlist;
     });
+    builder.addCase(addWishlist.fulfilled, (state, action) => {
+      console.log(action.payload.wishlist);
+      state.wishlist.push(action.payload.wishlist);
+    });
+
+    builder.addCase(deleteWishlist.fulfilled, (state, action) => {
+      console.log(action.payload.wishlist.houseId);
+      state.wishlist = state.wishlist.filter(
+        (item) => item._id !== action.payload.wishlist.houseId._id
+      );
+    });
   },
 });
 
-export { fetchWishlist };
+export { fetchWishlist, addWishlist, deleteWishlist };
 export const { toggleWishlist } = wishlistSlice.actions;
 export default wishlistSlice.reducer;

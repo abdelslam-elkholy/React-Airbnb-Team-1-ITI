@@ -10,9 +10,11 @@ import { fetchWishlist } from "../../Store/slices/wishlist";
 export default function LocationCards() {
   const dispatch = useDispatch();
   const cards = useSelector((state) => state.houses.houses);
+  const wishlist = useSelector((state) => state.wishlist.wishlist);
 
   useEffect(() => {
     dispatch(fetchHouses());
+    dispatch(fetchWishlist());
   }, []);
 
   return (
@@ -21,7 +23,11 @@ export default function LocationCards() {
         {cards.map((location) => {
           return (
             <Grid xs={12} sm={6} md={4} lg={3}>
-              <CarouselCard key={location._id} location={location} />
+              <CarouselCard
+                key={location._id}
+                location={location}
+                wishlist={wishlist}
+              />
             </Grid>
           );
         })}
