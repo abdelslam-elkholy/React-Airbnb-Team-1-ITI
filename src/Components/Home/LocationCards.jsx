@@ -18,7 +18,7 @@ export default function LocationCards() {
 
   const isInWishlist = (id) => {
     console.log("isInWishlist", id, wishlist);
-    // return wishlist.map(item includes(id);
+    return wishlist.some((item) => item._id === id);
   };
 
   const addToWishlist = (id) => {
@@ -50,7 +50,7 @@ export default function LocationCards() {
                 location={location}
                 addItem={addToWishlist}
                 deleteItem={deleteFromWishlist}
-                isInWishlist={isInWishlist(location._id)}
+                isInWishlist={isInWishlist}
               />
             </Grid>
           );

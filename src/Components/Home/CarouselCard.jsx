@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import MobileStepper from "@mui/material/MobileStepper";
 import Typography from "@mui/material/Typography";
@@ -53,7 +53,7 @@ export default function CarouselCard({
     navigate(`/homedetails/${id}`);
   };
 
-  console.log(isInWishlist(location._id));
+  useEffect(() => {}, [addItem, deleteItem]);
   return (
     <>
       <Box
