@@ -3,7 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import AppLayout from "./Pages/AppLayout";
 import WishList from "./Pages/WishList";
 import Messages from "./Pages/Messages/Messages";
-import Trips from "./Pages/Trips";
+import Trips from "./Pages/Trips/Trips";
 import NotFound from "./Pages/NotFound";
 import Homedetails from "./Pages/Homedetails";
 import Home from "./Pages/Home";

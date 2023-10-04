@@ -4,7 +4,8 @@ import Register from "../Register/Register";
 import Login from "../Login/Login";
 
 import { useUser } from "../../Context/UserContext";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 const ProfileSettings = () => {
   const { user, logout } = useUser();
 
@@ -22,7 +23,7 @@ const ProfileSettings = () => {
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
-
+  const navigate = useNavigate();
   return (
     <div className=" d-flex align-items-center justify-content-center mx-2 ">
       <div className="mx-2 " style={{ fontSize: "18px" }}>
@@ -52,9 +53,17 @@ const ProfileSettings = () => {
           >
             <div className="border-bottom my-2">
               <li className="dropdown-item my-2 fw-bold">Messages</li>
-              <li className="dropdown-item my-2 fw-bold">Trips</li>
-              <li className="dropdown-item my-2 fw-bold">
-                <Link to="/wishList">Wishlists</Link>
+              <li
+                className="dropdown-item my-2 fw-bold"
+                onClick={() => navigate("/trips")}
+              >
+                Trips
+              </li>
+              <li
+                className="dropdown-item my-2 fw-bold"
+                onClick={() => navigate("/wishlist")}
+              >
+                Wishlist
               </li>
             </div>
             <div className="border-bottom my-2 ">
