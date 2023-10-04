@@ -33,7 +33,7 @@ const Trips = () => {
                 <div className="ticket">
                   <div className="ticketTitle px-5 pt-4 d-flex justify-content-between">
                     <div className="text-center col-lg-2 col-md-2 col-3 d-flex flex-column">
-                      <h2 className="mb-1">{reservation.houseId.name}</h2>
+                      <h4 className="mb-1">{reservation.houseId.name}</h4>
                     </div>
                     <div className="d-flex align-items-center col-lg-8 col-md-8 col-6">
                       <div className="progressTrip ">
@@ -49,7 +49,7 @@ const Trips = () => {
                       </div>
                     </div>
                     <div className="text-center col-lg-2 col-md-2 col-3 d-flex flex-column">
-                      <h2 className="mb-1">
+                      <h4 className="mb-1">
                         {(new Date(reservation.checkOut) -
                           new Date(reservation.checkIn)) /
                           1000 /
@@ -57,12 +57,12 @@ const Trips = () => {
                           60 /
                           24}
                         /night
-                      </h2>
+                      </h4>
                     </div>
                   </div>
                   <div className="ticketTitle px-5 pt-4 d-flex justify-content-between text-center">
                     <div className="col-lg-2 col-md-2 col-3">
-                      <h6 className="text-secondary">Arrive</h6>
+                      <h6 className="text-secondary">Check In</h6>
                       <h6>{formattedDate(reservation.checkIn)}</h6>
                     </div>
                     {/* <div className="col-lg-1 col-md-2 col-3">
@@ -71,7 +71,7 @@ const Trips = () => {
                       <h6 className="text-secondary">8hrs 30m</h6>
                     </div> */}
                     <div className="col-lg-2 col-md-2 col-3">
-                      <h6 className="text-secondary">Depart</h6>
+                      <h6 className="text-secondary">Check Out</h6>
                       <h6>{formattedDate(reservation.checkOut)}</h6>
                     </div>
                   </div>
@@ -88,7 +88,7 @@ const Trips = () => {
                       </button>
                     </div>
                     <div className="col-lg-2 col-md-2 col-2">
-                      <h4>{reservation.price}</h4>
+                      <h4>{reservation.price} $</h4>
                     </div>
                   </div>
                 </div>
