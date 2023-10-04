@@ -27,7 +27,16 @@ export default function WishList() {
             );
           })
         ) : (
-          <h1 className="m-auto mx-30">No WishList</h1>
+          <div
+            className="d-flex justify-content-center align-items-center"
+            style={{
+              width: "100%",
+              height: "-webkit-fill-available",
+              position: "absolute",
+            }}
+          >
+            <h1 className="m-auto mx-30">No WishList</h1>
+          </div>
         )}
       </Grid>
     </Box>
