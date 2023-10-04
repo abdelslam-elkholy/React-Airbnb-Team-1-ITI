@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Trips.css";
-import { IoIosAirplane } from "react-icons/io";
-import { FaPlaneCircleXmark } from "react-icons/fa6";
+
 import { FcHome } from "react-icons/fc";
 import { TbHomeOff } from "react-icons/tb";
+import instance from "../../AxiosConfig/instance";
 
 const Trips = () => {
+  const [reservations, setReservations] = useState([]);
+  useEffect(() => {
+    instance.get("/reservations/me").then((res) => {
+      setReservations(res.data);
+      console.log(res.data);
+    });
+  }, []);
+
   return (
     <>
       <div className="trips">
