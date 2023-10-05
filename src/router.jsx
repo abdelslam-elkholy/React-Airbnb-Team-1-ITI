@@ -16,7 +16,7 @@ import Notifications from "./Components/Account/Notifications/Notifications";
 import PrivacyAndSharing from "./Components/Account/PrivacyAndSharing/PrivacyAndSharing";
 import GlobalPreferences from "./Components/Account/GlobalPreferences/GlobalPreferences";
 import TravelForWork from "./Components/Account/TravelForWork/TravelForWork";
-import SuccesPayment from "./Pages/SuccesPayment";
+import SuccessPayment from "./Pages/SuccessPayment";
 import Homes from "./Pages/Homes/Homes";
 
 const router = createBrowserRouter([
@@ -30,7 +30,7 @@ const router = createBrowserRouter([
       { path: "/wishlist", element: <WishList /> },
       { path: "/messages", element: <Messages /> },
       { path: "/trips", element: <Trips /> },
-      { path: "/success", element: <SuccesPayment /> },
+      { path: "/success", element: <SuccessPayment /> },
       {
         path: "/account",
         element: <Account />,
