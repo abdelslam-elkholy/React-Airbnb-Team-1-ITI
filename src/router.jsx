@@ -16,7 +16,7 @@ import Notifications from "./Components/Account/Notifications/Notifications";
 import PrivacyAndSharing from "./Components/Account/PrivacyAndSharing/PrivacyAndSharing";
 import GlobalPreferences from "./Components/Account/GlobalPreferences/GlobalPreferences";
 import TravelForWork from "./Components/Account/TravelForWork/TravelForWork";
-
+import SuccesPayment from "./Pages/SuccesPayment";
 import Homes from "./Pages/Homes/Homes";
 
 const router = createBrowserRouter([
