@@ -64,22 +64,6 @@ const router = createBrowserRouter([
       // { path: "/travelForWork", element: <TravelForWork /> },
       { path: "/message", element: <Messages /> },
       { path: "/host/homes", element: <Homes /> },
-      {
-        path: "/reservation",
-        element: <PaymentHome />,
-        children: [
-          {
-            path: "/reservation/",
-            element: <PaymentForm />,
-            children: [
-              { index: true, element: <Credit /> },
-              { path: "/reservation/Credit", element: <Credit /> },
-              { path: "/reservation/PayPal", element: <PayPal /> },
-              { path: "/reservation/GooglePay", element: <GooglePay /> },
-            ],
-          },
-        ],
-      },
     ],
   },
 
