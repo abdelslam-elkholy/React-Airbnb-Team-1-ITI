@@ -15,6 +15,11 @@ const Trips = () => {
     });
   }, []);
 
+  const cancleReservation = (id) => {
+    instance.delete(`/reservations/${id}`).then((res) => {
+      console.log(res);
+    });
+  };
   const options = { year: "numeric", month: "long", day: "numeric" };
 
   const formattedDate = (inputDateString) => {
@@ -83,7 +88,10 @@ const Trips = () => {
                     </div>
                     <div className="ticketSubDetail px-5 pb-4 ticketTitle d-flex justify-content-between text-center">
                       <div className="col-lg-2 col-md-2 col-3">
-                        <button class="tripBtn">
+                        <button
+                          class="tripBtn"
+                          onClick={() => cancleReservation(reservation._id)}
+                        >
                           Cancel Reservation
                           <TbHomeOff className="planeOff" />
                         </button>
