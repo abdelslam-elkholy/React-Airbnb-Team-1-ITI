@@ -1,6 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import Spinner from "react-bootstrap/Spinner";
 
 export default function SuccesPayment() {
+  const navigate = useNavigate();
+  useEffect(() => {
+    setTimeout(() => {
+      navigate("/home");
+    }, 2000);
+  }, []);
   return (
     <>
       <div class="vh-75 d-flex justify-content-center align-items-center mt-5">
@@ -26,7 +34,8 @@ export default function SuccesPayment() {
               <h1>Thank You !</h1>
               <p>Succes payment... check your reservations </p>
               {/* <button class="btn btn-outline-success">Back Home</button> */}
-              Redeirecting to home ........
+              <p> Redeirecting to home ........</p>
+              <Spinner animation="border" />;
             </div>
           </div>
         </div>
