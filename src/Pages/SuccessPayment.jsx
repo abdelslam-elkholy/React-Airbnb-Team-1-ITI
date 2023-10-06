@@ -35,7 +35,7 @@ export default function SuccesPayment() {
               <p>Succes payment... check your reservations </p>
               {/* <button class="btn btn-outline-success">Back Home</button> */}
               <p> Redeirecting to home ........</p>
-              <Spinner animation="border" />;
+              <Spinner animation="border" variant="success" size="lg" />;
             </div>
           </div>
         </div>

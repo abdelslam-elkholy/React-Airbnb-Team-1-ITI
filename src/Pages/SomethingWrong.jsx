@@ -13,7 +13,11 @@ export default function SomethingWrong() {
       <div className="w-100 h-80  my-5 text-center bg-slate-400  d-flex align-items-center flex-column justify-content-center">
         <h1 className="mb-5">Ooops .....Something Wrong</h1>
         <p>Something went wrong .... redirecting to home page</p>
-        <Spinner animation="border" />;
+        <div>
+          <Spinner animation="grow" variant="danger" />
+          <Spinner animation="grow" variant="danger" />
+          <Spinner animation="grow" variant="danger" />
+        </div>
       </div>
     </>
   );
